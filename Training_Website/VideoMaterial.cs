@@ -8,7 +8,7 @@ namespace Training_Website
         private string videoContentURI = string.Empty;
         private string splashScreenURI = string.Empty;
         private EnumVideoFormats videoFormat;
-        private byte[] version;
+        private byte[] version = { 0, 0, 0, 0, 0, 0, 0, 1 };
 
 
         public VideoMaterial(string textDescription, string videoContentURI, string spashScreenURI, EnumVideoFormats videoFormat) : base(textDescription)
@@ -17,7 +17,7 @@ namespace Training_Website
             this.VideoContentURI = videoContentURI;
             this.SplashScreenURI = splashScreenURI;
             this.VideoFormat = videoFormat;
-            this.Version = new byte[] { 0, 0, 0, 0, 0, 0, 0, 1 };
+            this.Version = this.version;
         }
 
         public string VideoContentURI
@@ -41,6 +41,10 @@ namespace Training_Website
 
         public byte[] Version { get; set; }
 
+        /// <summary>
+        /// Returns a description of Video lesson
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -49,6 +53,10 @@ namespace Training_Website
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Updates the current version of the Video lesson
+        /// </summary>
+        /// <param name="version"></param>
         public void UpdateVersion(byte[] version)
         {
             Array.Copy(version, Version, 8);

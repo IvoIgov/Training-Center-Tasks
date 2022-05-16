@@ -34,6 +34,10 @@ namespace Training_Website
 
         public EnumLinkType LinkType { get; set; }
 
+        /// <summary>
+        /// Returns a description of Network Resource Link lesson
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

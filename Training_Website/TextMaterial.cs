@@ -33,6 +33,10 @@ namespace Training_Website
             }
         }
 
+        /// <summary>
+        /// Returns a description of a Text lesson
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

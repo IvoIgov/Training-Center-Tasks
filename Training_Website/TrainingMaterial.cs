@@ -7,7 +7,6 @@
 
         protected TrainingMaterial(string? textDescription = null)
         {
-            this.MyGuid = GenerateMyGuid();
             this.TextDescription = textDescription;
         }
 

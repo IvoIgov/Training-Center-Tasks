@@ -12,6 +12,11 @@
             Version = this.version;
             TrainingMaterials = this.trainingMaterials;
         }
+
+        /// <summary>
+        /// Returns the type of lesson. 
+        /// </summary>
+        /// <returns></returns>
         public string TypeOfLesson()
         {
             EnumLessonTypes lesson = 0;
@@ -31,12 +36,19 @@
             return $"Lesson type: {lesson}";
         }
 
-
+        /// <summary>
+        /// Updates the training lesson version with the last one
+        /// </summary>
+        /// <param name="version"></param>
         public void UpdateVersion(byte[] version)
         {
             Array.Copy(version, Version, 8);
         }
 
+        /// <summary>
+        /// Deep clones the training lesson
+        /// </summary>
+        /// <returns></returns>
         public object Clone()
         {
             TrainingLesson clonedLesson = new TrainingLesson();
@@ -45,11 +57,6 @@
             clonedLesson.TrainingMaterials = this.TrainingMaterials;
 
             return clonedLesson;
-        }
-
-        public override int GetHashCode()
-        {
-            throw new NotImplementedException();
         }
     }
 }
