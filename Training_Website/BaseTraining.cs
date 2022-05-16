@@ -12,16 +12,9 @@
 
         public override bool Equals(object obj)
         {
-            var material = (BaseTraining)obj;
+            var material = obj as BaseTraining;
 
-            if (this.myGuid == material.MyGuid)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return this.MyGuid == material.MyGuid;
         }
     }
 }
