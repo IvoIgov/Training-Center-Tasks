@@ -7,7 +7,14 @@
             this.MatrixValues = base.MatrixValues;
         }
 
-        public void CheckValueRelevantToMatrixTypeAndDefaultType(int row, int col, T value)
+        /// <summary>
+        /// Checks if the value input by the user is relevant to the value type of the matrix. 
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="col"></param>
+        /// <param name="value"></param>
+        /// <exception cref="InvalidDataException"></exception>
+        public void CheckValueRelevantToMatrixType(int row, int col, T value)
         {
             var valueType = value.GetType().Name;
             var classType = typeof(T).Name;

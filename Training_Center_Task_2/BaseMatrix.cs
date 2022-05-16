@@ -3,12 +3,13 @@
     public abstract class BaseMatrix<T>
     {
         private int size;
-        private T[] matrixValues;
+        private T[] matrixValues = new T[] {};
 
         public BaseMatrix(int size)
         {
             this.Size = size;
-            this.MatrixValues = new T [size * size];
+            matrixValues = new T[size * size];
+            this.MatrixValues = matrixValues;
         }
         public T[] MatrixValues { get; set; }
 
