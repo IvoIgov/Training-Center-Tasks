@@ -2,9 +2,9 @@
 {
     public enum EnumVideoFormats
     {
-        Unknown = 1, 
-        Avi = 2, 
-        Mp4 = 3, 
-        Flv = 4,
+        Unknown, 
+        Avi, 
+        Mp4, 
+        Flv,
     }
 }
