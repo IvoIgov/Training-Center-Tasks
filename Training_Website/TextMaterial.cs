@@ -4,6 +4,7 @@ namespace Training_Website
 {
     public class TextMaterial : TrainingMaterial
     {
+        private const int MaxTextlength = 10000;
         private string text = string.Empty;
 
         public TextMaterial(string textDescription, string text) : base(textDescription)
@@ -24,7 +25,7 @@ namespace Training_Website
                 {
                     throw new ArgumentException(ExceptionMessages.EmptyText);
                 }
-                if (value.Length > 9999)
+                if (value.Length >= MaxTextlength)
                 {
                     throw new ArgumentException(ExceptionMessages.TextLength);
                 }

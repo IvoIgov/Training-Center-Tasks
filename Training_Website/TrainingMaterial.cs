@@ -2,6 +2,7 @@
 {
     public abstract class TrainingMaterial : BaseTraining
     {
+        private const int MaxLengthTextDescription = 256;
         private string? textDescription = null;
 
         protected TrainingMaterial(string? textDescription = null)
@@ -18,7 +19,7 @@
             }
             private set
             {
-                if (value.Length > 255)
+                if (value.Length >= MaxLengthTextDescription)
                 {
                     throw new ArgumentException(ExceptionMessages.InvalidTextDescriptionLength);
                 }
