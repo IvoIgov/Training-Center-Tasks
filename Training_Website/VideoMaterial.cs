@@ -8,7 +8,7 @@ namespace Training_Website
         private string videoContentURI = string.Empty;
         private string splashScreenURI = string.Empty;
         private EnumVideoFormats videoFormat;
-        private int[] version;
+        private byte[] version;
 
 
         public VideoMaterial(string textDescription, string videoContentURI, string spashScreenURI, EnumVideoFormats videoFormat) : base(textDescription)

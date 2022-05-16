@@ -3,11 +3,14 @@
     public class TrainingLesson : BaseTraining, IVersionable, ICloneable
     {
         private byte[] version = new byte[] { 0, 0, 0, 0, 0, 0, 0, 1 };
-        public int[] Version { get; set; }
-        public string GenerateMyGuid()
+        private List<TrainingMaterial> trainingMaterials = new List<TrainingMaterial>();
+        public byte[] Version { get; set; }
+        public List<TrainingMaterial> TrainingMaterials { get; set; }
+
+        public TrainingLesson()
         {
-            MyGuid = Guid.NewGuid().ToString();
-            return MyGuid;
+            Version = this.version;
+            TrainingMaterials = this.trainingMaterials;
         }
         public string TypeOfLesson()
         {
@@ -24,15 +27,10 @@
             {
                 lesson = EnumLessonTypes.NetworkResourceLesson;
             }
-            else
-            {
-
-            }
 
             return $"Lesson type: {lesson}";
         }
 
-        public List<TrainingMaterial> TrainingMaterials { get; set; } = new List<TrainingMaterial>();
 
         public void UpdateVersion(byte[] version)
         {
@@ -41,10 +39,12 @@
 
         public object Clone()
         {
-            TrainingLesson newLesson = (TrainingLesson)this.MemberwiseClone();
-            newLesson.MyGuid = (string)this.MyGuid.Clone();
+            TrainingLesson clonedLesson = new TrainingLesson();
+            clonedLesson.MyGuid = this.MyGuid;
+            clonedLesson.Version = this.Version;
+            clonedLesson.TrainingMaterials = this.TrainingMaterials;
 
-            return newLesson;
+            return clonedLesson;
         }
 
         public override int GetHashCode()
