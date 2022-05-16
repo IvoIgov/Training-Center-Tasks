@@ -1,0 +1,12 @@
+C:\Users\IvoIgov\source\repos\Trainig_Center_Task_1\Training_Website\bin\Debug\net6.0\Training_Website.deps.json
+C:\Users\IvoIgov\source\repos\Trainig_Center_Task_1\Training_Website\bin\Debug\net6.0\Training_Website.dll
+C:\Users\IvoIgov\source\repos\Trainig_Center_Task_1\Training_Website\bin\Debug\net6.0\Training_Website.pdb
+C:\Users\IvoIgov\source\repos\Trainig_Center_Task_1\Training_Website\obj\Debug\net6.0\Training_Website.csproj.AssemblyReference.cache
+C:\Users\IvoIgov\source\repos\Trainig_Center_Task_1\Training_Website\obj\Debug\net6.0\Training_Website.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\IvoIgov\source\repos\Trainig_Center_Task_1\Training_Website\obj\Debug\net6.0\Training_Website.AssemblyInfoInputs.cache
+C:\Users\IvoIgov\source\repos\Trainig_Center_Task_1\Training_Website\obj\Debug\net6.0\Training_Website.AssemblyInfo.cs
+C:\Users\IvoIgov\source\repos\Trainig_Center_Task_1\Training_Website\obj\Debug\net6.0\Training_Website.csproj.CoreCompileInputs.cache
+C:\Users\IvoIgov\source\repos\Trainig_Center_Task_1\Training_Website\obj\Debug\net6.0\Training_Website.dll
+C:\Users\IvoIgov\source\repos\Trainig_Center_Task_1\Training_Website\obj\Debug\net6.0\refint\Training_Website.dll
+C:\Users\IvoIgov\source\repos\Trainig_Center_Task_1\Training_Website\obj\Debug\net6.0\Training_Website.pdb
+C:\Users\IvoIgov\source\repos\Trainig_Center_Task_1\Training_Website\obj\Debug\net6.0\ref\Training_Website.dll
