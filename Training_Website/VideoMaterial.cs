@@ -17,7 +17,7 @@ namespace Training_Website
             this.VideoContentURI = videoContentURI;
             this.SplashScreenURI = splashScreenURI;
             this.VideoFormat = videoFormat;
-            this.Version = new int[] { 0, 0, 0, 0, 0, 0, 0, 1 };
+            this.Version = new byte[] { 0, 0, 0, 0, 0, 0, 0, 1 };
         }
 
         public string VideoContentURI
@@ -39,7 +39,7 @@ namespace Training_Website
         public string SplashScreenURI { get; set; }
         public EnumVideoFormats VideoFormat { get; set; }
 
-        public int[] Version { get; set; }
+        public byte[] Version { get; set; }
 
         public override string ToString()
         {
@@ -49,14 +49,9 @@ namespace Training_Website
             return sb.ToString();
         }
 
-        public void UpdateVersion(int[] version)
+        public void UpdateVersion(byte[] version)
         {
-            int counter = 0;
-            foreach (var item in version)
-            {
-                this.Version[counter] = version[counter];
-                counter++;
-            }
+            Array.Copy(version, Version, 8);
         }
     }
 }

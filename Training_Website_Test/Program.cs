@@ -44,7 +44,7 @@ Console.WriteLine("--------------------------------------");
 //Create an IVersionable interface implemented by these entities that has methods for reading and setting the version.
 Console.WriteLine("Task 6");
 
-int[] newVersion = Console.ReadLine().Split().Select(int.Parse).ToArray();
+byte[] newVersion = Console.ReadLine().Split().Select(byte.Parse).ToArray();
 videoMaterial.UpdateVersion(newVersion);
 Console.WriteLine($"The new version is: {String.Join(" ", videoMaterial.Version)}");
 

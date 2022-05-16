@@ -36,13 +36,7 @@
 
         public void UpdateVersion(byte[] version)
         {
-            //CHANGE LOGIC HERE - NOT A LOOP, BUT COPYING AN ARRAY!!!
-            int counter = 0;
-            foreach (var item in version)
-            {
-                this.Version[counter] = version[counter];
-                counter++;
-            }
+            Array.Copy(version, Version, 8);
         }
 
         public object Clone()
