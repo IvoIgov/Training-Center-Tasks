@@ -3,6 +3,6 @@
     public interface IVersionable
     {
 
-        void UpdateVersion(int[] version);
+        void UpdateVersion(byte[] version);
     }
 }

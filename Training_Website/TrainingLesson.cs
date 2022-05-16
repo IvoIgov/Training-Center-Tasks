@@ -2,7 +2,7 @@
 {
     public class TrainingLesson : BaseTraining, IVersionable, ICloneable
     {
-        private int[] version = new int[] { 0, 0, 0, 0, 0, 0, 0, 1 };
+        private byte[] version = new byte[] { 0, 0, 0, 0, 0, 0, 0, 1 };
         public int[] Version { get; set; }
         public string GenerateMyGuid()
         {
@@ -34,8 +34,9 @@
 
         public List<TrainingMaterial> TrainingMaterials { get; set; } = new List<TrainingMaterial>();
 
-        public void UpdateVersion(int[] version)
+        public void UpdateVersion(byte[] version)
         {
+            //CHANGE LOGIC HERE - NOT A LOOP, BUT COPYING AN ARRAY!!!
             int counter = 0;
             foreach (var item in version)
             {
