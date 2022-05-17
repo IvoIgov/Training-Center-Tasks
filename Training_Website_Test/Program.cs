@@ -44,8 +44,8 @@ Console.WriteLine("--------------------------------------");
 //Create an IVersionable interface implemented by these entities that has methods for reading and setting the version.
 Console.WriteLine("Task 6");
 
-//byte[] newVersion = Console.ReadLine().Split().Select(byte.Parse).ToArray();
-//videoMaterial.UpdateVersion(newVersion);
+byte[] newVersion = Console.ReadLine().Split().Select(byte.Parse).ToArray();
+videoMaterial.UpdateVersion(newVersion);
 Console.WriteLine($"The new version is: {String.Join(" ", videoMaterial.Version)}");
 
 //7. Implement the standard ICloneable interface in the class for the training lesson. Warning: cloning should be deep, not surface.
@@ -53,7 +53,7 @@ Console.WriteLine("--------------------------------------");
 
 Console.WriteLine("Task 7");
 trainingLesson.GenerateMyGuid();
-var trainingLesson2 = trainingLesson.Clone();
+var trainingLesson2 = (TrainingLesson)trainingLesson.Clone();
 
 Console.WriteLine($"Deep clone");
 
