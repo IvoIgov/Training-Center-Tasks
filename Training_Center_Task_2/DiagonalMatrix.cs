@@ -30,10 +30,6 @@
         /// If the coordinates of the value are outside the diagonal, checks whether the value
         /// is the default for the data type
         /// </summary>
-        /// <param name="row"></param>
-        /// <param name="col"></param>
-        /// <param name="value"></param>
-        /// <exception cref="InvalidDataException"></exception>
         public void CheckValueRelevantToMatrixTypeAndDefaultType(int row, int col, T value)
         {
             var valueType = value.GetType().Name;

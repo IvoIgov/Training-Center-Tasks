@@ -5,6 +5,8 @@
         private int size;
         private T[] matrixValues = new T[] {};
 
+        public delegate void ValueInMatrixChangedEventHandler(object source, EventArgs e);
+
         public BaseMatrix(int size)
         {
             this.Size = size;
@@ -25,5 +27,7 @@
                 this.size = value;
             }
         }
+
+
     }
 }
