@@ -30,7 +30,31 @@
             }
         }
 
-        public virtual void OnValueInMatrixChanged(int row, int col, T value)
+        public T this[int row, int col]
+        {
+            get
+            {
+                return MatrixValues[(row * Size) + col];
+            }
+            set
+            {
+                if (row < 0 || row >= Size)
+                {
+                    throw new ArgumentOutOfRangeException(ExceptionMessages.RowOutOfRange);
+                }
+                if (col < 0 || col >= Size)
+                {
+                    throw new ArgumentOutOfRangeException(ExceptionMessages.ColOutOfRange);
+                }
+                if (!MatrixValues[row * Size + col].Equals(value))
+                {
+                    ValueInMatrixChanged.Invoke(row, col, value);
+                }
+                MatrixValues[row * Size + col] = value;
+            }
+        }
+
+        public static void OnValueInMatrixChanged(int row, int col, T value)
         {
             Console.WriteLine("Value in matrix is changed!");
         }

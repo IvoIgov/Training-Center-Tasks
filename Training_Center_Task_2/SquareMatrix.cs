@@ -13,32 +13,13 @@
         /// <summary>
         /// Checks if the value input by the user is relevant to the value type of the matrix. 
         /// </summary>
-        public void CheckValueRelevantToMatrixType(int row, int col, T value)
+        private void CheckValueRelevantToMatrixType(int row, int col, T value)
         {
             var valueType = value.GetType().Name;
             var classType = typeof(T).Name;
             if (valueType != classType)
             {
                 throw new InvalidDataException(ExceptionMessages.ValueTypeNotMatchingMatrixType);
-            }
-        }
-        public T this[int row, int col]
-        {
-            get
-            {
-                return MatrixValues[(row * Size) + col];
-            }
-            set
-            {
-                if (row < 0 || row >= base.Size)
-                {
-                    throw new ArgumentOutOfRangeException(ExceptionMessages.RowOutOfRange);
-                }
-                if (col < 0 || col >= base.Size)
-                {
-                    throw new ArgumentOutOfRangeException(ExceptionMessages.ColOutOfRange);
-                }
-                MatrixValues[row * base.Size + col] = value;
             }
         }
     }

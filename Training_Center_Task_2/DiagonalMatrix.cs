@@ -31,7 +31,7 @@
         /// If the coordinates of the value are outside the diagonal, checks whether the value
         /// is the default for the data type
         /// </summary>
-        public void CheckValueRelevantToMatrixTypeAndDefaultType(int row, int col, T value)
+        private void CheckValueRelevantToMatrixTypeAndDefaultType(int row, int col, T value)
         {
             var valueType = value.GetType().Name;
             var classType = typeof(T).Name;
@@ -45,30 +45,5 @@
                 throw new InvalidDataException(ExceptionMessages.ValueTypeNotDefaultDiagonalMatrix);
             }
         }
-        public T this[int row, int col]
-        {
-            get
-            {
-                return MatrixValues[(row * Size) + col];
-            }
-            set
-            {
-                if (row < 0 || row >= base.Size)
-                {
-                    throw new ArgumentOutOfRangeException(ExceptionMessages.RowOutOfRange);
-                }
-                if (col < 0 || col >= base.Size)
-                {
-                    throw new ArgumentOutOfRangeException(ExceptionMessages.ColOutOfRange);
-                }
-                if (!MatrixValues[row * base.Size + col].Equals(value))
-                {
-                    OnValueInMatrixChanged(row, col, value);
-                }
-                MatrixValues[row * base.Size + col] = value;
-            }
-        }
-
-       
     }
 }
