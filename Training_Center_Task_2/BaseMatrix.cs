@@ -56,7 +56,8 @@
 
         private void OnValueInMatrixChanged(int row, int col, T value)
         {
-            Console.WriteLine("Value in matrix is changed!");
+            T oldValue = MatrixValues[(row * Size) + col];
+            Console.WriteLine($"Value in matrix is changed! Old value is {oldValue}. New value is {value}!");
         }
     }
 }
