@@ -14,10 +14,11 @@
 
         /// <summary>
         /// Creates a list of all diagonal indexes in the diagonal matrix.
+        /// This list is used to compare new values in accordance with their position:
+        /// if they are on an index in the list, they could be default or not. 
+        /// If their index is out of the list, they can be default only.
         /// </summary>
-        /// <param name="matrixSize"></param>
-        /// <returns></returns>
-        public List<int> CreateValidDiagonalIndexesList(int matrixSize)
+        private List<int> CreateValidDiagonalIndexesList(int matrixSize)
         {
             for (int i = 0; i < matrixSize * matrixSize; i += matrixSize + 1)
             {

@@ -31,7 +31,7 @@ public class Program
         //logic can be added here to create a matrix based on user input for matrix type
         var matrixDiagonal = new DiagonalMatrix<int>(matrixDiagonalSize);
 
-        var validIndexesList = matrixDiagonal.CreateValidDiagonalIndexesList(matrixDiagonalSize);
+        //var validIndexesList = matrixDiagonal.CreateValidDiagonalIndexesList(matrixDiagonalSize);
 
         Console.WriteLine("Enter values to fill in matrix in format 'row col value,row col value,...'. Value shound be a whole number!");
         string[] valuesDiagonal = Console.ReadLine().Split(',').ToArray();
@@ -41,7 +41,6 @@ public class Program
             int row = int.Parse(valueInfo[0]);
             int col = int.Parse(valueInfo[1]);
             int value = int.Parse(valueInfo[2]);
-
         }
     }
 }

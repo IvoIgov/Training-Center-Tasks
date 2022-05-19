@@ -54,7 +54,7 @@
             }
         }
 
-        public static void OnValueInMatrixChanged(int row, int col, T value)
+        private void OnValueInMatrixChanged(int row, int col, T value)
         {
             Console.WriteLine("Value in matrix is changed!");
         }
