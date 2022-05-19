@@ -22,6 +22,7 @@ public class Program
             int value = int.Parse(valueInfo[2]);
         }
 
+        //Writes final state of matrix
         Console.WriteLine(String.Join(' ', matrixSquare.MatrixValues));
 
 
@@ -31,7 +32,7 @@ public class Program
 
         var matrixDiagonal = new DiagonalMatrix<int>(matrixDiagonalSize);
 
-        Console.WriteLine("Enter values to fill in matrix in format 'row col value,row col value,...'. Value shound be a whole number!");
+        Console.WriteLine("Enter values to fill in matrix in format 'row col value,row col value,...'. Value should be a whole number!");
         string[] valuesDiagonal = Console.ReadLine().Split(',').ToArray();
         foreach (var item in valuesDiagonal)
         {
@@ -41,6 +42,7 @@ public class Program
             int value = int.Parse(valueInfo[2]);
         }
 
+        //Writes final state of matrix
         Console.WriteLine(String.Join(' ', matrixDiagonal.MatrixValues));
     }
 }
