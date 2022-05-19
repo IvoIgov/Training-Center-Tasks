@@ -2,6 +2,9 @@
 {
     public class SquareMatrix<T> : BaseMatrix<T>
     {
+        public delegate void ValueInSquareMatrixChangedEventHandler(object source, EventArgs e);
+        public event ValueInSquareMatrixChangedEventHandler ValueInSquareMatrixChanged;
+
         public SquareMatrix(int size) : base(size)
         {
             this.MatrixValues = base.MatrixValues;

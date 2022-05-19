@@ -3,6 +3,7 @@
     public class DiagonalMatrix<T> : BaseMatrix<T>
     {
         private List<int> diagonalIndexes = new List<int>();
+        
         public DiagonalMatrix(int size) : base(size)
         {
             this.MatrixValues = base.MatrixValues;
@@ -60,8 +61,14 @@
                 {
                     throw new ArgumentOutOfRangeException(ExceptionMessages.ColOutOfRange);
                 }
+                if (!MatrixValues[row * base.Size + col].Equals(value))
+                {
+                    OnValueInMatrixChanged(row, col, value);
+                }
                 MatrixValues[row * base.Size + col] = value;
             }
         }
+
+       
     }
 }
