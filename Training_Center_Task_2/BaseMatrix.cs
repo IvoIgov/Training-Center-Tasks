@@ -36,7 +36,7 @@
             {
                 return MatrixValues[(row * Size) + col];
             }
-            set
+            private set
             {
                 if (row < 0 || row >= Size)
                 {
