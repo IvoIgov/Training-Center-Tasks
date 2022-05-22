@@ -22,7 +22,7 @@ public class Program
             int value = int.Parse(valueInfo[2]);
         }
 
-        //Writes final state of matrix
+        //Writes final state of square matrix
         Console.WriteLine(String.Join(' ', matrixSquare.MatrixValues));
 
 
@@ -42,7 +42,7 @@ public class Program
             int value = int.Parse(valueInfo[2]);
         }
 
-        //Writes final state of matrix
+        //Writes final state of diagonal matrix
         Console.WriteLine(String.Join(' ', matrixDiagonal.MatrixValues));
     }
 }
