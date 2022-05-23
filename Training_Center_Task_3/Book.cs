@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Training_Center_Task_3
 {
-    internal class Book
+    public class Book
     {
+        private string isbn;
+
+        public string ISBN
+        {
+            get { return ISBN; }
+            set { ISBN = value; }
+        }
+
     }
 }

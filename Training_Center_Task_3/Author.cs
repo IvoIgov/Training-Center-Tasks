@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Training_Center_Task_3
 {
-    internal class Author
+    public class Author
     {
     }
 }
