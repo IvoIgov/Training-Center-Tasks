@@ -10,7 +10,7 @@ namespace Training_Center_Task_3
     {
         private string _isbn;
         private string _title;
-        private const int _titleLength = 1000;
+        private const int TITLE_LENGTH = 1000;
         private DateOnly _date;
         private List<Author> _authors;
 
@@ -33,7 +33,7 @@ namespace Training_Center_Task_3
                 {
                     throw new ArgumentException(ExceptionMessages.BookTitleCannotBeEmpty);
                 }
-                if (value.Length >= _titleLength)
+                if (value.Length >= TITLE_LENGTH)
                 {
                     throw new Exception(ExceptionMessages.BookTitleTooLong);
                 }

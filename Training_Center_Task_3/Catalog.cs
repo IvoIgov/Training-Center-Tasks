@@ -8,16 +8,25 @@ namespace Training_Center_Task_3
 {
     public class Catalog
     {
-        private string _isbn;
-        private Dictionary<string, List<Author>> _catalog;
+        private Dictionary<string, List<Book>> _catalog;
 
-        public string ISBN { get; set; }
-        public Dictionary<string, List<Author>> Authors { get; set; }
 
-        public Catalog(string isbn, List<Author> authors)
+        public Catalog(string isbn, List<Book> authors)
         {
-            this.ISBN = isbn;
-            this.Authors = new Dictionary<string, List<Author>>();
+            this.Authors = new Dictionary<string, List<Book>>();
+        }
+
+        public Dictionary<string, List<Book>> Authors { get; set; }
+
+        public List<Book> AddBookToCatalog(string isbn, Book book, List<Book> bookCatalog)
+        {
+
+            return bookCatalog;
+        }
+
+        public bool AccessBookInCatalog(string isbn)
+        {
+            return true;
         }
     }
 }

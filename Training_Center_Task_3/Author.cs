@@ -9,9 +9,9 @@ namespace Training_Center_Task_3
     public class Author
     {
         private string _firstName;
-        private const int _firstNameLength = 200;
+        private const int FIRST_NAME_LENGTH = 200;
         private string _lastName;
-        private const int _lastNameLength = 200;
+        private const int LAST_NAME_LENGTH = 200;
         
 
         public string FirstName
@@ -27,7 +27,7 @@ namespace Training_Center_Task_3
                 {
                     throw new ArgumentException(ExceptionMessages.AuthorLastNameCannotBeEmpty);
                 }
-                if (value.Length >= _lastNameLength)
+                if (value.Length >= LAST_NAME_LENGTH)
                 {
                     throw new Exception(ExceptionMessages.AuthorLastNameTooLong);
                 }
@@ -48,7 +48,7 @@ namespace Training_Center_Task_3
                 {
                     throw new ArgumentException(ExceptionMessages.AuthorFirstNameCannotBeEmpty);
                 }
-                if (value.Length >= _firstNameLength)
+                if (value.Length >= FIRST_NAME_LENGTH)
                 {
                     throw new Exception(ExceptionMessages.AuthorFirstNameTooLong);
                 }
