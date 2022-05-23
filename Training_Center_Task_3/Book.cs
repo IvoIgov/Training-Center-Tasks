@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Training_Center_Task_3
@@ -18,7 +19,18 @@ namespace Training_Center_Task_3
         public string ISBN
         {
             get { return _isbn; }
-            private set { _isbn = value; }
+            private set 
+            {
+                Match match = Regex.Match(value, REGEX_ISBN, RegexOptions.IgnoreCase);
+                if (match.Success)
+                {
+                    _isbn = value;
+                }
+                else
+                {
+                    throw new Exception(ExceptionMessages.BookISBNInvalid);
+                } 
+            }
         }
 
         public string Title
