@@ -13,6 +13,7 @@ namespace Training_Center_Task_3
         private const int TITLE_LENGTH = 1000;
         private DateOnly _date;
         private List<Author> _authors;
+        private const string REGEX_ISBN = @"[0-9]{3}([\-]?)[0-9]{1}\1[0-9]{2}\1[0-9]{6}\1[0-9]{1}";
 
         public string ISBN
         {
