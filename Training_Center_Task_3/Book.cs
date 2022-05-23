@@ -8,48 +8,48 @@ namespace Training_Center_Task_3
 {
     public class Book
     {
-        private string isbn;
-        private string title;
-        private const int titleLength = 1000;
-        private DateOnly date;
-        private List<Author> authors;
+        private string _isbn;
+        private string _title;
+        private const int _titleLength = 1000;
+        private DateOnly _date;
+        private List<Author> _authors;
 
         public string ISBN
         {
-            get { return isbn; }
-            private set { isbn = value; }
+            get { return _isbn; }
+            private set { _isbn = value; }
         }
 
         public string Title
         {
-            get { return title; }
+            get { return _title; }
             private set
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException(ExceptionMessages.TitleCannotBeNull);
+                    throw new ArgumentNullException(ExceptionMessages.BookTitleCannotBeNull);
                 }
                 if (String.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentException(ExceptionMessages.TitleCannotBeEmpty);
+                    throw new ArgumentException(ExceptionMessages.BookTitleCannotBeEmpty);
                 }
-                if (value.Length >= titleLength)
+                if (value.Length >= _titleLength)
                 {
-                    throw new Exception(ExceptionMessages.TitleTooLong);
+                    throw new Exception(ExceptionMessages.BookTitleTooLong);
                 }
-                title = value;
+                _title = value;
             }
         }
         public List<Author> Authors
         {
-            get { return authors; }
-            set { authors = value; }
+            get { return _authors; }
+            set { _authors = value; }
         }
 
         public DateOnly Date
         {
-            get { return date; }
-            private set { date = value; }
+            get { return _date; }
+            private set { _date = value; }
         }
     }
 }
