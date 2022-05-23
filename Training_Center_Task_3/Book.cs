@@ -9,11 +9,25 @@ namespace Training_Center_Task_3
     public class Book
     {
         private string isbn;
+        private string title;
+
+        public string Title
+        {
+            get { return title; }
+            private set 
+            { 
+                if (String.IsNullOrEmpty(value))
+                {
+
+                }
+                title = value; }
+        }
+
 
         public string ISBN
         {
-            get { return ISBN; }
-            set { ISBN = value; }
+            get { return isbn; }
+            private set { isbn = value; }
         }
 
     }
