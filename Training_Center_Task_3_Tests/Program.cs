@@ -3,6 +3,7 @@
 using System.Collections;
 using Training_Center_Task_3;
 
+//Create a book, add authors and add book to catalog
 Console.WriteLine("Let's create a new book and add it to catalog. Please enter ISBN");
 string isbn = Console.ReadLine();
 Console.WriteLine("Please enter a title");
@@ -26,6 +27,10 @@ Book book = new Book(isbn, title, date, authorList);
 
 Catalog bookCatalog = new Catalog();
 bookCatalog.AddBookToCatalog(isbn, book, bookCatalog.Books);
+
+
+//2. Get a set of books ordered by date in descending order
+bookCatalog.GetSetOfBooksByPublicationDateDesc(bookCatalog.Books);
 
 //foreach (var item in func(2, 10))
 //{

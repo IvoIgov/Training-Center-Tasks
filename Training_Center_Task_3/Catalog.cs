@@ -64,6 +64,20 @@ namespace Training_Center_Task_3
             return bookCatalog;
         }
 
+        //public Dictionary<string, Book> GetSetOfBooksByAuthorFirstNameLastName(string firstName, string lastName, Dictionary<string, Book> bookCatalog)
+        //{
+        //    var list = from b in bookCatalog where b.Value.Authors.(firstName) && b.LastName == lastName select b;
+
+        //    return list;
+        //}
+
+        public Dictionary<string, Book> GetSetOfBooksByPublicationDateDesc(Dictionary<string, Book> bookCatalog)
+        {
+            var list = from b in bookCatalog orderby b.Value.Date descending select b;
+
+            return (Dictionary<string, Book>)list;
+        }
+
         public IEnumerator GetEnumerator()
         {
             throw new NotImplementedException();
