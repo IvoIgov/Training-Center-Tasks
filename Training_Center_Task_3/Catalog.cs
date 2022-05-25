@@ -66,16 +66,20 @@ namespace Training_Center_Task_3
 
         //public Dictionary<string, Book> GetSetOfBooksByAuthorFirstNameLastName(string firstName, string lastName, Dictionary<string, Book> bookCatalog)
         //{
-        //    var list = from b in bookCatalog where b.Value.Authors.(firstName) && b.LastName == lastName select b;
+        //    string fullName = firstName + " " + lastName;
+        //    bool exists = false;
+        //    var list = from b in bookCatalog where b.Value. select b;
 
         //    return list;
         //}
 
-        public Dictionary<string, Book> GetSetOfBooksByPublicationDateDesc(Dictionary<string, Book> bookCatalog)
+        public void GetSetOfBooksByPublicationDateDesc(Dictionary<string, Book> bookCatalog)
         {
             var list = from b in bookCatalog orderby b.Value.Date descending select b;
-
-            return (Dictionary<string, Book>)list;
+            foreach (var item in list)
+            {
+                Console.WriteLine(item.Value.Title);
+            }
         }
 
         public IEnumerator GetEnumerator()
