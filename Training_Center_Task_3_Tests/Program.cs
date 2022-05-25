@@ -1,18 +1,43 @@
 ﻿
 
 using System.Collections;
+using Training_Center_Task_3;
 
-foreach (var item in func(2, 10))
+Console.WriteLine("Let's create a new book and add it to catalog. Please enter ISBN");
+string isbn = Console.ReadLine();
+Console.WriteLine("Please enter a title");
+string title = Console.ReadLine();
+Console.WriteLine("Please enter a date in format year-month-date");
+DateOnly date = DateOnly.ParseExact(Console.ReadLine(), "yyyy-mm-dd");
+Console.WriteLine($"Enter first name and last name of book author. If authors are more than one, separate them with a ", "");
+string authors = Console.ReadLine();
+string[] allAuthorNames = authors.Split(',', StringSplitOptions.RemoveEmptyEntries).ToArray();
+List<Author> authorList = new List<Author>();
+foreach (var item in allAuthorNames)
 {
-    Console.WriteLine(item);
+    string[] currentAuthor = item.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToArray();
+    string firstName = currentAuthor[0];
+    string lastName = currentAuthor[1];
+    Author author = new Author(firstName, lastName);
+    authorList.Add(author);
 }
-Console.Read();
 
-static IEnumerable func(int start, int number)
-{
-    for (int i = 0; i < number; i++)
-    {
-        yield return start + 2 * i;
-    }
-}
+Book book = new Book(isbn, title, date, authorList);
+
+Catalog bookCatalog = new Catalog();
+bookCatalog.AddBookToCatalog(isbn, book, bookCatalog.Books);
+
+//foreach (var item in func(2, 10))
+//{
+//    Console.WriteLine(item);
+//}
+//Console.Read();
+
+//static IEnumerable func(int start, int number)
+//{
+//    for (int i = 0; i < number; i++)
+//    {
+//        yield return start + 2 * i;
+//    }
+//}
 

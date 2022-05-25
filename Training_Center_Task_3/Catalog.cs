@@ -9,15 +9,19 @@ namespace Training_Center_Task_3
 {
     public class Catalog : IEnumerable
     {
-        private Dictionary<string, Book> _catalog;
+        private Dictionary<string, Book> _books = new Dictionary<string, Book>();
 
 
-        public Catalog(string isbn, List<Book> authors)
+        public Catalog()
         {
-            this.Authors = new Dictionary<string, Book>();
+            this.Books = new Dictionary<string, Book>();
         }
 
-        public Dictionary<string, Book> Authors { get; set; }
+        public Dictionary<string, Book> Books
+        {
+            get { return this._books; }
+            set { _books = value; }
+        }
 
         /// <summary>
         /// This method adds a new book to catalog and returns the updated catalog. 
@@ -25,7 +29,7 @@ namespace Training_Center_Task_3
         /// </summary>
         public Dictionary<string, Book> AddBookToCatalog(string isbn, Book book, Dictionary<string, Book> bookCatalog)
         {
-            if(bookCatalog.ContainsKey(isbn))
+            if (bookCatalog.ContainsKey(isbn))
             {
                 throw new Exception(ExceptionMessages.CatalogAlreadyContainsBookWithThisISBN);
             }

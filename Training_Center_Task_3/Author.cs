@@ -12,8 +12,12 @@ namespace Training_Center_Task_3
         private const int FIRST_NAME_LENGTH = 200;
         private string _lastName;
         private const int LAST_NAME_LENGTH = 200;
-        
 
+        public Author(string firstName, string lastName)
+        {
+            this.FirstName = firstName;
+            this.LastName = lastName;
+        }
         public string FirstName
         {
             get { return _firstName; }
@@ -52,7 +56,7 @@ namespace Training_Center_Task_3
                 {
                     throw new Exception(ExceptionMessages.AuthorFirstNameTooLong);
                 }
-                _firstName = value;
+                _lastName = value;
             }
         }
 
