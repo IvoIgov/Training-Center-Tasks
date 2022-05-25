@@ -15,8 +15,8 @@ namespace Training_Center_Task_3
 
         public Author(string firstName, string lastName)
         {
-            this.FirstName = firstName;
-            this.LastName = lastName;
+            this.FirstName = firstName.ToLower();
+            this.LastName = lastName.ToLower();
         }
         public string FirstName
         {

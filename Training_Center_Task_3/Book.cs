@@ -12,15 +12,18 @@ namespace Training_Center_Task_3
         private string _isbn;
         private string _title;
         private const int TITLE_LENGTH = 1000;
-        private DateOnly _date;
+        private DateOnly _date = default;
         private List<Author> _authors = new List<Author>();
         private const string REGEX_ISBN = @"[0-9]{3}([\-]?)[0-9]{1}\1[0-9]{2}\1[0-9]{6}\1[0-9]{1}";
 
-        public Book(string isbn, string title, DateOnly date, List<Author> authors)
+        public Book(string isbn, string title, DateOnly? date, List<Author> authors)
         {
             this.ISBN = isbn;
             this._title = title;
-            this._date = date;
+            if (date != null)
+            {
+                this._date = (DateOnly)date;
+            }
             this.Authors = authors;
         }
         public string ISBN
