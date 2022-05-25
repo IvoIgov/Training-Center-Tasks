@@ -71,7 +71,7 @@ namespace Training_Center_Task_3
         //    var list = from b in bookCatalog where b.Value. select b;
 
         //    return list;
-        //}
+        //} 
 
         public void GetSetOfBooksByPublicationDateDesc(Dictionary<string, Book> bookCatalog)
         {
