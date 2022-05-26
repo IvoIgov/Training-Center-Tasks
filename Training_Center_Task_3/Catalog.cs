@@ -37,39 +37,33 @@ namespace Training_Center_Task_3
         }
 
         /// <summary>
-        /// This method accesses a book in the catalog and returns a Book object.
+        /// This method accesses a book in the catalog by ISBN and returns its name or an error message.
         /// </summary>
-        public Book AccessBookInCatalog(string isbn, List<Book> bookCatalog)
+        public void AccessBookInCatalog(string isbn, List<Book> bookCatalog)
         {
-            //var book = bookCatalog.Where((x) => x.ISBN == isbn).FirstOrDefault();
-            var book = from b in bookCatalog where b.ISBN == isbn select b;
-            if (book == null)
+            var bookExists = bookCatalog.Exists(x => x.ISBN == isbn);
+            if (bookExists)
             {
-                throw new Exception (ExceptionMessages.BookWithThisISBNDoesNotExist);
+                var book = bookCatalog.Where((x) => x.ISBN == isbn).FirstOrDefault();
+                Console.WriteLine(book.Title);
             }
-            return (Book)book;
-        }
-
-        /// <summary>
-        /// This method sorts the book catalog by book title and returns it
-        /// </summary>
-        public List<Book> SortBookCatalogByTitle(List<Book> bookCatalog)
-        {
-            bookCatalog = bookCatalog.OrderBy(x => x.Title).ToList();
-
-            return bookCatalog;
+            else
+            {
+                Console.WriteLine(ExceptionMessages.BookWithThisISBNDoesNotExist);
+            }
         }
 
         /// <summary>
         /// This method returns all books by a given author
         /// </summary>
-
-        public List<Book> GetSetOfBooksByAuthorFirstNameLastName(string firstName, string lastName, List<Book> bookCatalog)
+        public void GetSetOfBooksByAuthorFirstNameLastName(string firstName, string lastName, List<Book> bookCatalog)
         {
             string fullName = firstName.ToLower() + " " + lastName.ToLower();
-            var list = new List<Book>();
             var book = from a in bookCatalog from b in a.Authors where (b.FullName == fullName) select a;
-            return list;
+            foreach (var item in book)
+            {
+                Console.WriteLine(item.Title);
+            }
         }
 
         /// <summary>
@@ -91,6 +85,18 @@ namespace Training_Center_Task_3
         public string GetSetOfBooksByAuthorNumberOfBooks(List<Book> bookCatalog)
         {
             return null;
+        }
+
+        /// <summary>
+        /// This method sorts the book catalog by book title and returns it
+        /// </summary>
+        public void SortBookCatalogByTitle(List<Book> bookCatalog)
+        {
+            var list = from b in bookCatalog orderby b.Title select b;
+            foreach (var item in list)
+            {
+                Console.WriteLine(item.Title);
+            }
         }
 
         public IEnumerator GetEnumerator()

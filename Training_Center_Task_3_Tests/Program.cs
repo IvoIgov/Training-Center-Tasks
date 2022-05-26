@@ -3,7 +3,7 @@
 using System.Collections;
 using Training_Center_Task_3;
 
-//Create books, add authors and add books to catalog
+//1.Create books, add authors and add books to catalog
 string command = String.Empty;
 Catalog bookCatalog = new Catalog();
 
@@ -35,21 +35,26 @@ while (command != "STOP!")
     command = Console.ReadLine();
 }
 
-//2. Get a set of books sorted by title
-bookCatalog.SortBookCatalogByTitle(bookCatalog.Books);
-
-//3. Get a set of books for an author's first and last name
+//2. Get a set of books for an author's first and last name
 Console.WriteLine("Enter first name of author");
 string firstNameSearchedAuthor = Console.ReadLine();
 Console.WriteLine("Enter last name of author");
 string lastNameSearchedAuthor = Console.ReadLine();
 bookCatalog.GetSetOfBooksByAuthorFirstNameLastName(firstNameSearchedAuthor, lastNameSearchedAuthor, bookCatalog.Books);
 
-//4. Get a set of books ordered by publication date in descending order
+//3. Get a set of books ordered by publication date in descending order
 bookCatalog.GetSetOfBooksByPublicationDateDesc(bookCatalog.Books);
 
-//5. Get a set of tuples in the form "author - number of published books"
+//4. Get a set of tuples in the form "author - number of published books"
 bookCatalog.GetSetOfBooksByAuthorNumberOfBooks(bookCatalog.Books);
+
+//5. Get a set of books sorted by title
+bookCatalog.SortBookCatalogByTitle(bookCatalog.Books);
+
+//6. Access book in catalog
+Console.WriteLine("To access a book in catalog, write its ISBN");
+string searchedISBN = Console.ReadLine();
+bookCatalog.AccessBookInCatalog(searchedISBN, bookCatalog.Books);
 
 //foreach (var item in func(2, 10))
 //{
