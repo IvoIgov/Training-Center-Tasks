@@ -39,8 +39,9 @@ while (command != "STOP!")
 bookCatalog.SortBookCatalogByTitle(bookCatalog.Books);
 
 //3. Get a set of books for an author's first and last name
-Console.WriteLine("Enter first and last name of author");
+Console.WriteLine("Enter first name of author");
 string firstNameSearchedAuthor = Console.ReadLine();
+Console.WriteLine("Enter last name of author");
 string lastNameSearchedAuthor = Console.ReadLine();
 bookCatalog.GetSetOfBooksByAuthorFirstNameLastName(firstNameSearchedAuthor, lastNameSearchedAuthor, bookCatalog.Books);
 

@@ -66,7 +66,7 @@ namespace Training_Center_Task_3
 
         public List<Book> GetSetOfBooksByAuthorFirstNameLastName(string firstName, string lastName, List<Book> bookCatalog)
         {
-            string fullName = firstName + " " + lastName;
+            string fullName = firstName.ToLower() + " " + lastName.ToLower();
             var list = new List<Book>();
             var book = from a in bookCatalog from b in a.Authors where (b.FullName == fullName) select a;
             return list;

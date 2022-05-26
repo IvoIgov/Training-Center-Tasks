@@ -17,7 +17,7 @@ namespace Training_Center_Task_3
         {
             this.FirstName = firstName.ToLower();
             this.LastName = lastName.ToLower();
-            this.FullName = firstName + " " + lastName;
+            this.FullName = FirstName + " " + LastName;
         }
         public string FirstName
         {
