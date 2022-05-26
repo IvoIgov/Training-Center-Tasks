@@ -14,7 +14,7 @@ while (command != "STOP!")
     Console.WriteLine("Please enter a title");
     string title = Console.ReadLine();
     Console.WriteLine("Please enter a date in format year-month-date");
-    DateOnly date = DateOnly.ParseExact(Console.ReadLine(), "yyyy-mm-dd");
+    DateOnly date = DateOnly.ParseExact(Console.ReadLine(), "yyyy-MM-dd");
     Console.WriteLine($"Enter first name and last name of book author. If authors are more than one, separate them with a ", "");
     string authors = Console.ReadLine();
     string[] allAuthorNames = authors.Split(',', StringSplitOptions.RemoveEmptyEntries).ToArray();

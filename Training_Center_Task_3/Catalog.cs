@@ -9,15 +9,10 @@ namespace Training_Center_Task_3
 {
     public class Catalog : IEnumerable
     {
-        private Dictionary<string, Book> _books = new Dictionary<string, Book>();
+        private List<Book> _books = new List<Book>();
 
 
-        public Catalog()
-        {
-            this.Books = new Dictionary<string, Book>();
-        }
-
-        public Dictionary<string, Book> Books
+        public List<Book> Books
         {
             get { return this._books; }
             set { _books = value; }
@@ -27,15 +22,16 @@ namespace Training_Center_Task_3
         /// This method adds a new book to catalog and returns the updated catalog. 
         /// if a book with the given ISBN already exists, it throws an error
         /// </summary>
-        public Dictionary<string, Book> AddBookToCatalog(string isbn, Book book, Dictionary<string, Book> bookCatalog)
+        public List<Book> AddBookToCatalog(string isbn, Book book, List<Book> bookCatalog)
         {
-            if (bookCatalog.ContainsKey(isbn))
+            var isISBNPresent = bookCatalog.Where(x => x.ISBN == isbn).Any();
+            if (isISBNPresent == false)
             {
                 throw new Exception(ExceptionMessages.CatalogAlreadyContainsBookWithThisISBN);
             }
             else
             {
-                bookCatalog.Add(isbn, book);
+                bookCatalog.Add(book);
             }
             return bookCatalog;
         }
@@ -43,75 +39,56 @@ namespace Training_Center_Task_3
         /// <summary>
         /// This method accesses a book in the catalog and returns a Book object.
         /// </summary>
-        public Book AccessBookInCatalog(string isbn, Dictionary<string, Book> bookCatalog)
+        public Book AccessBookInCatalog(string isbn, List<Book> bookCatalog)
         {
-            if (bookCatalog.ContainsKey(isbn))
+            var book = bookCatalog.Where((x) => x.ISBN == isbn).FirstOrDefault();
+            if (book == null)
             {
-                return bookCatalog[isbn];
+                throw new Exception (ExceptionMessages.BookWithThisISBNDoesNotExist);
             }
-
-            return null;
+            return book;
         }
 
         /// <summary>
         /// This method sorts the book catalog by book title and returns it
         /// </summary>
-        /// <returns></returns>
-        public Dictionary<string, Book> SortBookCatalogByTitle(Dictionary<string, Book> bookCatalog)
+        public List<Book> SortBookCatalogByTitle(List<Book> bookCatalog)
         {
-            bookCatalog = bookCatalog.OrderBy(x => x.Value.Title).ToDictionary(x => x.Key, y => y.Value);
+            bookCatalog = bookCatalog.OrderBy(x => x.Title).ToList();
 
             return bookCatalog;
         }
 
-        public List<string> GetSetOfBooksByAuthorFirstNameLastName(string firstName, string lastName, Dictionary<string, Book> bookCatalog)
+        /// <summary>
+        /// This method returns all books by a given author
+        /// </summary>
+
+        public List<Book> GetSetOfBooksByAuthorFirstNameLastName(string firstName, string lastName, List<Book> bookCatalog)
         {
             string fullName = firstName + " " + lastName;
-            List<string> list = new List<string>();
-            foreach (var item in bookCatalog)
-            {
-                foreach (var value in item.Value.Authors)
-                {
-                    if (value.FullName.Equals(fullName))
-                    {
-                        list.Add(item.Value.Title);
-                    }
-                }
-            }
+            var list = new List<Book>();
             return list;
         }
 
-        public void GetSetOfBooksByPublicationDateDesc(Dictionary<string, Book> bookCatalog)
+        /// <summary>
+        /// this method sorts and prints a list of all books ordered by date descending
+        /// </summary>
+        public void GetSetOfBooksByPublicationDateDesc(List<Book> bookCatalog)
         {
-            var list = from b in bookCatalog orderby b.Value.Date descending select b;
+            var list = from b in bookCatalog orderby b.Date descending select b;
+
             foreach (var item in list)
             {
-                Console.WriteLine(item.Value.Title);
+                Console.WriteLine(item.Title);
             }
         }
 
-        public void GetSetOfBooksByAuthorNumberOfBooks(Dictionary<string, Book> bookCatalog)
+        /// <summary>
+        /// This method sorts the book catalog and prints a key-value pair of Author -> number of author's books
+        /// </summary>
+        public string GetSetOfBooksByAuthorNumberOfBooks(List<Book> bookCatalog)
         {
-            var list = new Dictionary<string, int>();
-            foreach (var item in bookCatalog)
-            {
-                foreach (var value in item.Value.Authors)
-                {
-                    if (list.ContainsKey(value.FullName) == false)
-                    {
-                        list.Add(value.FullName, 1);
-                    }
-                    else if (list.Keys.Contains(value.FullName))
-                    {
-                        list[value.FullName] += 1;
-                    }
-                }
-            }
-
-            foreach (var item in list)
-            {
-                Console.WriteLine($"{item.Key} - {item.Value} books");
-            }
+            return null;
         }
 
         public IEnumerator GetEnumerator()

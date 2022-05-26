@@ -8,6 +8,7 @@ namespace Training_Center_Task_3
 {
     public class ExceptionMessages
     {
+        public const string BookWithThisISBNDoesNotExist = "Book with this ISBN does not exist!";
         public const string BookISBNInvalid = "ISBN is not valid!";
         public const string BookTitleCannotBeEmpty = "Title cannot be empty!";
         public const string BookTitleCannotBeNull = "Title cannot be null!";
