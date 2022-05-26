@@ -4,7 +4,7 @@ using System.Collections;
 using Training_Center_Task_3;
 
 //Create books, add authors and add books to catalog
-string command = Console.ReadLine();
+string command = String.Empty;
 Catalog bookCatalog = new Catalog();
 
 while (command != "STOP!")
@@ -31,6 +31,8 @@ while (command != "STOP!")
     Book book = new Book(isbn, title, date, authorList);
 
     bookCatalog.AddBookToCatalog(isbn, book, bookCatalog.Books);
+
+    command = Console.ReadLine();
 }
 
 //2. Get a set of books sorted by title

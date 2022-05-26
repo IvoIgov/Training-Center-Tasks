@@ -19,10 +19,10 @@ namespace Training_Center_Task_3
         public Book(string isbn, string title, DateOnly? date, List<Author> authors)
         {
             this.ISBN = isbn;
-            this._title = title;
+            this.Title = title;
             if (date != null)
             {
-                this._date = (DateOnly)date;
+                this.Date = (DateOnly)date;
             }
             this.Authors = authors;
         }

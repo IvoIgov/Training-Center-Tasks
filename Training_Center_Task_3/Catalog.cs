@@ -27,11 +27,11 @@ namespace Training_Center_Task_3
             var isISBNPresent = bookCatalog.Where(x => x.ISBN == isbn).Any();
             if (isISBNPresent == false)
             {
-                throw new Exception(ExceptionMessages.CatalogAlreadyContainsBookWithThisISBN);
+                bookCatalog.Add(book);
             }
             else
             {
-                bookCatalog.Add(book);
+                throw new Exception(ExceptionMessages.CatalogAlreadyContainsBookWithThisISBN);
             }
             return bookCatalog;
         }
@@ -41,12 +41,13 @@ namespace Training_Center_Task_3
         /// </summary>
         public Book AccessBookInCatalog(string isbn, List<Book> bookCatalog)
         {
-            var book = bookCatalog.Where((x) => x.ISBN == isbn).FirstOrDefault();
+            //var book = bookCatalog.Where((x) => x.ISBN == isbn).FirstOrDefault();
+            var book = from b in bookCatalog where b.ISBN == isbn select b;
             if (book == null)
             {
                 throw new Exception (ExceptionMessages.BookWithThisISBNDoesNotExist);
             }
-            return book;
+            return (Book)book;
         }
 
         /// <summary>
@@ -67,6 +68,7 @@ namespace Training_Center_Task_3
         {
             string fullName = firstName + " " + lastName;
             var list = new List<Book>();
+            var book = from a in bookCatalog from b in a.Authors where (b.FullName == fullName) select a;
             return list;
         }
 
