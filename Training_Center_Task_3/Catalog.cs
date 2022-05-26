@@ -90,6 +90,30 @@ namespace Training_Center_Task_3
             }
         }
 
+        public void GetSetOfBooksByAuthorNumberOfBooks(Dictionary<string, Book> bookCatalog)
+        {
+            var list = new Dictionary<string, int>();
+            foreach (var item in bookCatalog)
+            {
+                foreach (var value in item.Value.Authors)
+                {
+                    if (list.ContainsKey(value.FullName) == false)
+                    {
+                        list.Add(value.FullName, 1);
+                    }
+                    else if (list.Keys.Contains(value.FullName))
+                    {
+                        list[value.FullName] += 1;
+                    }
+                }
+            }
+
+            foreach (var item in list)
+            {
+                Console.WriteLine($"{item.Key} - {item.Value} books");
+            }
+        }
+
         public IEnumerator GetEnumerator()
         {
             throw new NotImplementedException();
