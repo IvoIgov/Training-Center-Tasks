@@ -57,7 +57,7 @@ namespace Training_Center_Task_3
         /// This method sorts the book catalog by book title and returns it
         /// </summary>
         /// <returns></returns>
-        public Dictionary<string, Book> SortBookCatalogSortedByTitle(Dictionary<string, Book> bookCatalog)
+        public Dictionary<string, Book> SortBookCatalogByTitle(Dictionary<string, Book> bookCatalog)
         {
             bookCatalog = bookCatalog.OrderBy(x => x.Value.Title).ToDictionary(x => x.Key, y => y.Value);
 

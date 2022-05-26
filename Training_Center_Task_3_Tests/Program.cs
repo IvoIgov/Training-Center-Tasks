@@ -33,9 +33,20 @@ while (command != "STOP!")
     bookCatalog.AddBookToCatalog(isbn, book, bookCatalog.Books);
 }
 
+//2. Get a set of books sorted by title
+bookCatalog.SortBookCatalogByTitle(bookCatalog.Books);
 
-//2. Get a set of books ordered by date in descending order
+//3. Get a set of books for an author's first and last name
+Console.WriteLine("Enter first and last name of author");
+string firstNameSearchedAuthor = Console.ReadLine();
+string lastNameSearchedAuthor = Console.ReadLine();
+bookCatalog.GetSetOfBooksByAuthorFirstNameLastName(firstNameSearchedAuthor, lastNameSearchedAuthor, bookCatalog.Books);
+
+//4. Get a set of books ordered by publication date in descending order
 bookCatalog.GetSetOfBooksByPublicationDateDesc(bookCatalog.Books);
+
+//5. Get a set of tuples in the form "author - number of published books"
+bookCatalog.GetSetOfBooksByAuthorNumberOfBooks(bookCatalog.Books);
 
 //foreach (var item in func(2, 10))
 //{
