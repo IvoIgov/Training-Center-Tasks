@@ -26,15 +26,15 @@ namespace Training_Center_Task_3
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException(ExceptionMessages.AuthorLastNameCannotBeNull);
+                    throw new ArgumentNullException(ExceptionMessages.AuthorFirstNameCannotBeNull);
                 }
                 if (String.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentException(ExceptionMessages.AuthorLastNameCannotBeEmpty);
+                    throw new ArgumentException(ExceptionMessages.AuthorFirstNameCannotBeEmpty);
                 }
-                if (value.Length >= LAST_NAME_LENGTH)
+                if (value.Length >= FIRST_NAME_LENGTH)
                 {
-                    throw new Exception(ExceptionMessages.AuthorLastNameTooLong);
+                    throw new Exception(ExceptionMessages.AuthorFirstNameTooLong);
                 }
                 _firstName = value;
             }
@@ -47,15 +47,15 @@ namespace Training_Center_Task_3
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException(ExceptionMessages.AuthorFirstNameCannotBeNull);
+                    throw new ArgumentNullException(ExceptionMessages.AuthorLastNameCannotBeNull);
                 }
                 if (String.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentException(ExceptionMessages.AuthorFirstNameCannotBeEmpty);
+                    throw new ArgumentException(ExceptionMessages.AuthorLastNameCannotBeEmpty);
                 }
                 if (value.Length >= FIRST_NAME_LENGTH)
                 {
-                    throw new Exception(ExceptionMessages.AuthorFirstNameTooLong);
+                    throw new Exception(ExceptionMessages.AuthorLastNameTooLong);
                 }
                 _lastName = value;
             }

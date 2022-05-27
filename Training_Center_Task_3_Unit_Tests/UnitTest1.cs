@@ -58,6 +58,34 @@ namespace Training_Center_Task_3_Unit_Tests
             Assert.Throws<FormatException>(() => DateOnly.ParseExact("2022-13-23", "yyyy-MM-dd"));
         }
 
+        [Test]
+        public void Ctor_CreateAuthorFirstNameEmpty()
+        {
+            Assert.Throws<ArgumentException>(() => new Author("", "Igov"));
+        }
 
+        [Test]
+        public void Ctor_CreateAuthorLastNameEmpty()
+        {
+            Assert.Throws<ArgumentException>(() => new Author("Ivo", ""));
+        }
+
+        [Test]
+        public void Ctor_CreateAuthorFirstNameTooLong()
+        {
+            Assert.Throws<Exception>(() => new Author(
+                "verylongauthornameverylongauthornameverylongauthornameverylongauthorname" +
+                "verylongauthornameverylongauthornameverylongauthornameverylongauthorname" +
+                "verylongauthornameverylongauthornameverylongauthornamever", "Igov"));
+        }
+
+        [Test]
+        public void Ctor_CreateAuthorLastNameTooLong()
+        {
+            Assert.Throws<Exception>(() => new Author(
+                "Ivo", "verylongauthornameverylongauthornameverylongauthornameverylongauthorname" +
+                "verylongauthornameverylongauthornameverylongauthornameverylongauthorname" +
+                "verylongauthornameverylongauthornameverylongauthornamever"));
+        }
     }
 }
