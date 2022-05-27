@@ -82,9 +82,13 @@ namespace Training_Center_Task_3
         /// <summary>
         /// This method sorts the book catalog and prints a key-value pair of Author -> number of author's books
         /// </summary>
-        public string GetSetOfBooksByAuthorNumberOfBooks(List<Book> bookCatalog)
+        public void GetSetOfBooksByAuthorNumberOfBooks(List<Book> bookCatalog)
         {
-            return null;
+            var list = from b in bookCatalog from a in b.Authors group b by a.FullName;
+            foreach (var item in list)
+            {
+                Console.WriteLine(item.Key.Count());
+            }
         }
 
         /// <summary>
