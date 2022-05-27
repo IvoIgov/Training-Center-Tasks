@@ -8,11 +8,16 @@ namespace Training_Center_Task_3_Unit_Tests
     public class Tests
     {
         private List<Author> _authors;
+        private Book _book;
         [SetUp]
         public void Setup()
         {
+            DateOnly date = DateOnly.ParseExact("2022-04-23", "yyyy-MM-dd");
+
             List<Author> _authors = new List<Author>();
             _authors.Add(new Author("Ivo", "Igov"));
+
+            Book _book = new Book("123-4-56-789101-1", "Title 2", date, _authors);
         }
 
         [Test]

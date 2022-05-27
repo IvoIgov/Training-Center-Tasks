@@ -1,6 +1,4 @@
-﻿
-
-using System.Collections;
+﻿using System.Collections;
 using Training_Center_Task_3;
 
 //1.Create books, add authors and add books to catalog
