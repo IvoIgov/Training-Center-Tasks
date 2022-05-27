@@ -66,13 +66,20 @@ namespace Training_Center_Task_3
         public List<Author> Authors
         {
             get { return _authors; }
-            set { _authors = value; }
+            private set { _authors = value; }
         }
 
         public DateOnly Date
         {
             get { return _date; }
-            private set { _date = value; }
+            private set {
+                DateOnly result;
+                var success = DateOnly.TryParse(value.ToString(), out result);
+                if (success == false)
+                {
+                    throw new Exception(ExceptionMessages.BookDateInvalidFormat);
+                }
+                _date = value; }
         }
     }
 }
