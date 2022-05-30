@@ -168,31 +168,27 @@ namespace Training_Center_Task_3_Unit_Tests
         {
             using (StringWriter sw = new StringWriter())
             {
-                _catalog.AddBookToCatalog(_isbn, _book, _catalog.Books);
-
-                //Create second book and add it to catalog
-                var isbn2 = "1234567891011";
-                DateOnly date2 = DateOnly.ParseExact("2019-05-19", "yyyy-MM-dd");
-
-                var authors2 = new List<Author>();
-                authors2.Add(new Author("Ivo", "Igov"));
-                authors2.Add(new Author("Ivan", "Ivanov"));
-                var _book2 = new Book(isbn2, "Title 1", date2, authors2);
-                _catalog.AddBookToCatalog(isbn2, _book2, _catalog.Books);
-                //Create third book and add it to catalog
-                var isbn3 = "1234567891012";
-                DateOnly date3 = DateOnly.ParseExact("2017-08-01", "yyyy-MM-dd");
-
-                var authors3 = new List<Author>();
-                authors3.Add(new Author("Todor", "Todorov"));
-                var _book3 = new Book(isbn3, "Title 3", date3, authors3);
-                _catalog.AddBookToCatalog(isbn3, _book3, _catalog.Books);
-
+                AddThreeBooksToCatalog(_catalog);
                 Console.SetOut(sw);
 
                 _catalog.GetSetOfBooksByPublicationDateDesc(_catalog.Books);
 
                 string expected = "Title 2\r\nTitle 1\r\nTitle 3";
+                Assert.AreEqual(expected.ToString(), sw.ToString().TrimEnd());
+            }
+        }
+
+        [Test]
+        public void Catalog_GetSetOfBooksByAuthor()
+        {
+            using (StringWriter sw = new StringWriter())
+            {
+                AddThreeBooksToCatalog(_catalog);
+                Console.SetOut(sw);
+
+                _catalog.GetSetOfBooksByAuthorNumberOfBooks(_catalog.Books);
+
+                string expected = "Author ivo igov has 2 books in catalog!\r\nAuthor ivan ivanov has 1 books in catalog!\r\nAuthor todor todorov has 1 books in catalog!";
                 Assert.AreEqual(expected.ToString(), sw.ToString().TrimEnd());
             }
         }
@@ -217,26 +213,7 @@ namespace Training_Center_Task_3_Unit_Tests
         {
             using (StringWriter sw = new StringWriter())
             {
-                _catalog.AddBookToCatalog(_isbn, _book, _catalog.Books);
-
-                //Create second book and add it to catalog
-                var isbn2 = "1234567891011";
-                DateOnly date2 = DateOnly.ParseExact("2019-05-19", "yyyy-MM-dd");
-
-                var authors2 = new List<Author>();
-                authors2.Add(new Author("Ivo", "Igov"));
-                authors2.Add(new Author("Ivan", "Ivanov"));
-                var _book2 = new Book(isbn2, "Title 1", date2, authors2);
-                _catalog.AddBookToCatalog(isbn2, _book2, _catalog.Books);
-                //Create third book and add it to catalog
-                var isbn3 = "1234567891012";
-                DateOnly date3 = DateOnly.ParseExact("2017-08-01", "yyyy-MM-dd");
-
-                var authors3 = new List<Author>();
-                authors3.Add(new Author("Todor", "Todorov"));
-                var _book3 = new Book(isbn3, "Title 3", date3, authors3);
-                _catalog.AddBookToCatalog(isbn3, _book3, _catalog.Books);
-
+                AddThreeBooksToCatalog(_catalog);
                 Console.SetOut(sw);
 
                 _catalog.SortBookCatalogByTitle(_catalog.Books);
@@ -244,6 +221,29 @@ namespace Training_Center_Task_3_Unit_Tests
                 string expected = "Title 1\r\nTitle 2\r\nTitle 3";
                 Assert.AreEqual(expected.ToString(), sw.ToString().TrimEnd());
             }
+        }
+
+        public void AddThreeBooksToCatalog(Catalog catalog)
+        {
+            _catalog.AddBookToCatalog(_isbn, _book, _catalog.Books);
+
+            //Create second book and add it to catalog
+            var isbn2 = "1234567891011";
+            DateOnly date2 = DateOnly.ParseExact("2019-05-19", "yyyy-MM-dd");
+
+            var authors2 = new List<Author>();
+            authors2.Add(new Author("Ivo", "Igov"));
+            authors2.Add(new Author("Ivan", "Ivanov"));
+            var _book2 = new Book(isbn2, "Title 1", date2, authors2);
+            _catalog.AddBookToCatalog(isbn2, _book2, _catalog.Books);
+            //Create third book and add it to catalog
+            var isbn3 = "1234567891012";
+            DateOnly date3 = DateOnly.ParseExact("2017-08-01", "yyyy-MM-dd");
+
+            var authors3 = new List<Author>();
+            authors3.Add(new Author("Todor", "Todorov"));
+            var _book3 = new Book(isbn3, "Title 3", date3, authors3);
+            _catalog.AddBookToCatalog(isbn3, _book3, _catalog.Books);
         }
     }
 }
