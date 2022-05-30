@@ -105,16 +105,30 @@ namespace Training_Center_Task_3_Unit_Tests
         }
 
         [Test]
-        public void Catalog_AddBookWithAlreadyExistingISBN()
+        public void Catalog_AccessAlreadyExistingBookInCatalog()
         {
-            _catalog.AddBookToCatalog(_isbn, _book, _catalog.Books);
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
 
-            Assert.Throws<Exception>(() => _catalog.AddBookToCatalog(_isbn, _book, _catalog.Books));
+                AddThreeBooksToCatalog(_catalog);
+                _catalog.AccessBookInCatalog(_isbn, _catalog.Books);
+                string expected = "Title 2";
+                Assert.AreEqual(expected.ToString(), sw.ToString().TrimEnd());
+            }
         }
 
         [Test]
-        public void Catalog_AccessNonExistingBookInCatalog()
+        public void Catalog_AddBookWithAlreadyExistingISBN()
         {
+            Assert.Throws<Exception>(() => _catalog.AccessBookInCatalog("1234567891014", _catalog.Books));
+        }
+
+        [Test]
+        public void Catalog_AccessExistingBookInCatalog()
+        {
+            AddThreeBooksToCatalog(_catalog);
+            _catalog.AccessBookInCatalog(_isbn, _catalog.Books);
             Assert.Throws<Exception>(() => _catalog.AccessBookInCatalog("1234567891014", _catalog.Books));
         }
 
