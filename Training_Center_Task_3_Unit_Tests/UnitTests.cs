@@ -131,5 +131,20 @@ namespace Training_Center_Task_3_Unit_Tests
                 Assert.AreEqual(expected.ToString(), sw.ToString().TrimEnd());
             }
         }
+
+        [Test]
+        public void Catalog_GetBooksByAuthorByFirstNameLastNameWithResult()
+        {
+            using (StringWriter sw = new StringWriter())
+            {
+                _catalog.AddBookToCatalog(_isbn, _book, _catalog.Books);
+                Console.SetOut(sw);
+
+                _catalog.GetSetOfBooksByAuthorFirstNameLastName("Ivo", "Igov", _catalog.Books);
+
+                string expected = "Title 2";
+                Assert.AreEqual(expected.ToString(), sw.ToString().TrimEnd());
+            }
+        }
     }
 }
