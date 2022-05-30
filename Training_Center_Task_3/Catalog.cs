@@ -98,13 +98,21 @@ namespace Training_Center_Task_3
         public void GetSetOfBooksByAuthorNumberOfBooks(List<Book> bookCatalog)
         {
             var list = from b in bookCatalog from a in b.Authors group b by a.FullName;
-            if (list.ToList().Count == 0)
+            if (bookCatalog.Count == 0)
+            {
+                Console.WriteLine(NotificationMessages.NoBooksInCatalog);
+            }
+            else if (list.ToList().Count == 0)
             {
                 Console.WriteLine(NotificationMessages.NoBooksByThisAuthor);
             }
-            foreach (var item in list)
+            else
             {
-                Console.WriteLine(item.Key.Count());
+                foreach (var item in list)
+                {
+                    Tuple<string, int> author = new Tuple<string, int>(item.Key, item.Count());
+                    Console.WriteLine($"Author {author.Item1} has {author.Item2} books in catalog!");
+                }
             }
         }
 

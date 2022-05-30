@@ -53,18 +53,3 @@ bookCatalog.SortBookCatalogByTitle(bookCatalog.Books);
 Console.WriteLine("To access a book in catalog, write its ISBN");
 string searchedISBN = Console.ReadLine();
 bookCatalog.AccessBookInCatalog(searchedISBN, bookCatalog.Books);
-
-//foreach (var item in func(2, 10))
-//{
-//    Console.WriteLine(item);
-//}
-//Console.Read();
-
-//static IEnumerable func(int start, int number)
-//{
-//    for (int i = 0; i < number; i++)
-//    {
-//        yield return start + 2 * i;
-//    }
-//}
-
