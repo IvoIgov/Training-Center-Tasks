@@ -13,6 +13,11 @@ namespace Training_Center_Task_3
             set { _books = value; }
         }
 
+        public Catalog()
+        {
+            this.Books = _books;
+        }
+
         /// <summary>
         /// This method adds a new book to catalog and returns the updated catalog. 
         /// if a book with the given ISBN already exists, it throws an error
@@ -44,7 +49,7 @@ namespace Training_Center_Task_3
             }
             else
             {
-                Console.WriteLine(ExceptionMessages.BookWithThisISBNDoesNotExist);
+                throw new Exception(ExceptionMessages.BookWithThisISBNDoesNotExist);
             }
         }
 
@@ -55,9 +60,16 @@ namespace Training_Center_Task_3
         {
             string fullName = firstName.ToLower() + " " + lastName.ToLower();
             var book = from a in bookCatalog from b in a.Authors where (b.FullName == fullName) select a;
-            foreach (var item in book)
+            if (book.ToList().Count == 0)
             {
-                Console.WriteLine(item.Title);
+                Console.WriteLine(NotificationMessages.NoBooksByThisAuthor);
+            }
+            else
+            {
+                foreach (var item in book)
+                {
+                    Console.WriteLine(item.Title);
+                }
             }
         }
 
