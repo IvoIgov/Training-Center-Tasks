@@ -79,10 +79,16 @@ namespace Training_Center_Task_3
         public void GetSetOfBooksByPublicationDateDesc(List<Book> bookCatalog)
         {
             var list = from b in bookCatalog orderby b.Date descending select b;
-
-            foreach (var item in list)
+            if (bookCatalog.Count == 0)
             {
-                Console.WriteLine(item.Title);
+                Console.WriteLine(NotificationMessages.NoBooksInCatalog);
+            }
+            else
+            {
+                foreach (var item in list)
+                {
+                    Console.WriteLine(item.Title);
+                }
             }
         }
 
@@ -92,6 +98,10 @@ namespace Training_Center_Task_3
         public void GetSetOfBooksByAuthorNumberOfBooks(List<Book> bookCatalog)
         {
             var list = from b in bookCatalog from a in b.Authors group b by a.FullName;
+            if (list.ToList().Count == 0)
+            {
+                Console.WriteLine(NotificationMessages.NoBooksByThisAuthor);
+            }
             foreach (var item in list)
             {
                 Console.WriteLine(item.Key.Count());
@@ -104,9 +114,16 @@ namespace Training_Center_Task_3
         public void SortBookCatalogByTitle(List<Book> bookCatalog)
         {
             var list = from b in bookCatalog orderby b.Title select b;
-            foreach (var item in list)
+            if (bookCatalog.Count == 0)
             {
-                Console.WriteLine(item.Title);
+                Console.WriteLine(NotificationMessages.NoBooksInCatalog);
+            }
+            else
+            {
+                foreach (var item in list)
+                {
+                    Console.WriteLine(item.Title);
+                }
             }
         }
 
