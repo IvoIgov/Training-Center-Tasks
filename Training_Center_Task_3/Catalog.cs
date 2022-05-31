@@ -39,13 +39,12 @@ namespace Training_Center_Task_3
         /// <summary>
         /// This method accesses a book in the catalog by ISBN and returns its name or an error message.
         /// </summary>
-        public void AccessBookInCatalog(string isbn, List<Book> bookCatalog)
+        public Book AccessBookInCatalog(string isbn, List<Book> bookCatalog)
         {
             var bookExists = bookCatalog.Exists(x => x.ISBN == isbn);
             if (bookExists)
             {
-                var book = bookCatalog.Where((x) => x.ISBN == isbn).FirstOrDefault();
-                Console.WriteLine(book.Title);
+                return bookCatalog.Where((x) => x.ISBN == isbn).FirstOrDefault();
             }
             else
             {
@@ -56,82 +55,65 @@ namespace Training_Center_Task_3
         /// <summary>
         /// This method returns all books by a given author
         /// </summary>
-        public void GetSetOfBooksByAuthorFirstNameLastName(string firstName, string lastName, List<Book> bookCatalog)
+        public List<Book> GetSetOfBooksByAuthorFirstNameLastName(string firstName, string lastName, List<Book> bookCatalog)
         {
             string fullName = firstName.ToLower() + " " + lastName.ToLower();
             var book = from a in bookCatalog from b in a.Authors where (b.FullName == fullName) select a;
-            if (book.ToList().Count == 0)
+            if (book.ToList<Book>().Count == 0)
             {
-                Console.WriteLine(NotificationMessages.NoBooksByThisAuthor);
+                return null;
             }
             else
             {
-                foreach (var item in book)
-                {
-                    Console.WriteLine(item.Title);
-                }
+                return book.ToList();
             }
         }
 
         /// <summary>
         /// this method sorts and prints a list of all books ordered by date descending
         /// </summary>
-        public void GetSetOfBooksByPublicationDateDesc(List<Book> bookCatalog)
+        public List<Book> GetSetOfBooksByPublicationDateDesc(List<Book> bookCatalog)
         {
             var list = from b in bookCatalog orderby b.Date descending select b;
             if (bookCatalog.Count == 0)
             {
-                Console.WriteLine(NotificationMessages.NoBooksInCatalog);
+                return null;
             }
             else
             {
-                foreach (var item in list)
-                {
-                    Console.WriteLine(item.Title);
-                }
+                return list.ToList<Book>();                
             }
         }
 
         /// <summary>
         /// This method sorts the book catalog and prints a key-value pair of Author -> number of author's books
         /// </summary>
-        public void GetSetOfBooksByAuthorNumberOfBooks(List<Book> bookCatalog)
+        public List<(string, int)> GetSetOfBooksAllAuthorsAndNumberOfBooks(List<Book> bookCatalog)
         {
             var list = from b in bookCatalog from a in b.Authors group b by a.FullName;
             if (bookCatalog.Count == 0)
             {
-                Console.WriteLine(NotificationMessages.NoBooksInCatalog);
-            }
-            else if (list.ToList().Count == 0)
-            {
-                Console.WriteLine(NotificationMessages.NoBooksByThisAuthor);
+                return null; 
             }
             else
             {
-                foreach (var item in list)
-                {
-                    Tuple<string, int> author = new Tuple<string, int>(item.Key, item.Count());
-                    Console.WriteLine($"Author {author.Item1} has {author.Item2} books in catalog!");
-                }
+                return (List<(string, int)>)list;
             }
         }
 
         /// <summary>
         /// This method sorts the book catalog by book title and returns it
         /// </summary>
-        public void SortBookCatalogByTitle(List<Book> bookCatalog)
+        public List<Book> SortBookCatalogByTitle(List<Book> bookCatalog)
         {
             var list = from b in bookCatalog orderby b.Title select b;
             if (bookCatalog.Count == 0)
             {
-                Console.WriteLine(NotificationMessages.NoBooksInCatalog);
+                return null;
             }
             else
             {
-                foreach (var item in list)
-                {
-                    Console.WriteLine(item.Title);
-                }
+                return list.ToList<Book>();                
             }
         }
 

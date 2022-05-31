@@ -38,18 +38,66 @@ Console.WriteLine("Enter first name of author");
 string firstNameSearchedAuthor = Console.ReadLine();
 Console.WriteLine("Enter last name of author");
 string lastNameSearchedAuthor = Console.ReadLine();
-bookCatalog.GetSetOfBooksByAuthorFirstNameLastName(firstNameSearchedAuthor, lastNameSearchedAuthor, bookCatalog.Books);
+var booksByAuthor = bookCatalog.GetSetOfBooksByAuthorFirstNameLastName(firstNameSearchedAuthor, lastNameSearchedAuthor, bookCatalog.Books);
+if(booksByAuthor == null)
+{
+    Console.WriteLine(NotificationMessages.NoBooksByThisAuthor);
+}
+else
+{
+    foreach (var item in booksByAuthor)
+    {
+        Console.WriteLine(item.Title);
+    }
+};
 
 //3. Get a set of books ordered by publication date in descending order
-bookCatalog.GetSetOfBooksByPublicationDateDesc(bookCatalog.Books);
+var orderedBooks = bookCatalog.GetSetOfBooksByPublicationDateDesc(bookCatalog.Books);
+if (orderedBooks != null)
+{
+    foreach (var item in orderedBooks)
+    {
+        Console.WriteLine(item.Title);
+    }
+}
+else
+{
+    Console.WriteLine(NotificationMessages.NoBooksInCatalog);
+}
 
 //4. Get a set of tuples in the form "author - number of published books"
-bookCatalog.GetSetOfBooksByAuthorNumberOfBooks(bookCatalog.Books);
+var listAuthorsNumberOfBooks = bookCatalog.GetSetOfBooksAllAuthorsAndNumberOfBooks(bookCatalog.Books);
+if (bookCatalog.Books.Count == 0)
+{
+    Console.WriteLine(NotificationMessages.NoBooksInCatalog);
+}
+else
+{
+    foreach (var item in listAuthorsNumberOfBooks)
+    {
+        Console.WriteLine($"Author {item.Item1} has {item.Item2} books in catalog!");
+    }
+}
 
 //5. Get a set of books sorted by title
-bookCatalog.SortBookCatalogByTitle(bookCatalog.Books);
+var sortedCatalogByTitle = bookCatalog.SortBookCatalogByTitle(bookCatalog.Books);
+if (bookCatalog.Books.Count == 0)
+{
+    Console.WriteLine(NotificationMessages.NoBooksInCatalog);
+}
+else
+{
+    foreach (var item in sortedCatalogByTitle)
+    {
+        Console.WriteLine(item.Title);
+    }
+}
 
 //6. Access book in catalog
 Console.WriteLine("To access a book in catalog, write its ISBN");
 string searchedISBN = Console.ReadLine();
-bookCatalog.AccessBookInCatalog(searchedISBN, bookCatalog.Books);
+var accessedBook = bookCatalog.AccessBookInCatalog(searchedISBN, bookCatalog.Books);
+if (accessedBook != null)
+{
+    Console.WriteLine(accessedBook.Title);
+}

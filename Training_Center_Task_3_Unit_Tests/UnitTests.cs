@@ -200,7 +200,7 @@ namespace Training_Center_Task_3_Unit_Tests
                 AddThreeBooksToCatalog(_catalog);
                 Console.SetOut(sw);
 
-                _catalog.GetSetOfBooksByAuthorNumberOfBooks(_catalog.Books);
+                _catalog.GetSetOfBooksAllAuthorsAndNumberOfBooks(_catalog.Books);
 
                 string expected = "Author ivo igov has 2 books in catalog!\r\nAuthor ivan ivanov has 1 books in catalog!\r\nAuthor todor todorov has 1 books in catalog!";
                 Assert.AreEqual(expected.ToString(), sw.ToString().TrimEnd());
