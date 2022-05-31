@@ -88,16 +88,21 @@ namespace Training_Center_Task_3
         /// <summary>
         /// This method sorts the book catalog and prints a key-value pair of Author -> number of author's books
         /// </summary>
-        public List<(string, int)> GetSetOfBooksAllAuthorsAndNumberOfBooks(List<Book> bookCatalog)
+        public List<Tuple<string, int>> GetSetOfBooksAllAuthorsAndNumberOfBooks(List<Book> bookCatalog)
         {
-            var list = from b in bookCatalog from a in b.Authors group b by a.FullName;
+            var list = new List<Tuple<string, int>>();
+            var result = from b in bookCatalog from a in b.Authors group b by a.FullName;
             if (bookCatalog.Count == 0)
             {
                 return null; 
             }
             else
             {
-                return (List<(string, int)>)list;
+                foreach (var item in result)
+                {
+                    list.Add(new Tuple<string, int>(item.Key, item.ToList().Count));
+                }
+                return list;
             }
         }
 
