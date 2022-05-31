@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using Training_Center_Task_3;
 
 namespace Training_Center_Task_3_Unit_Tests
@@ -12,16 +13,17 @@ namespace Training_Center_Task_3_Unit_Tests
         private Book _book;
         private Catalog _catalog;
         private string _isbn = "123-4-56-789101-1";
+        private string _title = "Title 2";
+        DateOnly _date = DateOnly.ParseExact("2022-04-23", "yyyy-MM-dd");
+        Author _author = new Author("Ivo", "Igov");
 
         [SetUp]
         public void Setup()
         {
-            DateOnly date = DateOnly.ParseExact("2022-04-23", "yyyy-MM-dd");
-
             _authors = new List<Author>();
-            _authors.Add(new Author("Ivo", "Igov"));
+            _authors.Add(_author);
 
-            _book = new Book(_isbn, "Title 2", date, _authors);
+            _book = new Book(_isbn, _title, _date, _authors);
 
             _catalog = new Catalog();
             ;
@@ -30,39 +32,30 @@ namespace Training_Center_Task_3_Unit_Tests
         [Test]
         public void Ctor_CreateBookValidData()
         {
-            string title = "Title 2";
-            DateOnly date = DateOnly.ParseExact("2022-04-23", "yyyy-MM-dd");
-
-            Book book = new Book(_isbn, title, date, _authors);
+            Book book = new Book(_isbn, _title, _date, _authors);
             Assert.AreEqual(book.ISBN, _isbn);
-            Assert.AreEqual(book.Title, "Title 2");
-            Assert.AreEqual(book.Date, date);
+            Assert.AreEqual(book.Title, _title);
+            Assert.AreEqual(book.Date, _date);
             Assert.AreEqual(book.Authors.Count, 1);
         }
 
         [Test]
         public void Ctor_CreateBookInvalidISBN()
         {
-            string title = "Title 2";
-            DateOnly date = DateOnly.ParseExact("2022-04-23", "yyyy-MM-dd");
-
-            Assert.Throws<Exception>(() => new Book(_isbn, title, date, _authors));
+            Assert.Throws<Exception>(() => new Book(_isbn, _title, _date, _authors));
         }
 
         [Test]
         public void Ctor_CreateBookInvalidTitleEmpty()
         {
             string title = "";
-            DateOnly date = DateOnly.ParseExact("2022-04-23", "yyyy-MM-dd");
 
-            Assert.Throws<ArgumentException>(() => new Book(_isbn, title, date, _authors));
+            Assert.Throws<ArgumentException>(() => new Book(_isbn, title, _date, _authors));
         }
 
         [Test]
         public void Ctor_CreateBookInvalidDateFormat()
         {
-            string title = "Title 2";
-
             Assert.Throws<FormatException>(() => DateOnly.ParseExact("2022-13-23", "yyyy-MM-dd"));
         }
 
@@ -113,7 +106,7 @@ namespace Training_Center_Task_3_Unit_Tests
 
                 AddThreeBooksToCatalog(_catalog);
                 _catalog.AccessBookInCatalog(_isbn, _catalog.Books);
-                string expected = "Title 2";
+                string expected = _title;
                 Assert.AreEqual(expected.ToString(), sw.ToString().TrimEnd());
             }
         }
@@ -156,7 +149,7 @@ namespace Training_Center_Task_3_Unit_Tests
 
                 _catalog.GetSetOfBooksByAuthorFirstNameLastName("Ivo", "Igov", _catalog.Books);
 
-                string expected = "Title 2";
+                string expected = _title;
                 Assert.AreEqual(expected.ToString(), sw.ToString().TrimEnd());
             }
         }
@@ -185,9 +178,14 @@ namespace Training_Center_Task_3_Unit_Tests
                 AddThreeBooksToCatalog(_catalog);
                 Console.SetOut(sw);
 
-                _catalog.GetSetOfBooksByPublicationDateDesc(_catalog.Books);
-
-                string expected = "Title 2\r\nTitle 1\r\nTitle 3";
+                var orderedBooks = _catalog.GetSetOfBooksByPublicationDateDesc(_catalog.Books);
+                StringBuilder allBooks = new StringBuilder();
+                foreach (var item in orderedBooks)
+                {
+                    allBooks.Append(item.Title.ToString() + ",");
+                }
+                Console.WriteLine(allBooks.ToString().TrimEnd(','));
+                string expected = $"{_title},Title 1,Title 3";
                 Assert.AreEqual(expected.ToString(), sw.ToString().TrimEnd());
             }
         }
@@ -200,9 +198,15 @@ namespace Training_Center_Task_3_Unit_Tests
                 AddThreeBooksToCatalog(_catalog);
                 Console.SetOut(sw);
 
-                _catalog.GetSetOfBooksAllAuthorsAndNumberOfBooks(_catalog.Books);
+                var booksByAuthor = _catalog.GetSetOfBooksAllAuthorsAndNumberOfBooks(_catalog.Books);
+                StringBuilder allBooks = new StringBuilder();
+                foreach (var item in booksByAuthor)
+                {
+                    allBooks.Append($"Author {item.Item1} has {item.Item2} books in catalog!" + " ");
+                }
+                Console.WriteLine(allBooks.ToString().TrimEnd());
 
-                string expected = "Author ivo igov has 2 books in catalog!\r\nAuthor ivan ivanov has 1 books in catalog!\r\nAuthor todor todorov has 1 books in catalog!";
+                string expected = "Author ivo igov has 2 books in catalog! Author ivan ivanov has 1 books in catalog! Author todor todorov has 1 books in catalog!";
                 Assert.AreEqual(expected.ToString(), sw.ToString().TrimEnd());
             }
         }
@@ -232,7 +236,7 @@ namespace Training_Center_Task_3_Unit_Tests
 
                 _catalog.SortBookCatalogByTitle(_catalog.Books);
 
-                string expected = "Title 1\r\nTitle 2\r\nTitle 3";
+                string expected = $"Title 1\r\n{_title}\r\nTitle 3";
                 Assert.AreEqual(expected.ToString(), sw.ToString().TrimEnd());
             }
         }
@@ -246,7 +250,7 @@ namespace Training_Center_Task_3_Unit_Tests
             DateOnly date2 = DateOnly.ParseExact("2019-05-19", "yyyy-MM-dd");
 
             var authors2 = new List<Author>();
-            authors2.Add(new Author("Ivo", "Igov"));
+            authors2.Add(_author);
             authors2.Add(new Author("Ivan", "Ivanov"));
             var _book2 = new Book(isbn2, "Title 1", date2, authors2);
             _catalog.AddBookToCatalog(isbn2, _book2, _catalog.Books);
