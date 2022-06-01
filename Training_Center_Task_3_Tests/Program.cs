@@ -73,7 +73,7 @@ string firstNameSearchedAuthor = Console.ReadLine();
 Console.WriteLine("Enter last name of author");
 string lastNameSearchedAuthor = Console.ReadLine();
 var booksByAuthor = bookCatalog.GetSetOfBooksByAuthorFirstNameLastName(firstNameSearchedAuthor, lastNameSearchedAuthor, bookCatalog.Books);
-if(booksByAuthor == null)
+if(booksByAuthor.Count == 0)
 {
     Console.WriteLine(NotificationMessages.NoBooksByThisAuthor);
 }
@@ -87,7 +87,7 @@ else
 
 //3. Get a set of books ordered by publication date in descending order
 var orderedBooks = bookCatalog.GetSetOfBooksByPublicationDateDesc(bookCatalog.Books);
-if (orderedBooks != null)
+if (orderedBooks.Count != 0)
 {
     foreach (var item in orderedBooks)
     {
