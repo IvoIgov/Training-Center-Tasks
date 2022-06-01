@@ -59,15 +59,9 @@ namespace Training_Center_Task_3
         {
             string fullName = firstName.ToLower() + " " + lastName.ToLower();
             var book = from a in bookCatalog from b in a.Authors where (b.FullName == fullName) select a;
-            if (book.ToList<Book>().Count == 0)
-            {
-                return null;
-            }
-            else
-            {
-                return book.ToList();
-            }
+            return book.ToList();
         }
+
 
         /// <summary>
         /// this method sorts and prints a list of all books ordered by date descending
@@ -77,11 +71,11 @@ namespace Training_Center_Task_3
             var list = from b in bookCatalog orderby b.Date descending select b;
             if (bookCatalog.Count == 0)
             {
-                return null;
+                return bookCatalog;
             }
             else
             {
-                return list.ToList<Book>();                
+                return list.ToList<Book>();
             }
         }
 
@@ -94,7 +88,7 @@ namespace Training_Center_Task_3
             var result = from b in bookCatalog from a in b.Authors group b by a.FullName;
             if (bookCatalog.Count == 0)
             {
-                return null; 
+                throw new Exception(NotificationMessages.NoBooksInCatalog);
             }
             else
             {
@@ -114,11 +108,11 @@ namespace Training_Center_Task_3
             var list = from b in bookCatalog orderby b.Title select b;
             if (bookCatalog.Count == 0)
             {
-                return null;
+                return bookCatalog;
             }
             else
             {
-                return list.ToList<Book>();                
+                return list.ToList<Book>();
             }
         }
 

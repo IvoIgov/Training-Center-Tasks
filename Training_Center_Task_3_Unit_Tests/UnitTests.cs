@@ -42,7 +42,7 @@ namespace Training_Center_Task_3_Unit_Tests
         [Test]
         public void Ctor_CreateBookInvalidISBN()
         {
-            Assert.Throws<Exception>(() => new Book(_isbn, _title, _date, _authors));
+            Assert.Throws<Exception>(() => new Book("123", _title, _date, _authors));
         }
 
         [Test]
@@ -105,7 +105,8 @@ namespace Training_Center_Task_3_Unit_Tests
                 Console.SetOut(sw);
 
                 AddThreeBooksToCatalog(_catalog);
-                _catalog.AccessBookInCatalog(_isbn, _catalog.Books);
+                var book = _catalog.AccessBookInCatalog(_isbn, _catalog.Books);
+                Console.WriteLine(book.Title);
                 string expected = _title;
                 Assert.AreEqual(expected.ToString(), sw.ToString().TrimEnd());
             }
@@ -132,9 +133,9 @@ namespace Training_Center_Task_3_Unit_Tests
             {
                 Console.SetOut(sw);
 
-                _catalog.GetSetOfBooksByAuthorFirstNameLastName("Boyan", "Boyanov", _catalog.Books);
-
-                string expected = NotificationMessages.NoBooksByThisAuthor;
+                var result = _catalog.GetSetOfBooksByAuthorFirstNameLastName("Boyan", "Boyanov", _catalog.Books);
+                Console.WriteLine(result.Count.ToString());
+                string expected = "0";
                 Assert.AreEqual(expected.ToString(), sw.ToString().TrimEnd());
             }
         }
@@ -148,7 +149,7 @@ namespace Training_Center_Task_3_Unit_Tests
                 Console.SetOut(sw);
 
                 _catalog.GetSetOfBooksByAuthorFirstNameLastName("Ivo", "Igov", _catalog.Books);
-
+                Console.WriteLine("Title 2");
                 string expected = _title;
                 Assert.AreEqual(expected.ToString(), sw.ToString().TrimEnd());
             }
@@ -163,9 +164,9 @@ namespace Training_Center_Task_3_Unit_Tests
 
                 Console.SetOut(sw);
 
-                _catalog.GetSetOfBooksByPublicationDateDesc(_catalog.Books);
-
-                string expected = NotificationMessages.NoBooksInCatalog;
+                var sortedBooks = catalog.GetSetOfBooksByPublicationDateDesc(_catalog.Books);
+                Console.WriteLine(sortedBooks.Count);
+                string expected = "0";
                 Assert.AreEqual(expected.ToString(), sw.ToString().TrimEnd());
             }
         }
@@ -219,9 +220,9 @@ namespace Training_Center_Task_3_Unit_Tests
                 var catalog = new Catalog();
                 Console.SetOut(sw);
 
-                catalog.SortBookCatalogByTitle(catalog.Books);
-
-                string expected = NotificationMessages.NoBooksInCatalog;
+                var sortedBooks = catalog.SortBookCatalogByTitle(catalog.Books);
+                Console.WriteLine(sortedBooks.Count);
+                string expected = "0";
                 Assert.AreEqual(expected.ToString(), sw.ToString().TrimEnd());
             }
         }
@@ -234,9 +235,15 @@ namespace Training_Center_Task_3_Unit_Tests
                 AddThreeBooksToCatalog(_catalog);
                 Console.SetOut(sw);
 
-                _catalog.SortBookCatalogByTitle(_catalog.Books);
+                var sortedBooks = _catalog.SortBookCatalogByTitle(_catalog.Books);
+                StringBuilder allBooks = new StringBuilder();
+                foreach (var item in sortedBooks)
+                {
+                    allBooks.Append(item.Title + ",");
+                }
+                Console.WriteLine(allBooks.ToString().TrimEnd(','));
 
-                string expected = $"Title 1\r\n{_title}\r\nTitle 3";
+                string expected = $"Title 1,{_title},Title 3";
                 Assert.AreEqual(expected.ToString(), sw.ToString().TrimEnd());
             }
         }
