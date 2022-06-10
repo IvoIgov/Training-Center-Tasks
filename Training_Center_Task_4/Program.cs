@@ -27,7 +27,14 @@ using (XmlReader reader = XmlReader.Create(XMLReaderLinks.XMlFileLink))
                         windowName = reader.GetAttribute("title");
                         break;
                     case "top":
-                        int top = int.Parse(reader.ReadString());
+                        int top = 0;
+                        try
+                        {
+                            top = int.Parse(reader.ReadString());
+                        }
+                        catch (Exception ex)
+                        {
+                        }
                         windowData.Add(top);
                         break;
                     case "left":

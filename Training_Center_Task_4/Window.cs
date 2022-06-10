@@ -42,6 +42,10 @@
             get { return _top; }
             private set
             {
+                if (String.IsNullOrEmpty(value.ToString()))
+                {
+                    value = 0;
+                }
                 if (value < 0)
                 {
                     throw new Exception(ExceptionMessages.TopValueCannotBeNegative);

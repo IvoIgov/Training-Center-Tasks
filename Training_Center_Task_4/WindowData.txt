@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <config>
+	<login name="john">
+		<window title="main">
+			<top></top>
+			<left>40</left>
+			<width>800</width>
+			<height>400</height>
+		</window>
+		<window title="help">
+			<left>60</left>
+			<top>40</top>
+			<height>200</height>
+		</window>
+	</login>
 	<login name="alex">
 		<window title="main">
 			<top>10</top>
