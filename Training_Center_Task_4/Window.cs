@@ -3,19 +3,19 @@
     public class Window
     {
         private string _title;
-        private int _top;
-        private int _left;
-        private int _width;
-        private int _height;
+        private string _top;
+        private string _left;
+        private string _width;
+        private string _height;
 
-        public const int HelpWindowDefaultWidth = 0;
-        public const string HelpWindowWidthDefaultPrint = "?";
+        public const string WindowDefaultWidth = "0";
+        public const string WindowDefaultPrint = "?";
 
         public Window()
         {
 
         }
-        public Window(string title, int top, int left, int width, int height)
+        public Window(string title, string top, string left, string width, string height)
         {
             this.Title = title;
             this.Top = top;
@@ -37,60 +37,124 @@
             }
         }
 
-        public int Top
+        public string Top
         {
             get { return _top; }
             private set
             {
-                if (String.IsNullOrEmpty(value.ToString()))
+                if (String.IsNullOrEmpty(value))
                 {
-                    value = 0;
+                    value = WindowDefaultPrint;
+                    _top = value;
                 }
-                if (value < 0)
+                else
                 {
-                    throw new Exception(ExceptionMessages.TopValueCannotBeNegative);
+                    int a = 0;
+                    bool successfullyParsed = int.TryParse(value, out a);
+                    if (a < 0)
+                    {
+                        throw new Exception(ExceptionMessages.TopValueCannotBeNegative);
+                    }
+                    if (successfullyParsed)
+                    {
+                        _top = a.ToString();
+                    }
+                    else
+                    {
+                        _top = WindowDefaultPrint;
+                    }
                 }
-                _top = value;
             }
         }
 
 
-        public int Left
+        public string Left
         {
             get { return _left; }
             private set
             {
-                if (value < 0)
+                if (String.IsNullOrEmpty(value))
                 {
-                    throw new Exception(ExceptionMessages.LeftValueCannotBeNegative);
+                    value = WindowDefaultPrint;
+                    _left = value;
                 }
-                _left = value;
+                else
+                {
+                    int a = 0;
+                    bool successfullyParsed = int.TryParse(value, out a);
+                    if (a < 0)
+                    {
+                        throw new Exception(ExceptionMessages.TopValueCannotBeNegative);
+                    }
+                    if (successfullyParsed)
+                    {
+                        _left = a.ToString();
+                    }
+                    else
+                    {
+                        _left = WindowDefaultPrint;
+                    }
+                }
             }
         }
 
-        public int Width
+        public string Width
         {
             get { return _width; }
             private set
             {
-                if (value < 0)
+                if (String.IsNullOrEmpty(value))
                 {
-                    throw new Exception(ExceptionMessages.LeftValueCannotBeNegative);
+                    value = WindowDefaultPrint;
+                    _width = value;
                 }
-                _width = value;
+                else
+                {
+                    int a = 0;
+                    bool successfullyParsed = int.TryParse(value, out a);
+                    if (a < 0)
+                    {
+                        throw new Exception(ExceptionMessages.TopValueCannotBeNegative);
+                    }
+                    if (successfullyParsed)
+                    {
+                        _width = a.ToString();
+                    }
+                    else
+                    {
+                        _width = WindowDefaultPrint;
+                    }
+                }
             }
         }
 
-        public int Height
+        public string Height
         {
             get { return _height; }
             private set
             {
-                if (value < 0)
+                if (String.IsNullOrEmpty(value))
                 {
-                    throw new Exception(ExceptionMessages.HeightValueCannotBeNegative);
+                    value = WindowDefaultPrint;
+                    _height = value;
                 }
-                _height = value;
+                else
+                {
+                    int a = 0;
+                    bool successfullyParsed = int.TryParse(value, out a);
+                    if (a < 0)
+                    {
+                        throw new Exception(ExceptionMessages.TopValueCannotBeNegative);
+                    }
+                    if (successfullyParsed)
+                    {
+                        _height = a.ToString();
+                    }
+                    else
+                    {
+                        _height = WindowDefaultPrint;
+                    }
+                }
             }
         }        
     }
