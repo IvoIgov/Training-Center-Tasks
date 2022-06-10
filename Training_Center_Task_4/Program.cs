@@ -116,7 +116,7 @@ void WriteUserWindowInfoToJSON(User user)
 {
     UserJsonOutput jsonData = new UserJsonOutput();
 
-    jsonData.Username = user.Name;
+    jsonData.Name = user.Name;
 
     jsonData.WindowTitleMain = user.Windows[0].Title;
     jsonData.MainTop = user.Windows[0].Top;

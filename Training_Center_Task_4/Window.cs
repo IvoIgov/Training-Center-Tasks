@@ -27,7 +27,7 @@
         public string Title
         {
             get { return _title; }
-            set
+            private set
             {
                 if (String.IsNullOrEmpty(value))
                 {
@@ -40,7 +40,7 @@
         public int Top
         {
             get { return _top; }
-            set
+            private set
             {
                 if (value < 0)
                 {
@@ -54,7 +54,7 @@
         public int Left
         {
             get { return _left; }
-            set
+            private set
             {
                 if (value < 0)
                 {
@@ -67,7 +67,7 @@
         public int Width
         {
             get { return _width; }
-            set
+            private set
             {
                 if (value < 0)
                 {
@@ -80,7 +80,7 @@
         public int Height
         {
             get { return _height; }
-            set
+            private set
             {
                 if (value < 0)
                 {

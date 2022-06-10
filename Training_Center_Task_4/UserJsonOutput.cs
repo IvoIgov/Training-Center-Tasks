@@ -2,11 +2,9 @@
 {
     public class UserJsonOutput
     {
-        public string Username { get; set; }
+        public string Name { get; set; }
 
         public string WindowTitleMain { get; set; }
-
-        public string WindowTitleHelp { get; set; }
 
         public int MainTop { get; set; }
 
@@ -15,6 +13,8 @@
         public int MainWidth { get; set; }
 
         public int MainHeight { get; set; }
+
+        public string WindowTitleHelp { get; set; }
 
         public int HelpTop { get; set; }
 
