@@ -1,11 +1,6 @@
 ﻿using Newtonsoft.Json;
-using System.IO;
-using System.Net;
 using System.Text;
-using System.Text.Json.Serialization;
 using System.Xml;
-using System.Xml.Linq;
-using System.Xml.Serialization;
 using Training_Center_Task_4;
 
 using (XmlReader reader = XmlReader.Create(XMLReaderLinks.XMlFileLink))
