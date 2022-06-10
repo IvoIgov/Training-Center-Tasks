@@ -38,15 +38,36 @@ using (XmlReader reader = XmlReader.Create(XMLReaderLinks.XMlFileLink))
                         windowData.Add(top);
                         break;
                     case "left":
-                        int left = int.Parse(reader.ReadString());
+                        int left = 0;
+                        try
+                        {
+                            left = int.Parse(reader.ReadString());
+                        }
+                        catch (Exception ex)
+                        {
+                        }
                         windowData.Add(left);
                         break;
                     case "width":
-                        int width = int.Parse(reader.ReadString());
+                        int width = 400;
+                        try
+                        {
+                            width = int.Parse(reader.ReadString());
+                        }
+                        catch (Exception ex)
+                        {
+                        }
                         windowData.Add(width);
                         break;
                     case "height":
-                        int height = int.Parse(reader.ReadString());
+                        int height = 150;
+                        try
+                        {
+                            height = int.Parse(reader.ReadString());
+                        }
+                        catch (Exception ex)
+                        {
+                        }
                         windowData.Add(height);
                         break;
                 }

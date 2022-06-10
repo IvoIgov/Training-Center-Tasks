@@ -3,14 +3,14 @@
 	<login name="john">
 		<window title="main">
 			<top></top>
-			<left>40</left>
-			<width>800</width>
-			<height>400</height>
+			<left></left>
+			<width></width>
+			<height></height>
 		</window>
 		<window title="help">
-			<left>60</left>
-			<top>40</top>
-			<height>200</height>
+			<left></left>
+			<top></top>
+			<height></height>
 		</window>
 	</login>
 	<login name="alex">
