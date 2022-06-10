@@ -9,7 +9,7 @@ using (XmlReader reader = XmlReader.Create(XMLReaderLinks.XMlFileLink))
     List<int> windowData = new List<int>();
     User user = new User(string.Empty);
     List<User> allUsers = new List<User>();
-    bool userAddedToList = false;
+    //bool userAddedToList = false;
     while (reader.Read())
     {
         if (reader.IsStartElement())
@@ -17,11 +17,7 @@ using (XmlReader reader = XmlReader.Create(XMLReaderLinks.XMlFileLink))
             if (reader.Name.ToString() == "login")
             {
                 string userName = reader.GetAttribute("name");
-                if (userAddedToList == true)
-                {
-                    user = new User(userName);
-                    userAddedToList = false;
-                }
+                user = new User(userName);
             }
             else
             {
@@ -63,7 +59,7 @@ using (XmlReader reader = XmlReader.Create(XMLReaderLinks.XMlFileLink))
                 //Write user info to JSON file
                 WriteUserWindowInfoToJSON(user);
 
-                userAddedToList = true;
+                //userAddedToList = true;
                 windowData = new List<int>();
                 user = new User(string.Empty);
 
@@ -155,12 +151,6 @@ void WriteUserWindowInfoToJSON(User user)
             tw.Close();
         }
     }
-
-    //var xmlStr = File.ReadAllText(XMLReaderLinks.XMlFileLink);
-
-    //var str = XElement.Parse(xmlStr);
-
-    //var listUsers = str.Elements("login").ToList();
 }
 
 
