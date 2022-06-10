@@ -130,26 +130,18 @@ void WriteUserWindowInfoToJSON(User user)
     jsonData.HelpWidth = user.Windows[1].Width;
     jsonData.HelpHeight = user.Windows[1].Height;
 
-    string JSONresult = JsonConvert.SerializeObject(jsonData);
+    string JSONResult = JsonConvert.SerializeObject(jsonData);
 
     string path = String.Format(JSONDataClass.JSONFileLink, user.Name);
 
     if (File.Exists(path))
     {
         File.Delete(path);
-        using (var tw = new StreamWriter(path, true))
-        {
-            tw.WriteLine(JSONresult.ToString());
-            tw.Close();
-        }
+        XMLReaderLinks.WriteJSONDataToFile(path, JSONResult);
     }
     else
     {
-        using (var tw = new StreamWriter(path, true))
-        {
-            tw.WriteLine(JSONresult.ToString());
-            tw.Close();
-        }
+        XMLReaderLinks.WriteJSONDataToFile(path, JSONResult);
     }
 }
 

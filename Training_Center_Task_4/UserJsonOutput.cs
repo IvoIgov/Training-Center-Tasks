@@ -5,6 +5,7 @@
         public string Username { get; set; }
 
         public string WindowTitleMain { get; set; }
+
         public string WindowTitleHelp { get; set; }
 
         public int MainTop { get; set; }
