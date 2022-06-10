@@ -14,23 +14,41 @@
         private string _helpWidth;
         private string _helpHeight;
 
-        private const string DefaultXMLValue = "?";
-        private const string TopDefaultValue = "0";
-        private const string LeftDefaultValue = "0";
-        private const string WidthDefaultValue = "400";
-        private const string HeightDefaultValue = "150";
-        public string Name { get; set; }
 
-        public string WindowTitleMain { get; set; }
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                if (String.IsNullOrEmpty(value))
+                {
+                    throw new Exception(ExceptionMessages.UsernameCannotBeEmpty);
+                }
+                _name = value;
+            }
+        }
+
+        public string WindowTitleMain
+        {
+            get { return _windowTitleMain; }
+            set
+            {
+                if (String.IsNullOrEmpty(value))
+                {
+                    throw new Exception(ExceptionMessages.WindowTitleCannotBeEmpty);
+                }
+                _windowTitleMain = value;
+            }
+        }
 
         public string MainTop
         {
             get { return _mainTop; }
             set
             {
-                if (value == DefaultXMLValue)
+                if (value == JSONDataClass.DefaultXMLValue)
                 {
-                    value = TopDefaultValue;
+                    value = JSONDataClass.TopDefaultValue;
                 }
                 _mainTop = value;
             }
@@ -41,9 +59,9 @@
             get { return _mainLeft; }
             set
             {
-                if (value == DefaultXMLValue)
+                if (value == JSONDataClass.DefaultXMLValue)
                 {
-                    value = LeftDefaultValue;
+                    value = JSONDataClass.LeftDefaultValue;
                 }
                 _mainLeft = value;
             }
@@ -54,9 +72,9 @@
             get { return _mainWidth; }
             set
             {
-                if (value == DefaultXMLValue)
+                if (value == JSONDataClass.DefaultXMLValue)
                 {
-                    value = WidthDefaultValue;
+                    value = JSONDataClass.WidthDefaultValue;
                 }
                 _mainWidth = value;
             }
@@ -67,24 +85,35 @@
             get { return _mainHeight; }
             set
             {
-                if (value == DefaultXMLValue)
+                if (value == JSONDataClass.DefaultXMLValue)
                 {
-                    value = HeightDefaultValue;
+                    value = JSONDataClass.HeightDefaultValue;
                 }
                 _mainHeight = value;
             }
         }
 
-        public string WindowTitleHelp { get; set; }
+        public string WindowTitleHelp
+        {
+            get { return _windowTitleHelp; }
+            set
+            {
+                if (String.IsNullOrEmpty(value))
+                {
+                    throw new Exception(ExceptionMessages.WindowTitleCannotBeEmpty);
+                }
+                _windowTitleHelp = value;
+            }
+        }
 
         public string HelpTop
         {
             get { return _helpTop; }
             set
             {
-                if (value == DefaultXMLValue)
+                if (value == JSONDataClass.DefaultXMLValue)
                 {
-                    value = TopDefaultValue;
+                    value = JSONDataClass.TopDefaultValue;
                 }
                 _helpTop = value;
             }
@@ -95,9 +124,9 @@
             get { return _helpLeft; }
             set
             {
-                if (value == DefaultXMLValue)
+                if (value == JSONDataClass.DefaultXMLValue)
                 {
-                    value = LeftDefaultValue;
+                    value = JSONDataClass.LeftDefaultValue;
                 }
                 _helpLeft = value;
             }
@@ -108,9 +137,9 @@
             get { return _helpWidth; }
             set
             {
-                if (value == DefaultXMLValue)
+                if (value == JSONDataClass.DefaultXMLValue)
                 {
-                    value = WidthDefaultValue;
+                    value = JSONDataClass.WidthDefaultValue;
                 }
                 _helpWidth = value;
             }
@@ -121,9 +150,9 @@
             get { return _helpHeight; }
             set
             {
-                if (value == DefaultXMLValue)
+                if (value == JSONDataClass.DefaultXMLValue)
                 {
-                    value = HeightDefaultValue;
+                    value = JSONDataClass.HeightDefaultValue;
                 }
                 _helpHeight = value;
             }
