@@ -52,7 +52,7 @@ using (XmlReader reader = XmlReader.Create(XMLReaderLinks.XMlFileLink))
             }
             if (windowName == "help" && windowData.Count == 3)
             {
-                Window helpWindow = new Window(windowName, windowData[1], windowData[0], Window.WindowDefaultWidth, windowData[2]);
+                Window helpWindow = new Window(windowName, windowData[1], windowData[0], Window.WindowDefaultPrint, windowData[2]);
                 user.Windows.Add(helpWindow);
                 allUsers.Add(user);
 
