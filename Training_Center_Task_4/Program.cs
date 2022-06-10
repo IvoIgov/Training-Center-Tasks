@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using Newtonsoft.Json;
+using System.IO;
 using System.Net;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -63,16 +64,19 @@ using (XmlReader reader = XmlReader.Create(XMLReaderLinks.XMlFileLink))
                 Window helpWindow = new Window(windowName, windowData[1], windowData[0], Window.HelpWindowDefaultWidth, windowData[2]);
                 user.Windows.Add(helpWindow);
                 allUsers.Add(user);
+
+                //Write user info to JSON file
+                WriteUserWindowInfoToJSON(user);
+
                 userAddedToList = true;
                 windowData = new List<int>();
                 user = new User(string.Empty);
+
             }
         }
     }
 
     PrintUserInfo(allUsers);
-
-    WriteUserWindowInfoToJSON(user);
 
     var username = Console.ReadLine();
     var password = Console.ReadLine();
@@ -119,22 +123,49 @@ void PrintUserInfo(List<User> allUsers)
 
 void WriteUserWindowInfoToJSON(User user)
 {
-    var xmlStr = File.ReadAllText(XMLReaderLinks.XMlFileLink);
+    UserJsonOutput jsonData = new UserJsonOutput();
 
-    var str = XElement.Parse(xmlStr);
+    jsonData.Username = user.Name;
 
-    var listUsers = str.Elements("login").ToList();
+    jsonData.WindowTitleMain = user.Windows[0].Title;
+    jsonData.MainTop = user.Windows[0].Top;
+    jsonData.MainLeft = user.Windows[0].Left;
+    jsonData.MainWidth = user.Windows[0].Width;
+    jsonData.MainHeight = user.Windows[0].Height;
 
-    foreach (var item in listUsers)
+    jsonData.WindowTitleHelp = user.Windows[1].Title;
+    jsonData.HelpTop = user.Windows[1].Top;
+    jsonData.HelpLeft = user.Windows[1].Left;
+    jsonData.HelpWidth = user.Windows[1].Width;
+    jsonData.HelpHeight = user.Windows[1].Height;
+
+    string JSONresult = JsonConvert.SerializeObject(jsonData);
+
+    string path = String.Format(JSONDataClass.JSONFileLink, user.Name);
+
+    if (File.Exists(path))
     {
-        var serializer = new XmlSerializer(typeof(Window));
-        var result = (Window)serializer.Deserialize(item.CreateReader());
+        File.Delete(path);
+        using (var tw = new StreamWriter(path, true))
+        {
+            tw.WriteLine(JSONresult.ToString());
+            tw.Close();
+        }
+    }
+    else
+    {
+        using (var tw = new StreamWriter(path, true))
+        {
+            tw.WriteLine(JSONresult.ToString());
+            tw.Close();
+        }
     }
 
-    //var UserJsonOutput = new UserJsonOutput()
-    //{
-    //    Username = listUsers.
-    //}
+    //var xmlStr = File.ReadAllText(XMLReaderLinks.XMlFileLink);
+
+    //var str = XElement.Parse(xmlStr);
+
+    //var listUsers = str.Elements("login").ToList();
 }
 
 
