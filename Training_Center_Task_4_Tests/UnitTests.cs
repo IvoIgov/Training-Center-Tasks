@@ -14,6 +14,18 @@ namespace Training_Center_Task_4_Tests
         }
 
         [Test]
+        public void CtorUserValidName()
+        {
+            Assert.AreEqual("Ivo", _user.Name);
+        }
+
+        [Test]
+        public void CtorUserEmptyName()
+        {
+            Assert.Throws<Exception>(() => new User(""));
+        }
+
+        [Test]
         public void CtorWindowAllValidData()
         {
             Window window = new Window("main", "20", "20", "20", "20");

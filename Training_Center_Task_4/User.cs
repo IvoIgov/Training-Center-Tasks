@@ -11,7 +11,18 @@
             this.Windows = _windows;
         }
 
-        public string Name { get; private set; }
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                if (String.IsNullOrEmpty(value))
+                {
+                    throw new Exception(ExceptionMessages.UsernameCannotBeEmpty);
+                }
+                _name = value;
+            }
+        }
         public List<Window> Windows { get; set; }
     }
 }
