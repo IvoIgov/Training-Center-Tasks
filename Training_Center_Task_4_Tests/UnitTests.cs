@@ -8,11 +8,14 @@ namespace Training_Center_Task_4_Tests
     {
         private User _user;
         private string _username = "Ivo";
+
         private string _mainWindowTitle = "main";
-        private string _validWindowTopValue = "20";
+        private string _helpWindowTitle = "help";
+
+        private string _validWindowTopValue = "10";
         private string _validWindowLeftValue = "20";
-        private string _validWindowWidthValue = "20";
-        private string _validWindowHeightValue = "20";
+        private string _validWindowWidthValue = "30";
+        private string _validWindowHeightValue = "40";
 
 
         [SetUp]
@@ -101,6 +104,48 @@ namespace Training_Center_Task_4_Tests
         public void CtorWindowHeightValueNegative()
         {
             Assert.Throws<Exception>(() => new Window(_mainWindowTitle, _validWindowTopValue, _validWindowLeftValue, _validWindowWidthValue, "-20"));
+        }
+
+        [Test]
+        public void CtorUserJsonOutputValidData()
+        {
+            UserJsonOutput userJsonOutput = new UserJsonOutput();
+
+            userJsonOutput.Name = _username;
+
+            userJsonOutput.WindowTitleMain = _mainWindowTitle;
+            userJsonOutput.MainTop = _validWindowTopValue;
+            userJsonOutput.MainLeft = _validWindowLeftValue;
+            userJsonOutput.MainWidth = _validWindowWidthValue;
+            userJsonOutput.MainHeight = _validWindowHeightValue;
+
+            userJsonOutput.WindowTitleHelp = _helpWindowTitle;
+            userJsonOutput.HelpTop = _validWindowTopValue;
+            userJsonOutput.HelpLeft = _validWindowLeftValue;
+            userJsonOutput.HelpWidth = _validWindowWidthValue;
+            userJsonOutput.HelpHeight = _validWindowHeightValue;
+
+            Assert.AreEqual(_username, userJsonOutput.Name);
+
+            Assert.AreEqual(_mainWindowTitle, userJsonOutput.WindowTitleMain);
+            Assert.AreEqual(_helpWindowTitle, userJsonOutput.WindowTitleHelp);
+
+            Assert.AreEqual(_validWindowTopValue, userJsonOutput.MainTop);
+            Assert.AreEqual(_validWindowLeftValue, userJsonOutput.MainLeft);
+            Assert.AreEqual(_validWindowWidthValue, userJsonOutput.MainWidth);
+            Assert.AreEqual(_validWindowHeightValue, userJsonOutput.MainHeight);
+
+            Assert.AreEqual(_validWindowTopValue, userJsonOutput.HelpTop);
+            Assert.AreEqual(_validWindowLeftValue, userJsonOutput.HelpLeft);
+            Assert.AreEqual(_validWindowWidthValue, userJsonOutput.HelpWidth);
+            Assert.AreEqual(_validWindowHeightValue, userJsonOutput.HelpHeight);
+        }
+
+        [Test]
+        public void CtorUserJSONOutputEmptyName()
+        {
+            UserJsonOutput userJsonOutput = new UserJsonOutput();
+            Assert.Throws<Exception>(() => userJsonOutput.Name = "");
         }
     }
 }
