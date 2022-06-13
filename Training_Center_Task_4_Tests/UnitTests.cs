@@ -54,5 +54,33 @@ namespace Training_Center_Task_4_Tests
         {
             Assert.Throws<Exception>(() => new Window("main", "10", "-20", "20", "20"));
         }
+
+        [Test]
+        public void CtorWindowWidthValueEmpty()
+        {
+            Window window = new Window("main", "10", "20", "", "20");
+            _user.Windows.Add(window);
+            Assert.AreEqual("?", _user.Windows[0].Width);
+        }
+
+        [Test]
+        public void CtorWindowWidthValueNegative()
+        {
+            Assert.Throws<Exception>(() => new Window("main", "10", "20", "-20", "20"));
+        }
+
+        [Test]
+        public void CtorWindowHeightValueEmpty()
+        {
+            Window window = new Window("main", "10", "20", "20", "");
+            _user.Windows.Add(window);
+            Assert.AreEqual("?", _user.Windows[0].Height);
+        }
+
+        [Test]
+        public void CtorWindowHeightValueNegative()
+        {
+            Assert.Throws<Exception>(() => new Window("main", "10", "20", "20", "-20"));
+        }
     }
 }
