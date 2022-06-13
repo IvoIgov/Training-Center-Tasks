@@ -156,13 +156,6 @@ namespace Training_Center_Task_4_Tests
         }
 
         [Test]
-        public void CtorUserJSONOutputEmptyWindowTitleHelp()
-        {
-            UserJsonOutput userJsonOutput = new UserJsonOutput();
-            Assert.Throws<Exception>(() => userJsonOutput.WindowTitleHelp = "");
-        }
-
-        [Test]
         public void CtorUserJSONOutputDefaultMainTopValue()
         {
             UserJsonOutput userJsonOutput = new UserJsonOutput();
@@ -192,6 +185,45 @@ namespace Training_Center_Task_4_Tests
             UserJsonOutput userJsonOutput = new UserJsonOutput();
             userJsonOutput.MainHeight = JSONDataClass.HeightDefaultValue;
             Assert.AreEqual("150", userJsonOutput.MainHeight);
+        }
+
+        [Test]
+        public void CtorUserJSONOutputEmptyWindowTitleHelp()
+        {
+            UserJsonOutput userJsonOutput = new UserJsonOutput();
+            Assert.Throws<Exception>(() => userJsonOutput.WindowTitleHelp = "");
+        }
+
+        [Test]
+        public void CtorUserJSONOutputDefaultHelpTopValue()
+        {
+            UserJsonOutput userJsonOutput = new UserJsonOutput();
+            userJsonOutput.HelpTop = JSONDataClass.TopDefaultValue;
+            Assert.AreEqual("0", userJsonOutput.HelpTop);
+        }
+
+        [Test]
+        public void CtorUserJSONOutputDefaultHelpLeftValue()
+        {
+            UserJsonOutput userJsonOutput = new UserJsonOutput();
+            userJsonOutput.HelpLeft = JSONDataClass.LeftDefaultValue;
+            Assert.AreEqual("0", userJsonOutput.HelpLeft);
+        }
+
+        [Test]
+        public void CtorUserJSONOutputDefaultHelpWidthValue()
+        {
+            UserJsonOutput userJsonOutput = new UserJsonOutput();
+            userJsonOutput.HelpWidth = JSONDataClass.WidthDefaultValue;
+            Assert.AreEqual("400", userJsonOutput.HelpWidth);
+        }
+
+        [Test]
+        public void CtorUserJSONOutputDefaultHelpHeightValue()
+        {
+            UserJsonOutput userJsonOutput = new UserJsonOutput();
+            userJsonOutput.HelpHeight = JSONDataClass.HeightDefaultValue;
+            Assert.AreEqual("150", userJsonOutput.HelpHeight);
         }
     }
 }
