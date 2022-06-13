@@ -142,10 +142,32 @@ namespace Training_Center_Task_4_Tests
         }
 
         [Test]
-        public void CtorUserJSONOutputEmptyName()
+        public void CtorUserJSONOutputEmptyUsername()
         {
             UserJsonOutput userJsonOutput = new UserJsonOutput();
             Assert.Throws<Exception>(() => userJsonOutput.Name = "");
+        }
+
+        [Test]
+        public void CtorUserJSONOutputEmptyWindowTitleMain()
+        {
+            UserJsonOutput userJsonOutput = new UserJsonOutput();
+            Assert.Throws<Exception>(() => userJsonOutput.WindowTitleMain = "");
+        }
+
+        [Test]
+        public void CtorUserJSONOutputEmptyWindowTitleHelp()
+        {
+            UserJsonOutput userJsonOutput = new UserJsonOutput();
+            Assert.Throws<Exception>(() => userJsonOutput.WindowTitleHelp = "");
+        }
+
+        [Test]
+        public void CtorUserJSONOutputDefaultMainTopValue()
+        {
+            UserJsonOutput userJsonOutput = new UserJsonOutput();
+            userJsonOutput.MainTop = JSONDataClass.TopDefaultValue;
+            Assert.AreEqual("0", userJsonOutput.MainTop);
         }
     }
 }
