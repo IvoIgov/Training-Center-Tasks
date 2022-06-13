@@ -169,5 +169,29 @@ namespace Training_Center_Task_4_Tests
             userJsonOutput.MainTop = JSONDataClass.TopDefaultValue;
             Assert.AreEqual("0", userJsonOutput.MainTop);
         }
+
+        [Test]
+        public void CtorUserJSONOutputDefaultMainLeftValue()
+        {
+            UserJsonOutput userJsonOutput = new UserJsonOutput();
+            userJsonOutput.MainLeft = JSONDataClass.LeftDefaultValue;
+            Assert.AreEqual("0", userJsonOutput.MainLeft);
+        }
+
+        [Test]
+        public void CtorUserJSONOutputDefaultMainWidthValue()
+        {
+            UserJsonOutput userJsonOutput = new UserJsonOutput();
+            userJsonOutput.MainWidth = JSONDataClass.WidthDefaultValue;
+            Assert.AreEqual("400", userJsonOutput.MainWidth);
+        }
+
+        [Test]
+        public void CtorUserJSONOutputDefaultMainHeightValue()
+        {
+            UserJsonOutput userJsonOutput = new UserJsonOutput();
+            userJsonOutput.MainHeight = JSONDataClass.HeightDefaultValue;
+            Assert.AreEqual("150", userJsonOutput.MainHeight);
+        }
     }
 }
