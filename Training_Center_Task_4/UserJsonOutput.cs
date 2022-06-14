@@ -1,4 +1,6 @@
-﻿namespace Training_Center_Task_4
+﻿using Newtonsoft.Json;
+
+namespace Training_Center_Task_4
 {
     public class UserJsonOutput
     {
@@ -155,6 +157,39 @@
                     value = JSONDataClass.HeightDefaultValue;
                 }
                 _helpHeight = value;
+            }
+        }
+
+        public static void WriteUserWindowInfoToJSON(User user)
+        {
+            UserJsonOutput jsonData = new UserJsonOutput();
+
+            jsonData.Name = user.Name;
+
+            jsonData.WindowTitleMain = user.Windows[0].Title;
+            jsonData.MainTop = user.Windows[0].Top;
+            jsonData.MainLeft = user.Windows[0].Left;
+            jsonData.MainWidth = user.Windows[0].Width;
+            jsonData.MainHeight = user.Windows[0].Height;
+
+            jsonData.WindowTitleHelp = user.Windows[1].Title;
+            jsonData.HelpTop = user.Windows[1].Top;
+            jsonData.HelpLeft = user.Windows[1].Left;
+            jsonData.HelpWidth = user.Windows[1].Width;
+            jsonData.HelpHeight = user.Windows[1].Height;
+
+            string JSONResult = JsonConvert.SerializeObject(jsonData);
+
+            string path = String.Format(JSONDataClass.JSONFileLink, user.Name);
+
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+                XMLReaderLinks.WriteJSONDataToFile(path, JSONResult);
+            }
+            else
+            {
+                XMLReaderLinks.WriteJSONDataToFile(path, JSONResult);
             }
         }
     }

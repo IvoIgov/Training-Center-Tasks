@@ -57,7 +57,7 @@ using (XmlReader reader = XmlReader.Create(XMLReaderLinks.XMlFileLink))
                 allUsers.Add(user);
 
                 //Write user info to JSON file
-                WriteUserWindowInfoToJSON(user);
+                UserJsonOutput.WriteUserWindowInfoToJSON(user);
 
                 //userAddedToList = true;
                 windowData = new List<string>();
@@ -67,7 +67,7 @@ using (XmlReader reader = XmlReader.Create(XMLReaderLinks.XMlFileLink))
         }
     }
 
-    PrintUserInfo(allUsers);
+    User.PrintUserInfo(allUsers);
 
     var username = Console.ReadLine();
     var password = Console.ReadLine();
@@ -88,60 +88,6 @@ Window LoginWindow(List<User> allUsers, string username, string password)
     {
         Window helpWindow = new Window(user.Windows[1].Title, user.Windows[1].Top, user.Windows[1].Left, Window.WindowDefaultWidth, user.Windows[1].Height);
         return helpWindow;
-    }
-}
-
-void PrintUserInfo(List<User> allUsers)
-{
-    foreach (var user in allUsers)
-    {
-        StringBuilder sb = new StringBuilder();
-        sb.AppendLine($"Login: {user.Name}");
-        foreach (var item in user.Windows)
-        {
-            if (item.Title == "main")
-            {
-                sb.AppendLine($"  {item.Title}({item.Top}, {item.Left}, {item.Width}, {item.Height})");
-            }
-            else
-            {
-                sb.AppendLine($"  {item.Title}({item.Left}, {item.Top}, {Window.WindowDefaultPrint}, {item.Height})");
-            }
-        }
-        Console.WriteLine(sb.ToString().TrimEnd());
-    }
-}
-
-void WriteUserWindowInfoToJSON(User user)
-{
-    UserJsonOutput jsonData = new UserJsonOutput();
-
-    jsonData.Name = user.Name;
-
-    jsonData.WindowTitleMain = user.Windows[0].Title;
-    jsonData.MainTop = user.Windows[0].Top;
-    jsonData.MainLeft = user.Windows[0].Left;
-    jsonData.MainWidth = user.Windows[0].Width;
-    jsonData.MainHeight = user.Windows[0].Height;
-
-    jsonData.WindowTitleHelp = user.Windows[1].Title;
-    jsonData.HelpTop = user.Windows[1].Top;
-    jsonData.HelpLeft = user.Windows[1].Left;
-    jsonData.HelpWidth = user.Windows[1].Width;
-    jsonData.HelpHeight = user.Windows[1].Height;
-
-    string JSONResult = JsonConvert.SerializeObject(jsonData);
-
-    string path = String.Format(JSONDataClass.JSONFileLink, user.Name);
-
-    if (File.Exists(path))
-    {
-        File.Delete(path);
-        XMLReaderLinks.WriteJSONDataToFile(path, JSONResult);
-    }
-    else
-    {
-        XMLReaderLinks.WriteJSONDataToFile(path, JSONResult);
     }
 }
 
