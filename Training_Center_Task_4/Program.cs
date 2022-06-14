@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-using System.Text;
-using System.Xml;
+﻿using System.Xml;
 using Training_Center_Task_4;
 
 using (XmlReader reader = XmlReader.Create(XMLReaderLinks.XMlFileLink))
@@ -9,7 +7,7 @@ using (XmlReader reader = XmlReader.Create(XMLReaderLinks.XMlFileLink))
     List<string> windowData = new List<string>();
     User user = new User(string.Empty);
     List<User> allUsers = new List<User>();
-    //bool userAddedToList = false;
+
     while (reader.Read())
     {
         if (reader.IsStartElement())
@@ -59,10 +57,8 @@ using (XmlReader reader = XmlReader.Create(XMLReaderLinks.XMlFileLink))
                 //Write user info to JSON file
                 UserJsonOutput.WriteUserWindowInfoToJSON(user);
 
-                //userAddedToList = true;
                 windowData = new List<string>();
                 user = new User(string.Empty);
-
             }
         }
     }
