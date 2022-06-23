@@ -1,6 +1,6 @@
 ﻿namespace EventLogListener
 {
-    public class Class1
+    public class EventLogListeners
     {
 
     }

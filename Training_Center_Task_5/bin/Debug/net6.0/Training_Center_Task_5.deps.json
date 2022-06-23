@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Training_Center_Task_5/1.0.0": {
+        "runtime": {
+          "Training_Center_Task_5.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Training_Center_Task_5/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

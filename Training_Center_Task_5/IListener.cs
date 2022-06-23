@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Training_Center_Task_5
 {
-    internal interface IListener
+    public interface IListener
     {
+        void StartLogger();
     }
 }

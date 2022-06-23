@@ -1,6 +1,6 @@
 ﻿namespace WordListener
 {
-    public class Class1
+    public class WordListeners
     {
 
     }

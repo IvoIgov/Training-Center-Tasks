@@ -1,0 +1,12 @@
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\WordListener\bin\Debug\net6.0\WordListener.deps.json
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\WordListener\bin\Debug\net6.0\WordListener.dll
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\WordListener\bin\Debug\net6.0\WordListener.pdb
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\WordListener\obj\Debug\net6.0\WordListener.csproj.AssemblyReference.cache
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\WordListener\obj\Debug\net6.0\WordListener.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\WordListener\obj\Debug\net6.0\WordListener.AssemblyInfoInputs.cache
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\WordListener\obj\Debug\net6.0\WordListener.AssemblyInfo.cs
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\WordListener\obj\Debug\net6.0\WordListener.csproj.CoreCompileInputs.cache
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\WordListener\obj\Debug\net6.0\WordListener.dll
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\WordListener\obj\Debug\net6.0\refint\WordListener.dll
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\WordListener\obj\Debug\net6.0\WordListener.pdb
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\WordListener\obj\Debug\net6.0\ref\WordListener.dll

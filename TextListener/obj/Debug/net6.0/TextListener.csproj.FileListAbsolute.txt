@@ -1,0 +1,15 @@
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\TextListener\bin\Debug\net6.0\TextListener.deps.json
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\TextListener\bin\Debug\net6.0\TextListener.dll
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\TextListener\bin\Debug\net6.0\TextListener.pdb
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\TextListener\bin\Debug\net6.0\Training_Center_Task_5.dll
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\TextListener\bin\Debug\net6.0\Training_Center_Task_5.pdb
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\TextListener\obj\Debug\net6.0\TextListener.csproj.AssemblyReference.cache
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\TextListener\obj\Debug\net6.0\TextListener.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\TextListener\obj\Debug\net6.0\TextListener.AssemblyInfoInputs.cache
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\TextListener\obj\Debug\net6.0\TextListener.AssemblyInfo.cs
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\TextListener\obj\Debug\net6.0\TextListener.csproj.CoreCompileInputs.cache
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\TextListener\obj\Debug\net6.0\TextListener.csproj.CopyComplete
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\TextListener\obj\Debug\net6.0\TextListener.dll
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\TextListener\obj\Debug\net6.0\refint\TextListener.dll
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\TextListener\obj\Debug\net6.0\TextListener.pdb
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\TextListener\obj\Debug\net6.0\ref\TextListener.dll

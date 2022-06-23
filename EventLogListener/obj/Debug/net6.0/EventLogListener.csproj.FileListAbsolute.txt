@@ -1,0 +1,12 @@
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\EventLogListener\bin\Debug\net6.0\EventLogListener.deps.json
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\EventLogListener\bin\Debug\net6.0\EventLogListener.dll
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\EventLogListener\bin\Debug\net6.0\EventLogListener.pdb
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\EventLogListener\obj\Debug\net6.0\EventLogListener.csproj.AssemblyReference.cache
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\EventLogListener\obj\Debug\net6.0\EventLogListener.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\EventLogListener\obj\Debug\net6.0\EventLogListener.AssemblyInfoInputs.cache
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\EventLogListener\obj\Debug\net6.0\EventLogListener.AssemblyInfo.cs
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\EventLogListener\obj\Debug\net6.0\EventLogListener.csproj.CoreCompileInputs.cache
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\EventLogListener\obj\Debug\net6.0\EventLogListener.dll
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\EventLogListener\obj\Debug\net6.0\refint\EventLogListener.dll
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\EventLogListener\obj\Debug\net6.0\EventLogListener.pdb
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\EventLogListener\obj\Debug\net6.0\ref\EventLogListener.dll
