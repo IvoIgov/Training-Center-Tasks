@@ -7,18 +7,30 @@ namespace TextListener
     {
         private const string FileExtension = "log.txt";
 
-        string path = String.Format(LogFilesPaths.TextFilePath, FileExtension);
+        //string path = String.Format(LogFilesPaths.TextFilePath, FileExtension);
+        string path;
+
+        public string CurrentDirectory { get; set; }
+        public string FileName { get; set; }
+        public string FilePath { get; set; }
+
+        public TextListeners()
+        {
+            this.CurrentDirectory = Directory.GetCurrentDirectory();
+            this.FileName = "Log.txt";
+            this.FilePath = CurrentDirectory + "/Logs/" + FileName;
+        }
 
         public void StartLogger()
         {
-            if (File.Exists(path))
+            if (File.Exists(FilePath))
             {
-                File.Delete(path);
+                File.Delete(FilePath);
                 StringBuilder sb = new StringBuilder();
                 sb.Append(DateTime.Now);
 
                 // flush every 20 seconds as you do it
-                File.AppendAllText(path, sb.ToString());
+                File.AppendAllText(FilePath, sb.ToString());
                 sb.Clear();
             }
             else
@@ -27,7 +39,7 @@ namespace TextListener
                 sb.Append(DateTime.Now);
 
                 // flush every 20 seconds as you do it
-                File.AppendAllText(path, sb.ToString());
+                File.AppendAllText(FilePath, sb.ToString());
                 sb.Clear();
             }
         }
