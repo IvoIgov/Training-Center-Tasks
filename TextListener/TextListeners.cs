@@ -15,7 +15,7 @@ namespace TextListener
             {
                 File.Delete(path);
                 StringBuilder sb = new StringBuilder();
-                sb.Append("log something");
+                sb.Append(DateTime.Now);
 
                 // flush every 20 seconds as you do it
                 File.AppendAllText(path, sb.ToString());
@@ -24,7 +24,7 @@ namespace TextListener
             else
             {
                 StringBuilder sb = new StringBuilder();
-                sb.Append("log something");
+                sb.Append(DateTime.Now);
 
                 // flush every 20 seconds as you do it
                 File.AppendAllText(path, sb.ToString());
