@@ -25,22 +25,13 @@ namespace TextListener
             if (File.Exists(FilePath))
             {
                 File.Delete(FilePath);
-                StringBuilder sb = new StringBuilder();
-                sb.Append(message);
-
-                // flush every 20 seconds as you do it
-                File.AppendAllText(FilePath, sb.ToString());
-                sb.Clear();
             }
-            else
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.Append(message);
+            StringBuilder sb = new StringBuilder();
+            sb.Append(message);
 
-                // flush every 20 seconds as you do it
-                File.AppendAllText(FilePath, sb.ToString());
-                sb.Clear();
-            }
+            // flush every 20 seconds as you do it
+            File.AppendAllText(FilePath, sb.ToString());
+            sb.Clear();
         }
     }
 }
