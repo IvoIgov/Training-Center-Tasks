@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ddg+LBsDMabW38KMULMYQVEbgj5aMPP7f6XNU83Ph2MX0UGU9UQ8VkSlzme7/uKyvNZ11rxffrqfu+8NyNUIhw==",
+  "dgSpecHash": "/XZewBNDpx8TPnX/NafS2qUvUyGZuQMyYoTzC0GfwTwZYCrqkFzJ3bxNqG8MprbAhj5Xip8pgrFIqTQer6wdmg==",
   "success": true,
   "projectFilePath": "C:\\Users\\IvoIgov\\source\\repos\\Training_Center_Task_5\\WordListener\\WordListener.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\IvoIgov\\.nuget\\packages\\documentformat.openxml\\2.16.0\\documentformat.openxml.2.16.0.nupkg.sha512",
+    "C:\\Users\\IvoIgov\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

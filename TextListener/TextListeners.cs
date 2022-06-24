@@ -5,10 +5,9 @@ namespace TextListener
 {
     public class TextListeners : IListener
     {
-        private const string FileExtension = "log.txt";
+        private const string LogsFolderName = "/Logs/";
 
         //string path = String.Format(LogFilesPaths.TextFilePath, FileExtension);
-        string path;
 
         public string CurrentDirectory { get; set; }
         public string FileName { get; set; }
@@ -18,16 +17,16 @@ namespace TextListener
         {
             this.CurrentDirectory = Directory.GetCurrentDirectory();
             this.FileName = "Log.txt";
-            this.FilePath = CurrentDirectory + "/Logs/" + FileName;
+            this.FilePath = CurrentDirectory + LogsFolderName + FileName;
         }
 
-        public void StartLogger()
+        public void LogMessage(string message)
         {
             if (File.Exists(FilePath))
             {
                 File.Delete(FilePath);
                 StringBuilder sb = new StringBuilder();
-                sb.Append(DateTime.Now);
+                sb.Append(message);
 
                 // flush every 20 seconds as you do it
                 File.AppendAllText(FilePath, sb.ToString());
@@ -36,7 +35,7 @@ namespace TextListener
             else
             {
                 StringBuilder sb = new StringBuilder();
-                sb.Append(DateTime.Now);
+                sb.Append(message);
 
                 // flush every 20 seconds as you do it
                 File.AppendAllText(FilePath, sb.ToString());

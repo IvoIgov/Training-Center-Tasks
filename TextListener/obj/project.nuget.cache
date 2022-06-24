@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "t8wrjTTirD88on7of8+RWFz+opnnMVvxkqlf+v9L7j28GvN26QAOumFUMJ5tuSa4Wx6/du87e5Jjn+lWhXZ8sg==",
+  "dgSpecHash": "O6dyUss7Or5IA4U9fIntmbgtRP25FZhMRBvkAS0KIvb3EoFX7t2iFV73ORBlQ+VXGP9QdiSTn2Eb03tZWcYWZg==",
   "success": true,
   "projectFilePath": "C:\\Users\\IvoIgov\\source\\repos\\Training_Center_Task_5\\TextListener\\TextListener.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\IvoIgov\\.nuget\\packages\\documentformat.openxml\\2.16.0\\documentformat.openxml.2.16.0.nupkg.sha512",
+    "C:\\Users\\IvoIgov\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

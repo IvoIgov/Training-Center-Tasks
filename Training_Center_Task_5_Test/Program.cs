@@ -1,2 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Training_Center_Task_5;
+
+var loggers = new Loggers();
+var obj = new object();
+loggers.Track(obj);

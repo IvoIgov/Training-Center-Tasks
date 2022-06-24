@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Training_Center_Task_5
 {
     public interface IListener
-    {
-        void StartLogger();
+    { 
+        void LogMessage(string message);
     }
 }
