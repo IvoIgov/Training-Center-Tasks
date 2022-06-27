@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Z9TI576Q5GIz+P4s5NbPEc4dqmcZMF83o2EmQIr0Tkmh0S8CUt2tsSzKX29uMoxN1ZV7KjZKFwEt7jrZkRpQMw==",
+  "dgSpecHash": "05ixKOsR76c5r3nJwcMw/NENvCT78UO1E3425NnJSBqsb2dqTRV3b92JE2EfPD3zqvUJ+F4h3+nOx/68NuwKuw==",
   "success": true,
   "projectFilePath": "C:\\Users\\IvoIgov\\source\\repos\\Training_Center_Task_5\\Training_Center_Task_5\\Training_Center_Task_5.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\IvoIgov\\.nuget\\packages\\documentformat.openxml\\2.16.0\\documentformat.openxml.2.16.0.nupkg.sha512",
+    "C:\\Users\\IvoIgov\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\IvoIgov\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512"
   ],
   "logs": []

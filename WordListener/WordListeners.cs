@@ -6,7 +6,7 @@ namespace WordListener
     {
         private const string LogsFolderName = "/Logs/";
 
-        //string path = String.Format(LogFilesPaths.TextFilePath, FileExtension);
+        //string path = String.Format(LogFilesPaths.WordFilePath, FileExtension);
 
         public string CurrentDirectory { get; set; }
         public string FileName { get; set; }

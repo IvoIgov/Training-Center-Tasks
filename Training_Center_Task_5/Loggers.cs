@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,20 @@ namespace Training_Center_Task_5
             //2. gets DLL names from 1.
             //3. from DLL name + reflection create objects of listeners
             //4. Adds objects from 3. to AllLoggers
+
+            List<JSONItems> items = new List<JSONItems>();
+            items = LoadJson(items);
+        }
+
+        public List<JSONItems> LoadJson(List<JSONItems> items)
+        {
+            using (StreamReader r = new StreamReader("appsettings.json"))
+            {
+                string json = r.ReadToEnd();
+                items = JsonConvert.DeserializeObject<List<JSONItems>>(json);
+
+            }
+            return items;
         }
 
         public void Track(object obj)
