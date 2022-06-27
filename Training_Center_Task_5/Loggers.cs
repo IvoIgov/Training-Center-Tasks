@@ -5,28 +5,39 @@ namespace Training_Center_Task_5
 {
     public class Loggers
     {
+        public const string jsonPath = @"C:\Users\IvoIgov\source\repos\Training_Center_Task_5\Training_Center_Task_5\appsettings.json";
+        private List<JSONItems> _items = new List<JSONItems>();
         public List<IListener> AllLoggers = new List<IListener>();
 
         public Loggers()
         {
-            //1. reads appsettings
-            //2. gets DLL names from 1.
             //3. from DLL name + reflection create objects of listeners
             //4. Adds objects from 3. to AllLoggers
 
-            List<JSONItems> items = new List<JSONItems>();
-            items = LoadJson(items);
-
+            
         }
 
-        public List<JSONItems> LoadJson(List<JSONItems> items)
+        //1. reads appsettings
+        public void LoadJson()
         {
-            using (StreamReader r = new StreamReader(@"C:\Users\IvoIgov\source\repos\Training_Center_Task_5\Training_Center_Task_5\appsettings.json"))
+            using (StreamReader r = new StreamReader(jsonPath))
             {
                 string json = r.ReadToEnd();
-                items = JsonConvert.DeserializeObject <List<JSONItems>>(json);
+                _items = JsonConvert.DeserializeObject <List<JSONItems>>(json);
             }
-            return items;
+        }
+
+        public void AddDLLToLoggersList()
+        {
+            //2. gets DLL names from 1.
+            foreach (var item in _items)
+            {
+                if (item.ListenerName == "TextListener" || item.ListenerName == "WordListener" || item.ListenerName == "EventLogListener")
+                {
+                    string name = item.ListenerName + "s";
+                    Type type = typeof(IListener);
+                }
+            }
         }
 
         public void Track(object obj)
