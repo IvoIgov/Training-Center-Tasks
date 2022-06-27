@@ -16,3 +16,5 @@ C:\Users\IvoIgov\source\repos\Training_Center_Task_5\Training_Center_Task_5_Test
 C:\Users\IvoIgov\source\repos\Training_Center_Task_5\Training_Center_Task_5_Test\obj\Debug\net6.0\Training_Center_Task_5_Test.pdb
 C:\Users\IvoIgov\source\repos\Training_Center_Task_5\Training_Center_Task_5_Test\obj\Debug\net6.0\Training_Center_Task_5_Test.genruntimeconfig.cache
 C:\Users\IvoIgov\source\repos\Training_Center_Task_5\Training_Center_Task_5_Test\obj\Debug\net6.0\ref\Training_Center_Task_5_Test.dll
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\Training_Center_Task_5_Test\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\Training_Center_Task_5_Test\bin\Debug\net6.0\System.IO.Packaging.dll

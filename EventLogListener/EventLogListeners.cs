@@ -15,6 +15,7 @@ namespace EventLogListener
 
                 eventLog.Source = "TestApplication";
                 eventLog.WriteEntry(message, EventLogEntryType.Information);
+                //eventLog.Clear();
             }
         }
     }
