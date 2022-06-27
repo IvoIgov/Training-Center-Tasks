@@ -6,11 +6,12 @@ namespace Training_Center_Task_5
     public class Loggers
     {
         public const string jsonPath = @"C:\Users\IvoIgov\source\repos\Training_Center_Task_5\Training_Center_Task_5\appsettings.json";
-        private List<JSONItems> _items = new List<JSONItems>();
+        private List<JSONItems> _items;
         public List<IListener> AllLoggers = new List<IListener>();
 
         public Loggers()
         {
+            _items = new List<JSONItems>();
             //3. from DLL name + reflection create objects of listeners
             //4. Adds objects from 3. to AllLoggers
 
@@ -35,7 +36,7 @@ namespace Training_Center_Task_5
                 if (item.ListenerName == "TextListener" || item.ListenerName == "WordListener" || item.ListenerName == "EventLogListener")
                 {
                     string name = item.ListenerName + "s";
-                    Type type = typeof(IListener);
+                    //IListener type = typeof();
                 }
             }
         }
