@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Training_Center_Task_5.JSONInfo;
 
 namespace Training_Center_Task_5
 {
@@ -20,15 +21,15 @@ namespace Training_Center_Task_5
 
             List<JSONItems> items = new List<JSONItems>();
             items = LoadJson(items);
+
         }
 
         public List<JSONItems> LoadJson(List<JSONItems> items)
         {
-            using (StreamReader r = new StreamReader("appsettings.json"))
+            using (StreamReader r = new StreamReader(@"C:\Users\IvoIgov\source\repos\Training_Center_Task_5\Training_Center_Task_5\appsettings.json"))
             {
                 string json = r.ReadToEnd();
-                items = JsonConvert.DeserializeObject<List<JSONItems>>(json);
-
+                items = JsonConvert.DeserializeObject <List<JSONItems>>(json);
             }
             return items;
         }

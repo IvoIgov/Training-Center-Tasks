@@ -8,7 +8,6 @@
     ".NETCoreApp,Version=v6.0": {
       "Training_Center_Task_5_Test/1.0.0": {
         "dependencies": {
-          "DocumentFormat.OpenXml": "2.16.0",
           "Training_Center_Task_5": "1.0.0"
         },
         "runtime": {

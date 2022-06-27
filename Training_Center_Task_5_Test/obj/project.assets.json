@@ -133,7 +133,6 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "DocumentFormat.OpenXml >= 2.16.0",
       "Training_Center_Task_5 >= 1.0.0"
     ]
   },
@@ -179,12 +178,6 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
-        "dependencies": {
-          "DocumentFormat.OpenXml": {
-            "target": "Package",
-            "version": "[2.16.0, )"
-          }
-        },
         "imports": [
           "net461",
           "net462",

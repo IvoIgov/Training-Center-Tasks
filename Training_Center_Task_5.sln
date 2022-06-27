@@ -5,13 +5,13 @@ VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training_Center_Task_5", "Training_Center_Task_5\Training_Center_Task_5.csproj", "{3596A446-171C-4BD6-9E63-35C836822C8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training_Center_Task_5_Test", "Training_Center_Task_5_Test\Training_Center_Task_5_Test.csproj", "{6EE9AE4E-5E62-45B1-9130-EDD936492AE8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextListener", "TextListener\TextListener.csproj", "{CD0F33D5-FCAD-43AB-B586-FFF30AAE5635}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordListener", "WordListener\WordListener.csproj", "{95F74EF8-A0BF-4D55-B96C-F2ABBAA3EB39}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventLogListener", "EventLogListener\EventLogListener.csproj", "{7C3A1F02-7BF1-4565-94D0-649BA44F2D17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training_Center_Task_5_Test", "Training_Center_Task_5_Test\Training_Center_Task_5_Test.csproj", "{FA330E51-E666-4A74-81EA-D128E5202335}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		{3596A446-171C-4BD6-9E63-35C836822C8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3596A446-171C-4BD6-9E63-35C836822C8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3596A446-171C-4BD6-9E63-35C836822C8F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6EE9AE4E-5E62-45B1-9130-EDD936492AE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6EE9AE4E-5E62-45B1-9130-EDD936492AE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6EE9AE4E-5E62-45B1-9130-EDD936492AE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6EE9AE4E-5E62-45B1-9130-EDD936492AE8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CD0F33D5-FCAD-43AB-B586-FFF30AAE5635}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CD0F33D5-FCAD-43AB-B586-FFF30AAE5635}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD0F33D5-FCAD-43AB-B586-FFF30AAE5635}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{7C3A1F02-7BF1-4565-94D0-649BA44F2D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C3A1F02-7BF1-4565-94D0-649BA44F2D17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C3A1F02-7BF1-4565-94D0-649BA44F2D17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA330E51-E666-4A74-81EA-D128E5202335}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA330E51-E666-4A74-81EA-D128E5202335}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA330E51-E666-4A74-81EA-D128E5202335}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA330E51-E666-4A74-81EA-D128E5202335}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
