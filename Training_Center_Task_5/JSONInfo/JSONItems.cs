@@ -8,7 +8,10 @@ namespace Training_Center_Task_5.JSONInfo
 {
     public class JSONItems
     {
-        public string LoggerName { get; set; }
-        public List<WriteTo> WriteTo { get; set; }
+        public string ListenerName { get; set; }
+        public string MinimumLevel { get; set; }
+        public string Name { get; set; }
+        public List<Args> Args { get; set; }
+
     }
 }

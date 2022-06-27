@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace Training_Center_Task_5.JSONInfo
 {
     public class Args
     {
+        [JsonProperty("Args")]
         public string Path { get; set; }
         public string RollingInterval { get; set; }
         public string RestrictedToMinimumLevel { get; set; }
