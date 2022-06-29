@@ -1,8 +1,9 @@
 ﻿using System.Diagnostics;
+using Training_Center_Task_5;
 
 namespace EventLogListener
 {
-    public class EventLogListeners
+    public class EventLogListeners :IListener
     {
         public void LogMessage(string message)
         {

@@ -11,4 +11,8 @@
     <PackageReference Include="System.Diagnostics.EventLog" Version="6.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Training_Center_Task_5\Training_Center_Task_5.csproj" />
+  </ItemGroup>
+
 </Project>

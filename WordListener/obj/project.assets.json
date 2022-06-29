@@ -14,6 +14,15 @@
           "lib/netstandard2.0/DocumentFormat.OpenXml.dll": {}
         }
       },
+      "Newtonsoft.Json/13.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "System.IO.Packaging/4.7.0": {
         "type": "package",
         "compile": {
@@ -21,6 +30,20 @@
         },
         "runtime": {
           "lib/netstandard2.0/System.IO.Packaging.dll": {}
+        }
+      },
+      "Training_Center_Task_5/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DocumentFormat.OpenXml": "2.16.0",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/Training_Center_Task_5.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Training_Center_Task_5.dll": {}
         }
       }
     }
@@ -46,6 +69,33 @@
         "lib/netstandard1.3/DocumentFormat.OpenXml.xml",
         "lib/netstandard2.0/DocumentFormat.OpenXml.dll",
         "lib/netstandard2.0/DocumentFormat.OpenXml.xml"
+      ]
+    },
+    "Newtonsoft.Json/13.0.1": {
+      "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.1.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
       ]
     },
     "System.IO.Packaging/4.7.0": {
@@ -74,11 +124,17 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Training_Center_Task_5/1.0.0": {
+      "type": "project",
+      "path": "../Training_Center_Task_5/Training_Center_Task_5.csproj",
+      "msbuildProject": "../Training_Center_Task_5/Training_Center_Task_5.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "DocumentFormat.OpenXml >= 2.16.0"
+      "DocumentFormat.OpenXml >= 2.16.0",
+      "Training_Center_Task_5 >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -107,7 +163,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\IvoIgov\\source\\repos\\Training_Center_Task_5\\Training_Center_Task_5\\Training_Center_Task_5.csproj": {
+              "projectPath": "C:\\Users\\IvoIgov\\source\\repos\\Training_Center_Task_5\\Training_Center_Task_5\\Training_Center_Task_5.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -10,3 +10,6 @@ C:\Users\IvoIgov\source\repos\Training_Center_Task_5\WordListener\obj\Debug\net6
 C:\Users\IvoIgov\source\repos\Training_Center_Task_5\WordListener\obj\Debug\net6.0\refint\WordListener.dll
 C:\Users\IvoIgov\source\repos\Training_Center_Task_5\WordListener\obj\Debug\net6.0\WordListener.pdb
 C:\Users\IvoIgov\source\repos\Training_Center_Task_5\WordListener\obj\Debug\net6.0\ref\WordListener.dll
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\WordListener\bin\Debug\net6.0\Training_Center_Task_5.dll
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\WordListener\bin\Debug\net6.0\Training_Center_Task_5.pdb
+C:\Users\IvoIgov\source\repos\Training_Center_Task_5\WordListener\obj\Debug\net6.0\WordListener.csproj.CopyComplete

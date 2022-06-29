@@ -10,6 +10,4 @@ SampleClass sampleClass = new SampleClass("name", "description", "notes");
 
 loggers.Track(sampleClass);
 
-
-
 var obj = new object();

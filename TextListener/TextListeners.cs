@@ -5,7 +5,8 @@ namespace TextListener
 {
     public class TextListeners : IListener
     {
-        private const string LogsFolderName = "/Logs/";
+        private const string pathToLogs = @"C:\Users\IvoIgov\source\repos\Training_Center_Task_5\";
+        private const string LogsFolderName = @"Logs\";
 
         //string path = String.Format(LogFilesPaths.TextFilePath, FileExtension);
 
@@ -17,7 +18,7 @@ namespace TextListener
         {
             this.CurrentDirectory = Directory.GetCurrentDirectory();
             this.FileName = "Log.txt";
-            this.FilePath = CurrentDirectory + LogsFolderName + FileName;
+            this.FilePath = /*CurrentDirectory*/ pathToLogs + LogsFolderName + FileName;
         }
 
         public void LogMessage(string message)

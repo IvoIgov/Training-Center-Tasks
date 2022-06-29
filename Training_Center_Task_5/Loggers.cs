@@ -16,10 +16,6 @@ namespace Training_Center_Task_5
         public Loggers()
         {
             _items = new List<JSONItems>();
-            //3. from DLL name + reflection create objects of listeners
-            //4. Adds objects from 3. to AllLoggers
-
-
         }
 
         //1. reads appsettings
@@ -50,7 +46,6 @@ namespace Training_Center_Task_5
                     if (res.Length > 0 && res[0].Name == "IListener")
                     {
                         Type listenerType = assembly.GetType(type.FullName);
-                        Console.WriteLine(listenerType);
                         AllLoggers.Add((IListener)Activator.CreateInstance(listenerType));
                     }
                 }
@@ -100,11 +95,6 @@ namespace Training_Center_Task_5
                     listener.LogMessage($"{item.Key} - {item.Value}");
                 }
             }
-        }
-
-        public void LogMessage()
-        {
-
         }
     }
 }

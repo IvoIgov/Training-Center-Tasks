@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "4nN13BJa3W+wyR0/4vC0++oy1c07w/G0L3rJd/md4ZgRa46TncgYWJOEN+eDc3/dK92kGb3Yun0Kov0/zFC3LQ==",
+  "dgSpecHash": "hv4RfrjVm6gTLP6GqBF2w+DLm1pOMzwct5UXmlgylDT8aqCex6dIdz4YIb2a2Gv50X3TzygSZMLwedTgRCUzSA==",
   "success": true,
   "projectFilePath": "C:\\Users\\IvoIgov\\source\\repos\\Training_Center_Task_5\\EventLogListener\\EventLogListener.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\IvoIgov\\.nuget\\packages\\documentformat.openxml\\2.16.0\\documentformat.openxml.2.16.0.nupkg.sha512",
+    "C:\\Users\\IvoIgov\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\IvoIgov\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512",
     "C:\\Users\\IvoIgov\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512"
   ],
