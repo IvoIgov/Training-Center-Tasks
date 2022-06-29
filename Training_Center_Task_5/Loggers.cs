@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Reflection;
 using Training_Center_Task_5.JSONInfo;
 
 namespace Training_Center_Task_5
@@ -15,7 +16,7 @@ namespace Training_Center_Task_5
             //3. from DLL name + reflection create objects of listeners
             //4. Adds objects from 3. to AllLoggers
 
-            
+
         }
 
         //1. reads appsettings
@@ -24,7 +25,7 @@ namespace Training_Center_Task_5
             using (StreamReader r = new StreamReader(jsonPath))
             {
                 string json = r.ReadToEnd();
-                _items = JsonConvert.DeserializeObject <List<JSONItems>>(json);
+                _items = JsonConvert.DeserializeObject<List<JSONItems>>(json);
             }
         }
 
@@ -33,20 +34,39 @@ namespace Training_Center_Task_5
             //2. gets DLL names from 1.
             foreach (var item in _items)
             {
-                if (item.ListenerName == "TextListener" || item.ListenerName == "WordListener" || item.ListenerName == "EventLogListener")
+                string listenerName = item.ListenerName.Substring(0, item.ListenerName.Length - 4);
+
+                var assembly = Assembly.LoadFrom($"C:\\Users\\IvoIgov\\source\\repos\\Training_Center_Task_5\\{listenerName}\\bin\\Debug\\net6.0\\" + item.ListenerName);
+            
+                var types = assembly.GetTypes();
+
+                foreach (var type in types)
                 {
-                    string name = item.ListenerName + "s";
-                    //IListener type = typeof();
+                    var res = type.GetInterfaces();
+
+                    if (res.Length > 0 && res[0].Name == "IListener")
+                    {
+                        Type listenerType = assembly.GetType(type.FullName);
+                        Console.WriteLine(listenerType);
+                        AllLoggers.Add((IListener)Activator.CreateInstance(listenerType));
+                    }
                 }
             }
         }
 
         public void Track(object obj)
         {
-            //receive some info from obj
-            foreach (var listener in AllLoggers)
+            var attrs = typeof(SampleClass).GetProperties();
+
+            foreach (var attr in attrs)
             {
-                listener.LogMessage("information from obj");
+                if (attr.ToString() == "TrackingEntity")
+                {
+                    foreach (var listener in AllLoggers)
+                    {
+                        listener.LogMessage("information from obj");
+                    }
+                }
             }
         }
     }
