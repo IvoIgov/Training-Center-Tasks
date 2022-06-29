@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using Training_Center_Task_5.JSONInfo;
 
 namespace Training_Center_Task_5
@@ -8,6 +9,7 @@ namespace Training_Center_Task_5
     public class Loggers
     {
         public const string jsonPath = @"C:\Users\IvoIgov\source\repos\Training_Center_Task_5\Training_Center_Task_5\appsettings.json";
+        public const string logPath = @"C:\\Users\\IvoIgov\\source\\repos\\Training_Center_Task_5\\Logs";
         private List<JSONItems> _items;
         public List<IListener> AllLoggers = new List<IListener>();
 
@@ -55,29 +57,54 @@ namespace Training_Center_Task_5
             }
         }
 
-        public void Track(object obj)
+        public void Track(SampleClass sampleClass)
         {
             Type type = typeof(SampleClass);
-            Attribute[] attrs = Attribute.GetCustomAttributes(type);
+            Attribute[] allAttrs = Attribute.GetCustomAttributes(type);
 
-            foreach (var attr in attrs)
+            if (Attribute.GetCustomAttribute(typeof(SampleClass), typeof(TrackingEntity)) != null)
             {
-                if (attrs.Any() is TrackingEntity)
+
+            }
+            else
+            {
+                return;
+            }
+
+            List<KeyValuePair<string, string>> attributeInfo = new List<KeyValuePair<string, string>>();
+
+
+            PropertyInfo[] props = typeof(SampleClass).GetProperties();
+            foreach (PropertyInfo prop in props)
+            {
+                object[] attrs = prop.GetCustomAttributes(true);
+                foreach (object attr in attrs)
                 {
-                   
-                }
-                else
-                {
-                    return;
-                }
-                if (attr is TrackingProperty)
-                {
-                    foreach (var listener in AllLoggers)
+                    TrackingProperty sampleClassAttr = attr as TrackingProperty;
+                    if (sampleClassAttr != null)
                     {
-                        listener.LogMessage("information from obj");
+                        string propName = prop.Name;
+                        string auth = sampleClass.Name;
+
+                        KeyValuePair<string, string> keyValuePair = new KeyValuePair<string, string>(propName, auth);
+
+                        attributeInfo.Add(keyValuePair);
                     }
                 }
             }
+
+            foreach(var item in attributeInfo)
+            {
+                foreach (var listener in AllLoggers)
+                {
+                    listener.LogMessage($"{item.Key} - {item.Value}");
+                }
+            }
+        }
+
+        public void LogMessage()
+        {
+
         }
     }
 }

@@ -10,12 +10,6 @@ SampleClass sampleClass = new SampleClass("name", "description", "notes");
 
 loggers.Track(sampleClass);
 
-//Type type = typeof(SampleClass);
-//Attribute[] attributes = Attribute.GetCustomAttributes(type);
 
-//if (attributes.Contains("TrackingEntity")
-//{
-
-//}
 
 var obj = new object();
