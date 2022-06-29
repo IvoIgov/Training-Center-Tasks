@@ -15,5 +15,12 @@ namespace Training_Center_Task_5
 
         [TrackingProperty]
         public int Notes { get; set; }
+
+        public SampleClass(string name, string description, int notes)
+        {
+            Name = name;
+            Description = description;
+            Notes = notes;
+        }
     }
 }
