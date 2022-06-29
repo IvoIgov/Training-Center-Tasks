@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Linq;
 using System.Reflection;
 using Training_Center_Task_5.JSONInfo;
 
@@ -37,7 +38,7 @@ namespace Training_Center_Task_5
                 string listenerName = item.ListenerName.Substring(0, item.ListenerName.Length - 4);
 
                 var assembly = Assembly.LoadFrom($"C:\\Users\\IvoIgov\\source\\repos\\Training_Center_Task_5\\{listenerName}\\bin\\Debug\\net6.0\\" + item.ListenerName);
-            
+
                 var types = assembly.GetTypes();
 
                 foreach (var type in types)
@@ -56,11 +57,20 @@ namespace Training_Center_Task_5
 
         public void Track(object obj)
         {
-            var attrs = typeof(SampleClass).GetProperties();
+            Type type = typeof(SampleClass);
+            Attribute[] attrs = Attribute.GetCustomAttributes(type);
 
             foreach (var attr in attrs)
             {
-                if (attr.ToString() == "TrackingEntity")
+                if (attrs.Any() is TrackingEntity)
+                {
+                   
+                }
+                else
+                {
+                    return;
+                }
+                if (attr is TrackingProperty)
                 {
                     foreach (var listener in AllLoggers)
                     {

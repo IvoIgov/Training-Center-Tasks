@@ -14,9 +14,9 @@ namespace Training_Center_Task_5
         public string Description { get; set; }
 
         [TrackingProperty]
-        public int Notes { get; set; }
+        public string Notes { get; set; }
 
-        public SampleClass(string name, string description, int notes)
+        public SampleClass(string name, string description, string notes)
         {
             Name = name;
             Description = description;
