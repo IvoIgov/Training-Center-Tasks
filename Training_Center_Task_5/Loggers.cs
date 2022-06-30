@@ -92,6 +92,10 @@ namespace Training_Center_Task_5
             {
                 foreach (var listener in AllLoggers)
                 {
+                    //if (listener.ToString().Contains("TextListeners"))
+                    //{
+
+                    //}
                     listener.LogMessage($"{item.Key} - {item.Value}");
                 }
             }

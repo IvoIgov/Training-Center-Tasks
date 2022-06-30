@@ -59,7 +59,8 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "DocumentFormat.OpenXml": "2.16.0",
-          "Newtonsoft.Json": "13.0.1"
+          "Newtonsoft.Json": "13.0.1",
+          "System.Diagnostics.EventLog": "6.0.0"
         },
         "compile": {
           "bin/placeholder/Training_Center_Task_5.dll": {}
