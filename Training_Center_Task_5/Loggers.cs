@@ -8,8 +8,8 @@ namespace Training_Center_Task_5
 {
     public class Loggers
     {
-        public const string jsonPath = @"C:\Users\IvoIgov\source\repos\Training_Center_Task_5\Training_Center_Task_5\appsettings.json";
-        public const string logPath = @"C:\\Users\\IvoIgov\\source\\repos\\Training_Center_Task_5\\Logs";
+        public const string jsonPath = LogFilesPaths.JsonPath;
+
         private List<JSONItems> _items;
         public List<IListener> AllLoggers = new List<IListener>();
 
@@ -92,10 +92,6 @@ namespace Training_Center_Task_5
             {
                 foreach (var listener in AllLoggers)
                 {
-                    //if (listener.ToString().Contains("TextListeners"))
-                    //{
-
-                    //}
                     listener.LogMessage($"{item.Key} - {item.Value}");
                 }
             }

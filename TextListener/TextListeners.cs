@@ -1,12 +1,12 @@
 ﻿using System.Text;
 using Training_Center_Task_5;
+using Training_Center_Task_5.JSONInfo;
 
 namespace TextListener
 {
     public class TextListeners : IListener
     {
-        private const string pathToLogs = @"C:\Users\IvoIgov\source\repos\Training_Center_Task_5\";
-        private const string LogsFolderName = @"Logs\";
+        private const string pathToLogs = LogFilesPaths.TextFilePath;
 
         //string path = String.Format(LogFilesPaths.TextFilePath, FileExtension);
 
@@ -17,8 +17,8 @@ namespace TextListener
         public TextListeners()
         {
             this.CurrentDirectory = Directory.GetCurrentDirectory();
-            this.FileName = "Log.txt";
-            this.FilePath = /*CurrentDirectory*/ pathToLogs + LogsFolderName + FileName;
+            this.FileName = LogFilesPaths.TextFileName; ;
+            this.FilePath = /*CurrentDirectory*/ pathToLogs;
         }
 
         public void LogMessage(string message)

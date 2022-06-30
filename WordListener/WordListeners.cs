@@ -1,12 +1,13 @@
 ﻿using System.Text;
 using Training_Center_Task_5;
+using Training_Center_Task_5.JSONInfo;
 
 namespace WordListener
 {
     public class WordListeners : IListener
     {
-        private const string pathToLogs = @"C:\Users\IvoIgov\source\repos\Training_Center_Task_5\";
-        private const string LogsFolderName = @"Logs\";
+        private const string pathToLogs = LogFilesPaths.WordFilePath;
+
 
         //string path = String.Format(LogFilesPaths.WordFilePath, FileExtension);
 
@@ -17,8 +18,8 @@ namespace WordListener
         public WordListeners()
         {
             this.CurrentDirectory = Directory.GetCurrentDirectory();
-            this.FileName = "Log.docx";
-            this.FilePath = /*CurrentDirectory*/ pathToLogs + LogsFolderName + FileName;
+            this.FileName = LogFilesPaths.WordFileName; ;
+            this.FilePath = /*CurrentDirectory*/ pathToLogs;
         }
 
         public void LogMessage(string message)
