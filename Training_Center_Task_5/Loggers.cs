@@ -1,14 +1,14 @@
 ﻿using Newtonsoft.Json;
-using System.Linq;
 using System.Reflection;
-using System.Text;
 using Training_Center_Task_5.JSONInfo;
 
 namespace Training_Center_Task_5
 {
     public class Loggers
     {
-        public const string jsonPath = LogFilesPaths.JsonPath;
+        public const string _jsonPath = LogFilesPaths.JsonPath;
+        public const string _interfaceName = "IListener";
+
 
         private List<JSONItems> _items;
         public List<IListener> AllLoggers = new List<IListener>();
@@ -21,7 +21,7 @@ namespace Training_Center_Task_5
         //1. reads appsettings
         public void LoadJson()
         {
-            using (StreamReader r = new StreamReader(jsonPath))
+            using (StreamReader r = new StreamReader(_jsonPath))
             {
                 string json = r.ReadToEnd();
                 _items = JsonConvert.DeserializeObject<List<JSONItems>>(json);
@@ -43,7 +43,7 @@ namespace Training_Center_Task_5
                 {
                     var res = type.GetInterfaces();
 
-                    if (res.Length > 0 && res[0].Name == "IListener")
+                    if (res.Length > 0 && res[0].Name == _interfaceName)
                     {
                         Type listenerType = assembly.GetType(type.FullName);
                         AllLoggers.Add((IListener)Activator.CreateInstance(listenerType));

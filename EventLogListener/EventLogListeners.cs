@@ -9,7 +9,7 @@ namespace EventLogListener
         {
             using (EventLog eventLog = new EventLog())
             {
-                if (EventLog.SourceExists("TestApplication") == null)
+                if (EventLog.SourceExists("TestApplication") == false)
                 {
                     EventLog.CreateEventSource("TestApplication", "Application");
                 }
