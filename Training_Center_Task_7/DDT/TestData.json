@@ -1,0 +1,12 @@
+[
+  {
+    "TestName": "SendEmailCheckReceived",
+    "User1Username": "testtester10",
+    "User1Password": "t3st3rt3st10",
+    "User2Username": "testtester200",
+    "User2Password": "t3st3rt3st200",
+    "EmailTo": "testtester200@yahoo.com",
+    "EmailSubject": "Test Email 1",
+    "EmailText": "First test email!"
+  }
+]

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training_Center_Task_7", "Training_Center_Task_7\Training_Center_Task_7.csproj", "{117FFB6D-84FA-4010-92FB-4EC28DEE4A87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training_Center_Task_7_Selenium_Tests", "Training_Center_Task_7_Selenium_Tests\Training_Center_Task_7_Selenium_Tests.csproj", "{6ED5635F-68C5-426F-A807-B4C11733DF76}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{117FFB6D-84FA-4010-92FB-4EC28DEE4A87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{117FFB6D-84FA-4010-92FB-4EC28DEE4A87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{117FFB6D-84FA-4010-92FB-4EC28DEE4A87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{117FFB6D-84FA-4010-92FB-4EC28DEE4A87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ED5635F-68C5-426F-A807-B4C11733DF76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ED5635F-68C5-426F-A807-B4C11733DF76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ED5635F-68C5-426F-A807-B4C11733DF76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ED5635F-68C5-426F-A807-B4C11733DF76}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B8B1635-1309-4F72-AA24-1310D67FA8DC}
+	EndGlobalSection
+EndGlobal
