@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,11 +63,14 @@ namespace Training_Center_Task_7.Inbox
 
         public HomePage LogOut()
         {
-            _accountMenu.Click();
+            Actions actions = new Actions(_driver);
+            actions.MoveToElement(_accountMenu).Perform();
+            _driver.Wait(2000);
+            //_accountMenu.Click();
             _logoutButton = _driver.FindElement(By.Id("profile-signout-link"));
             _logoutButton.Click();
-            _signOutConfirmButton = _driver.FindElement(By.CssSelector("input[data-logout='yes']"), WebDriverWaitTime);
-            _signOutConfirmButton.Click();
+            //_signOutConfirmButton = _driver.FindElement(By.CssSelector("input[data-logout='yes']"), WebDriverWaitTime);
+            //_signOutConfirmButton.Click();
 
             return new HomePage(_driver);
         }

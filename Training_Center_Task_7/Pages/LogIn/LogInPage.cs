@@ -24,7 +24,7 @@ namespace Training_Center_Task_7.Pages.Home
         public LogInPage(IWebDriver driver) : base(driver)
         {
             this._driver = driver;
-            _signInLink = _driver.FindElement(By.LinkText("Sign in"), WebDriverWaitTime);
+            _signInLink = _driver.FindElement(By.Id("login-signin"), WebDriverWaitTime);
         }
 
         public InboxPage Login(string username, string password)
