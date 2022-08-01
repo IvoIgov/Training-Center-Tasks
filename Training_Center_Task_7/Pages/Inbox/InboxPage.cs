@@ -44,7 +44,7 @@ namespace Training_Center_Task_7.Inbox
         public void ComposeEmailAndSend(string emailTo, string emailSubject, string emailText)
         {
             StartEmail();
-            _composeEmailToTextBox = _driver.FindElement(By.CssSelector("div[data-test-id='compose-header-field-to']"), WebDriverWaitTime);
+            _composeEmailToTextBox = _driver.FindElement(By.Id("message-to-field"), WebDriverWaitTime);
             _composeEmailToTextBox.Click();
             _composeEmailToTextBox.SendKeys(emailTo);
 
