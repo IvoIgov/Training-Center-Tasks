@@ -1,10 +1,5 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Training_Center_Task_7.Pages.Home;
 
 namespace Training_Center_Task_7.Inbox
@@ -21,7 +16,6 @@ namespace Training_Center_Task_7.Inbox
         private IWebElement _sendEmailButton;
         private IWebElement _accountMenu;
         private IWebElement _logoutButton;
-        private IWebElement _signOutConfirmButton;
         private IWebElement _numberOfEmailsInInbox;
         private IWebElement _emailSenderField;
         private IWebElement _emailSubjectField;
@@ -66,11 +60,8 @@ namespace Training_Center_Task_7.Inbox
             Actions actions = new Actions(_driver);
             actions.MoveToElement(_accountMenu).Perform();
             _driver.Wait(2000);
-            //_accountMenu.Click();
             _logoutButton = _driver.FindElement(By.Id("profile-signout-link"));
             _logoutButton.Click();
-            //_signOutConfirmButton = _driver.FindElement(By.CssSelector("input[data-logout='yes']"), WebDriverWaitTime);
-            //_signOutConfirmButton.Click();
 
             return new HomePage(_driver);
         }
