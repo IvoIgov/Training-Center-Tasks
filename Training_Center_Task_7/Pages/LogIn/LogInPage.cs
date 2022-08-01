@@ -39,6 +39,7 @@ namespace Training_Center_Task_7.Pages.Home
             _staySignedInCheckbox = _driver.FindElement(By.CssSelector("label[for='persistent']"), WebDriverWaitTime);
             _staySignedInCheckbox.Click();
 
+            _nextButton = _driver.FindElement(By.Id("login-signin"), WebDriverWaitTime);
             _nextButton.Click();
 
             _passwordTextBox = _driver.FindElement(By.Id("login-passwd"), WebDriverWaitTime);

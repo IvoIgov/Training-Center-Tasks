@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using Training_Center_Task_7;
 using Training_Center_Task_7.Inbox;
 using Training_Center_Task_7.Models;
@@ -21,10 +22,8 @@ namespace Training_Center_Task_7_Selenium_Tests
         [TestInitialize]
         public void Init()
         {
-            //var options = new ChromeOptions();
-            //options.BinaryLocation = @"C:\Program Files\Google\Chrome Beta\Application\chrome.exe";
-            this.driver = new ChromeDriver(ConstantsTests.WebDriverPath);
-            //this.driver = new ChromeDriver(options);
+            //this.driver = new ChromeDriver(ConstantsTests.WebDriverPath);
+            this.driver = new FirefoxDriver();
 
             driver.Manage().Window.Maximize();
             _mainPage = new MainPage(driver);

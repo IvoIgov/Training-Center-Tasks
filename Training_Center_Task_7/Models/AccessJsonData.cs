@@ -29,6 +29,7 @@ namespace Training_Center_Task_7.Models
                     result.User1Password = item.User1Password;
                     result.User2Username = item.User2Username;
                     result.User2Password = item.User2Password;
+                    result.EmailTo = item.EmailTo;
                     result.EmailSubject = item.EmailSubject;
                     result.EmailText = item.EmailText;
                 }
