@@ -77,7 +77,7 @@ namespace Training_Center_Task_7.Inbox
 
         public string CheckNumberOfEmailsInInbox()
         {
-            _numberOfEmailsInInbox = _driver.FindElement(By.CssSelector("a[data-test-total-count='compose-send-button']"), WebDriverWaitTime);
+            _numberOfEmailsInInbox = _driver.FindElement(By.CssSelector("a[data-test-id='folder-list-item']"), WebDriverWaitTime);
 
             return _numberOfEmailsInInbox.Text;
         }
@@ -98,7 +98,7 @@ namespace Training_Center_Task_7.Inbox
 
         public string CheckReceivedEmailText()
         {
-            _emailTextField = _driver.FindElement(By.CssSelector("span[data-test-id='snippet']"), WebDriverWaitTime);
+            _emailTextField = _driver.FindElement(By.CssSelector("div[data-test-id='snippet']"), WebDriverWaitTime);
 
             return _emailTextField.Text;
         }

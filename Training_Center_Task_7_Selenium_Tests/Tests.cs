@@ -1,4 +1,4 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
@@ -51,14 +51,14 @@ namespace Training_Center_Task_7_Selenium_Tests
             _loginPage = _homePage.NavigateToLoginPage();
             _inboxPage = _loginPage.Login(testData.User2Username, testData.User2Password);
 
-            _inboxPage.AssertNumberOfEmailsInInbox("1");
-            _inboxPage.AssertEmailSender("testtester10@yahoo.com");
+            _inboxPage.AssertNumberOfEmailsInInbox("Входящи\r\n1");
+            _inboxPage.AssertEmailSender("Test Tester");
             _inboxPage.AssertEmailSubject(testData.EmailSubject);
             _inboxPage.AssertEmailText(testData.EmailText);
 
             _inboxPage.DeleteAllEmailsFromInbox();
 
-            _inboxPage.AssertNumberOfEmailsInInbox("0");
+            _inboxPage.AssertNumberOfEmailsInInbox("Входящи");
         }
     }
 }
