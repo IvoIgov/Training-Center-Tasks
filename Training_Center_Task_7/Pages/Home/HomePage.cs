@@ -21,8 +21,14 @@ namespace Training_Center_Task_7.Pages.Home
 
         public void AcceptGRPR()
         {
-            _dgprButton = _driver.FindElement(By.CssSelector("button[class='btn primary']"), WebDriverWaitTime);
-            _dgprButton.Click();
+            try
+            {
+                _dgprButton = _driver.FindElement(By.CssSelector("button[class='btn primary']"), WebDriverWaitTime);
+                _dgprButton.Click();
+            }
+            catch (Exception)
+            {
+            }
         }
 
         public LogInPage NavigateToLoginPage()
