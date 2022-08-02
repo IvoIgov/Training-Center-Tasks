@@ -6,7 +6,17 @@ namespace Training_Center_Task_7.Pages.Home
     public class LogInPage : MainPage
     {
         private IWebDriver _driver;
+
         private const int WebDriverWaitTime = 10;
+
+        const string SIGNIN_LINK_LOCATOR = "Sign in";
+        const string USERNAME_TEXT_BOX_LOCATOR = "login-username";
+        const string STAY_SIGNED_IN_CHECKBOX_LOCATOR = "label[for='persistent']";
+        const string NEXT_BUTTON_LOCATOR = "login-signin";
+        const string PASSWORD_TEXT_BOX_LOCATOR = "login-passwd";
+        const string DENY_ALL_PERSONALISED_STATS_BUTTON_LOCATOR = "mail-decline-all-1";
+        const string CLOSE_ALL_PERSONALISED_STATS_LOCATOR = "button[class='btn primary done-button']";
+
         private IWebElement _signInLink;
         private IWebElement _usernameTextBox;
         private IWebElement _passwordTextBox;
@@ -27,34 +37,34 @@ namespace Training_Center_Task_7.Pages.Home
 
             try
             {
-                _signInLink = _driver.FindElement(By.LinkText("Sign in"), WebDriverWaitTime);
+                _signInLink = _driver.FindElement(By.LinkText(SIGNIN_LINK_LOCATOR), WebDriverWaitTime);
                 _signInLink.Click();
             }
             catch (Exception)
             {
             }
 
-            _usernameTextBox = _driver.FindElement(By.Id("login-username"), WebDriverWaitTime);
+            _usernameTextBox = _driver.FindElement(By.Id(USERNAME_TEXT_BOX_LOCATOR), WebDriverWaitTime);
             _usernameTextBox.Click();
             _usernameTextBox.SendKeys(username);
 
-            _staySignedInCheckbox = _driver.FindElement(By.CssSelector("label[for='persistent']"), WebDriverWaitTime);
+            _staySignedInCheckbox = _driver.FindElement(By.CssSelector(STAY_SIGNED_IN_CHECKBOX_LOCATOR), WebDriverWaitTime);
             _staySignedInCheckbox.Click();
 
-            _nextButton = _driver.FindElement(By.Id("login-signin"), WebDriverWaitTime);
+            _nextButton = _driver.FindElement(By.Id(NEXT_BUTTON_LOCATOR), WebDriverWaitTime);
             _nextButton.Click();
 
-            _passwordTextBox = _driver.FindElement(By.Id("login-passwd"), WebDriverWaitTime);
+            _passwordTextBox = _driver.FindElement(By.Id(PASSWORD_TEXT_BOX_LOCATOR), WebDriverWaitTime);
             _passwordTextBox.SendKeys(password);
 
-            _nextButton = _driver.FindElement(By.Id("login-signin"), WebDriverWaitTime);
+            //_nextButton = _driver.FindElement(By.Id("login-signin"), WebDriverWaitTime);
             _nextButton.Click();
 
             try
             {
-                _denyAllPersonalisedStatsButton = _driver.FindElement(By.Id("mail-decline-all-1"), WebDriverWaitTime);
+                _denyAllPersonalisedStatsButton = _driver.FindElement(By.Id(DENY_ALL_PERSONALISED_STATS_BUTTON_LOCATOR), WebDriverWaitTime);
                 _denyAllPersonalisedStatsButton.Click();
-                _closePersonalisedStatsButton = _driver.FindElement(By.CssSelector("button[class='btn primary done-button']"), WebDriverWaitTime);
+                _closePersonalisedStatsButton = _driver.FindElement(By.CssSelector(CLOSE_ALL_PERSONALISED_STATS_LOCATOR), WebDriverWaitTime);
                 _closePersonalisedStatsButton.Click();
             }
             catch (Exception)
