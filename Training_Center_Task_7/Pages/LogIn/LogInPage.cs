@@ -15,7 +15,7 @@ namespace Training_Center_Task_7.Pages.Home
         const string NEXT_BUTTON_LOCATOR = "login-signin";
         const string PASSWORD_TEXT_BOX_LOCATOR = "login-passwd";
         const string DENY_ALL_PERSONALISED_STATS_BUTTON_LOCATOR = "mail-decline-all-1";
-        const string CLOSE_ALL_PERSONALISED_STATS_LOCATOR = "button[class='btn primary done-button']";
+        const string CLOSE_PERSONALISED_STATS_BUTTON_LOCATOR = "button[class='btn primary done-button']";
 
         private IWebElement _signInLink;
         private IWebElement _usernameTextBox;
@@ -64,7 +64,7 @@ namespace Training_Center_Task_7.Pages.Home
             {
                 _denyAllPersonalisedStatsButton = _driver.FindElement(By.Id(DENY_ALL_PERSONALISED_STATS_BUTTON_LOCATOR), WebDriverWaitTime);
                 _denyAllPersonalisedStatsButton.Click();
-                _closePersonalisedStatsButton = _driver.FindElement(By.CssSelector(CLOSE_ALL_PERSONALISED_STATS_LOCATOR), WebDriverWaitTime);
+                _closePersonalisedStatsButton = _driver.FindElement(By.CssSelector(CLOSE_PERSONALISED_STATS_BUTTON_LOCATOR), WebDriverWaitTime);
                 _closePersonalisedStatsButton.Click();
             }
             catch (Exception)
