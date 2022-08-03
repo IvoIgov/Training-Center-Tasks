@@ -16,6 +16,8 @@ namespace Training_Center_Task_7_Selenium_Tests
         private HomePage _homePage;
         private LogInPage _loginPage;
         private InboxPage _inboxPage;
+        private UnitTests _unitTests;
+
 
 
         [TestInitialize]
@@ -50,14 +52,14 @@ namespace Training_Center_Task_7_Selenium_Tests
             _loginPage = _homePage.NavigateToLoginPage();
             _inboxPage = _loginPage.Login(testData.User2Username, testData.User2Password);
 
-            _inboxPage.AssertNumberOfEmailsInInbox("Входящи\r\n1");
-            _inboxPage.AssertEmailSender("Test Tester");
-            _inboxPage.AssertEmailSubject(testData.EmailSubject);
-            _inboxPage.AssertEmailText(testData.EmailText);
+            _unitTests.AssertNumberOfEmailsInInbox(_inboxPage, "Входящи\r\n1");
+            _unitTests.AssertEmailSender(_inboxPage, "Test Tester");
+            _unitTests.AssertEmailSubject(_inboxPage, testData.EmailSubject);
+            _unitTests.AssertEmailText(_inboxPage, testData.EmailText);
 
             _inboxPage.DeleteAllEmailsFromInbox();
 
-            _inboxPage.AssertNumberOfEmailsInInbox("Входящи");
+            _unitTests.AssertNumberOfEmailsInInbox(_inboxPage, "Входящи");
         }
     }
 }
