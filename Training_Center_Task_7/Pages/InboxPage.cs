@@ -54,13 +54,10 @@ namespace Training_Center_Task_7.Pages
         public void ComposeEmailAndSend(string emailTo, string emailSubject, string emailText)
         {
             StartEmail();
-            _composeEmailToTextBox = _driver.FindElement(By.Id(COMPOSE_EMAIL_TO_TEXT_BOX_LOCATOR), WebDriverWaitTime);
-            _composeEmailToTextBox.Click();
-            _composeEmailToTextBox.SendKeys(emailTo);
+            FillInComposeEmailToTextbox(emailTo);
+            FillInComposeEmailSubjectTextbox(emailSubject);
 
-            _composeEmailSubjectTextBox = _driver.FindElement(By.CssSelector(COMPOSE_EMAIL_SUBJECT_TEXT_BOX_LOCATOR), WebDriverWaitTime);
-            _composeEmailSubjectTextBox.Click();
-            _composeEmailSubjectTextBox.SendKeys(emailSubject);
+
 
             _composeEmailContentTextBox = _driver.FindElement(By.CssSelector(COMPOSE_EMAIL_CONTENT_TEXT_BOX_LOCATOR), WebDriverWaitTime);
             _composeEmailContentTextBox.Click();
@@ -70,7 +67,21 @@ namespace Training_Center_Task_7.Pages
             _sendEmailButton.Click();
         }
 
-        public HomePage LogOut()
+        public void FillInComposeEmailToTextbox(string emailTo)
+        {
+            _composeEmailToTextBox = _driver.FindElement(By.Id(COMPOSE_EMAIL_TO_TEXT_BOX_LOCATOR), WebDriverWaitTime);
+            _composeEmailToTextBox.Click();
+            _composeEmailToTextBox.SendKeys(emailTo);
+        }
+
+        public void FillInComposeEmailSubjectTextbox(string emailSubject)
+        {
+            _composeEmailSubjectTextBox = _driver.FindElement(By.CssSelector(COMPOSE_EMAIL_SUBJECT_TEXT_BOX_LOCATOR), WebDriverWaitTime);
+            _composeEmailSubjectTextBox.Click();
+            _composeEmailSubjectTextBox.SendKeys(emailSubject);
+        }
+
+            public HomePage LogOut()
         {
             Actions actions = new Actions(_driver);
             actions.MoveToElement(_accountMenu).Perform();
