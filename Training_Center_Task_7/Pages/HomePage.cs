@@ -18,6 +18,13 @@ namespace Training_Center_Task_7.Pages
             _driver = driver;
         }
 
+        public LogInPage NavigateToLoginPage()
+        {
+            AcceptGRPR();
+            GoToMail();
+            return new LogInPage(_driver);
+        }
+
         public void AcceptGRPR()
         {
             try
@@ -30,12 +37,10 @@ namespace Training_Center_Task_7.Pages
             }
         }
 
-        public LogInPage NavigateToLoginPage()
+        public void GoToMail()
         {
-            AcceptGRPR();
             _mailButton = _driver.FindElement(By.Id(MAIL_BUTTON_LOCATOR), WebDriverWaitTime);
             _mailButton.Click();
-            return new LogInPage(_driver);
         }
     }
 }

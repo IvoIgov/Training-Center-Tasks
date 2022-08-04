@@ -36,41 +36,66 @@ namespace Training_Center_Task_7.Pages
 
             try
             {
-                _signInLink = _driver.FindElement(By.LinkText(SIGNIN_LINK_LOCATOR), WebDriverWaitTime);
-                _signInLink.Click();
+                ClickSignInLink();
             }
             catch (Exception)
             {
             }
 
-            _usernameTextBox = _driver.FindElement(By.Id(USERNAME_TEXT_BOX_LOCATOR), WebDriverWaitTime);
-            _usernameTextBox.Click();
-            _usernameTextBox.SendKeys(username);
-
-            _staySignedInCheckbox = _driver.FindElement(By.CssSelector(STAY_SIGNED_IN_CHECKBOX_LOCATOR), WebDriverWaitTime);
-            _staySignedInCheckbox.Click();
-
-            _nextButton = _driver.FindElement(By.Id(NEXT_BUTTON_LOCATOR), WebDriverWaitTime);
-            _nextButton.Click();
-
-            _passwordTextBox = _driver.FindElement(By.Id(PASSWORD_TEXT_BOX_LOCATOR), WebDriverWaitTime);
-            _passwordTextBox.SendKeys(password);
-
-            //_nextButton = _driver.FindElement(By.Id("login-signin"), WebDriverWaitTime);
-            _nextButton.Click();
+            FillUsernameTextBox(username);
+            StaySignedInCheckboxRemove();
+            NextButtonClick();
+            FillPasswordTextBox(password);
+            NextButtonClick();
 
             try
             {
-                _denyAllPersonalisedStatsButton = _driver.FindElement(By.Id(DENY_ALL_PERSONALISED_STATS_BUTTON_LOCATOR), WebDriverWaitTime);
-                _denyAllPersonalisedStatsButton.Click();
-                _closePersonalisedStatsButton = _driver.FindElement(By.CssSelector(CLOSE_PERSONALISED_STATS_BUTTON_LOCATOR), WebDriverWaitTime);
-                _closePersonalisedStatsButton.Click();
+                DenyAllPersonalisedStats();
             }
             catch (Exception)
             {
             }
 
             return new InboxPage(_driver);
+        }
+
+        public void ClickSignInLink()
+        {
+            _signInLink = _driver.FindElement(By.LinkText(SIGNIN_LINK_LOCATOR), WebDriverWaitTime);
+            _signInLink.Click();
+        }
+
+        public void FillUsernameTextBox(string username)
+        {
+            _usernameTextBox = _driver.FindElement(By.Id(USERNAME_TEXT_BOX_LOCATOR), WebDriverWaitTime);
+            _usernameTextBox.Click();
+            _usernameTextBox.SendKeys(username);
+        }
+
+        public void StaySignedInCheckboxRemove()
+        {
+            _staySignedInCheckbox = _driver.FindElement(By.CssSelector(STAY_SIGNED_IN_CHECKBOX_LOCATOR), WebDriverWaitTime);
+            _staySignedInCheckbox.Click();
+        }
+
+        public void NextButtonClick()
+        {
+            _nextButton = _driver.FindElement(By.Id(NEXT_BUTTON_LOCATOR), WebDriverWaitTime);
+            _nextButton.Click();
+        }
+
+        public void FillPasswordTextBox(string password)
+        {
+            _passwordTextBox = _driver.FindElement(By.Id(PASSWORD_TEXT_BOX_LOCATOR), WebDriverWaitTime);
+            _passwordTextBox.SendKeys(password);
+        }
+
+        public void DenyAllPersonalisedStats()
+        {
+            _denyAllPersonalisedStatsButton = _driver.FindElement(By.Id(DENY_ALL_PERSONALISED_STATS_BUTTON_LOCATOR), WebDriverWaitTime);
+            _denyAllPersonalisedStatsButton.Click();
+            _closePersonalisedStatsButton = _driver.FindElement(By.CssSelector(CLOSE_PERSONALISED_STATS_BUTTON_LOCATOR), WebDriverWaitTime);
+            _closePersonalisedStatsButton.Click();
         }
     }
 }

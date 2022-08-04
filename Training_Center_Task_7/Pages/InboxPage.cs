@@ -46,25 +46,18 @@ namespace Training_Center_Task_7.Pages
             _accountMenu = _driver.FindElement(By.Id(ACCOUNT_MENU_LOCATOR), WebDriverWaitTime);
         }
 
-        public void StartEmail()
-        {
-            _composeEmailButton.Click();
-        }
-
         public void ComposeEmailAndSend(string emailTo, string emailSubject, string emailText)
         {
             StartEmail();
             FillInComposeEmailToTextbox(emailTo);
             FillInComposeEmailSubjectTextbox(emailSubject);
+            FillInComposeEmailContentTextbox(emailText);
+            SendEmail();
+        }
 
-
-
-            _composeEmailContentTextBox = _driver.FindElement(By.CssSelector(COMPOSE_EMAIL_CONTENT_TEXT_BOX_LOCATOR), WebDriverWaitTime);
-            _composeEmailContentTextBox.Click();
-            _composeEmailContentTextBox.SendKeys(emailText);
-
-            _sendEmailButton = _driver.FindElement(By.CssSelector(SEND_EMAIL_BUTTON_LOCATOR), WebDriverWaitTime);
-            _sendEmailButton.Click();
+        public void StartEmail()
+        {
+            _composeEmailButton.Click();
         }
 
         public void FillInComposeEmailToTextbox(string emailTo)
@@ -81,7 +74,20 @@ namespace Training_Center_Task_7.Pages
             _composeEmailSubjectTextBox.SendKeys(emailSubject);
         }
 
-            public HomePage LogOut()
+        public void FillInComposeEmailContentTextbox(string emailText)
+        {
+            _composeEmailContentTextBox = _driver.FindElement(By.CssSelector(COMPOSE_EMAIL_CONTENT_TEXT_BOX_LOCATOR), WebDriverWaitTime);
+            _composeEmailContentTextBox.Click();
+            _composeEmailContentTextBox.SendKeys(emailText);
+        }
+
+        public void SendEmail()
+        {
+            _sendEmailButton = _driver.FindElement(By.CssSelector(SEND_EMAIL_BUTTON_LOCATOR), WebDriverWaitTime);
+            _sendEmailButton.Click();
+        }
+
+        public HomePage LogOut()
         {
             Actions actions = new Actions(_driver);
             actions.MoveToElement(_accountMenu).Perform();
