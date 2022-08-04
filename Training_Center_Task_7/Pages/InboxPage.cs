@@ -1,8 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
-using Training_Center_Task_7.Pages.Home;
 
-namespace Training_Center_Task_7.Inbox
+namespace Training_Center_Task_7.Pages
 {
     public class InboxPage : MainPage
     {
@@ -42,7 +41,7 @@ namespace Training_Center_Task_7.Inbox
 
         public InboxPage(IWebDriver driver) : base(driver)
         {
-            this._driver = driver;
+            _driver = driver;
             _composeEmailButton = _driver.FindElement(By.CssSelector(COMPOSE_EMAIL_BUTTON_LOCATOR), WebDriverWaitTime);
             _accountMenu = _driver.FindElement(By.Id(ACCOUNT_MENU_LOCATOR), WebDriverWaitTime);
         }

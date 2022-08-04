@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace Training_Center_Task_7.Pages.Home
+namespace Training_Center_Task_7.Pages
 {
     public class HomePage : MainPage
     {
@@ -15,7 +15,7 @@ namespace Training_Center_Task_7.Pages.Home
 
         public HomePage(IWebDriver driver) : base(driver)
         {
-            this._driver = driver;
+            _driver = driver;
         }
 
         public void AcceptGRPR()

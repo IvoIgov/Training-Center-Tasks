@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium;
-using Training_Center_Task_7.Inbox;
 
-namespace Training_Center_Task_7.Pages.Home
+namespace Training_Center_Task_7.Pages
 {
     public class LogInPage : MainPage
     {
@@ -28,7 +27,7 @@ namespace Training_Center_Task_7.Pages.Home
 
         public LogInPage(IWebDriver driver) : base(driver)
         {
-            this._driver = driver;
+            _driver = driver;
         }
 
         public InboxPage Login(string username, string password)

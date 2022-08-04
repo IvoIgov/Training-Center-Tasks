@@ -2,9 +2,8 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using Training_Center_Task_7;
-using Training_Center_Task_7.Inbox;
 using Training_Center_Task_7.Models;
-using Training_Center_Task_7.Pages.Home;
+using Training_Center_Task_7.Pages;
 
 namespace Training_Center_Task_7_Selenium_Tests
 {
