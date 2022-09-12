@@ -9,7 +9,7 @@ namespace Training_Center_Task_7
     public class Constants
     {
         public const string PathToTestDataFolder = @"C:\Users\IvoIgov\source\repos\Training_Center_Task_7\Training_Center_Task_7\DDT\";
-        public const string JSONFileName = @"testData.json";
+        public const string JSONFileName = @"TestData.json";
         public const string PathToTestDataJSON = PathToTestDataFolder + JSONFileName;
     }
 }
