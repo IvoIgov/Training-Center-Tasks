@@ -1,0 +1,12 @@
+C:\Users\IvoIgov\source\repos\Training_Center_Task_9\Training_Center_Task_9\bin\Debug\net6.0\Training_Center_Task_9.deps.json
+C:\Users\IvoIgov\source\repos\Training_Center_Task_9\Training_Center_Task_9\bin\Debug\net6.0\Training_Center_Task_9.dll
+C:\Users\IvoIgov\source\repos\Training_Center_Task_9\Training_Center_Task_9\bin\Debug\net6.0\Training_Center_Task_9.pdb
+C:\Users\IvoIgov\source\repos\Training_Center_Task_9\Training_Center_Task_9\obj\Debug\net6.0\Training_Center_Task_9.csproj.AssemblyReference.cache
+C:\Users\IvoIgov\source\repos\Training_Center_Task_9\Training_Center_Task_9\obj\Debug\net6.0\Training_Center_Task_9.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\IvoIgov\source\repos\Training_Center_Task_9\Training_Center_Task_9\obj\Debug\net6.0\Training_Center_Task_9.AssemblyInfoInputs.cache
+C:\Users\IvoIgov\source\repos\Training_Center_Task_9\Training_Center_Task_9\obj\Debug\net6.0\Training_Center_Task_9.AssemblyInfo.cs
+C:\Users\IvoIgov\source\repos\Training_Center_Task_9\Training_Center_Task_9\obj\Debug\net6.0\Training_Center_Task_9.csproj.CoreCompileInputs.cache
+C:\Users\IvoIgov\source\repos\Training_Center_Task_9\Training_Center_Task_9\obj\Debug\net6.0\Training_Center_Task_9.dll
+C:\Users\IvoIgov\source\repos\Training_Center_Task_9\Training_Center_Task_9\obj\Debug\net6.0\refint\Training_Center_Task_9.dll
+C:\Users\IvoIgov\source\repos\Training_Center_Task_9\Training_Center_Task_9\obj\Debug\net6.0\Training_Center_Task_9.pdb
+C:\Users\IvoIgov\source\repos\Training_Center_Task_9\Training_Center_Task_9\obj\Debug\net6.0\ref\Training_Center_Task_9.dll
