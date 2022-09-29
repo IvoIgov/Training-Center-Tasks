@@ -11,6 +11,7 @@
           "MSTest.TestAdapter": "2.2.8",
           "MSTest.TestFramework": "2.2.8",
           "Microsoft.NET.Test.Sdk": "17.3.2",
+          "Selenium.WebDriver.GeckoDriver.Win64": "0.31.0",
           "Training_Center_Task_9": "1.0.0",
           "coverlet.collector": "3.1.2"
         },
@@ -447,6 +448,7 @@
         }
       },
       "Selenium.WebDriver.ChromeDriver/106.0.5249.6100": {},
+      "Selenium.WebDriver.GeckoDriver.Win64/0.31.0": {},
       "System.AppContext/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
@@ -1037,7 +1039,8 @@
           "Microsoft.NET.Test.Sdk": "17.3.2",
           "NUnit3TestAdapter": "4.2.1",
           "Selenium.Support": "4.5.0",
-          "Selenium.WebDriver.ChromeDriver": "106.0.5249.6100"
+          "Selenium.WebDriver.ChromeDriver": "106.0.5249.6100",
+          "Selenium.WebDriver.GeckoDriver.Win64": "0.31.0"
         },
         "runtime": {
           "Training_Center_Task_9.dll": {}
@@ -1281,6 +1284,13 @@
       "sha512": "sha512-ZJA+xb9uLlxmrkPsWziPpoi3sVMzuvQ2pHDpCM/OtCV72u2iJZL/UP0eGGtjS9neOzTOjO7bdeUkur0hCipGHw==",
       "path": "selenium.webdriver.chromedriver/106.0.5249.6100",
       "hashPath": "selenium.webdriver.chromedriver.106.0.5249.6100.nupkg.sha512"
+    },
+    "Selenium.WebDriver.GeckoDriver.Win64/0.31.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GwXBQSCJssxFLJVxlZHo7N7hevskvmPIdrRFYcnEufIaaYT0TgCVDYgZUSkUBlbV8Thq4Gdbcip2hMeQx4f3RQ==",
+      "path": "selenium.webdriver.geckodriver.win64/0.31.0",
+      "hashPath": "selenium.webdriver.geckodriver.win64.0.31.0.nupkg.sha512"
     },
     "System.AppContext/4.3.0": {
       "type": "package",

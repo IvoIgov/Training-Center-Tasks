@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "cquwQVicibZPRVhVhlvxrRe3wCDxXAigijtYAiS30NlE1HiD92joIM8xV0l7mptEn0+/CFQ9et6OsX/S9BfKDA==",
+  "dgSpecHash": "srkouv9zBsnwlK4z4sBH0ztSB0T8F6GdzzWWN3crrPKc7eUjfgsSdralaRkUPLfULYeeqge2wbRJvgHhiVwgcA==",
   "success": true,
   "projectFilePath": "C:\\Users\\IvoIgov\\source\\repos\\Training_Center_Task_9\\Training_Center_Tast_9_Selenium_Tests\\Training_Center_Tast_9_Selenium_Tests.csproj",
   "expectedPackageFiles": [
@@ -37,6 +37,7 @@
     "C:\\Users\\IvoIgov\\.nuget\\packages\\selenium.support\\4.5.0\\selenium.support.4.5.0.nupkg.sha512",
     "C:\\Users\\IvoIgov\\.nuget\\packages\\selenium.webdriver\\4.5.0\\selenium.webdriver.4.5.0.nupkg.sha512",
     "C:\\Users\\IvoIgov\\.nuget\\packages\\selenium.webdriver.chromedriver\\106.0.5249.6100\\selenium.webdriver.chromedriver.106.0.5249.6100.nupkg.sha512",
+    "C:\\Users\\IvoIgov\\.nuget\\packages\\selenium.webdriver.geckodriver.win64\\0.31.0\\selenium.webdriver.geckodriver.win64.0.31.0.nupkg.sha512",
     "C:\\Users\\IvoIgov\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\IvoIgov\\.nuget\\packages\\system.buffers\\4.3.0\\system.buffers.4.3.0.nupkg.sha512",
     "C:\\Users\\IvoIgov\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

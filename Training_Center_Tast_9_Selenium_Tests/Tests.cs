@@ -1,5 +1,6 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using Training_Center_Task_9;
 using Training_Center_Task_9.Models;
 using Training_Center_Task_9.Pages;
@@ -13,13 +14,13 @@ namespace Training_Center_Tast_9_Selenium_Tests
         private MainPage _mainPage;
         private HomePage _homePage;
         private LogInPage _loginPage;
-        private InboxPage _inboxPage;
 
 
         [TestInitialize]
         public void Init()
         {
-            this.driver = new ChromeDriver(ConstantsTests.WebDriverPath);
+            // this.driver = new ChromeDriver(ConstantsTests.WebDriverPath);
+            this.driver = new FirefoxDriver();
 
             driver.Manage().Window.Maximize();
             _mainPage = new MainPage(driver);
@@ -42,18 +43,8 @@ namespace Training_Center_Tast_9_Selenium_Tests
             JsonDataPattern testData = AccessJsonData.GetTestData(testName);
 
             _homePage = _loginPage.Login(testData.User1Username, testData.User1Password);
-            //_inboxPage = _loginPage.Login(testData.User1Username, testData.User1Password);
-            //_inboxPage.ComposeEmailAndSend(testData.EmailTo, testData.EmailSubject, testData.EmailText);
-            //_homePage = _inboxPage.LogOut();
-            //_loginPage = _homePage.NavigateToLoginPage();
-            //_inboxPage = _loginPage.Login(testData.User2Username, testData.User2Password);
-            //NUnit.Framework.Assert.AreEqual("1", _inboxPage.CheckNumberOfEmailsInInbox());
-            //NUnit.Framework.Assert.AreEqual(testData.EmailFrom, _inboxPage.CheckReceivedEmailSender());
-            //NUnit.Framework.Assert.AreEqual(testData.EmailSubject, _inboxPage.CheckReceivedEmailSubject());
-            //NUnit.Framework.Assert.AreEqual(testData.EmailText, _inboxPage.CheckReceivedEmailText());
 
-            //_inboxPage.DeleteAllEmailsFromInbox();
-            //NUnit.Framework.Assert.AreEqual("0", _inboxPage.CheckNumberOfEmailsInInbox());
+            Assert.AreEqual("Test", _homePage.CheckAccountName());
         }
     }
 }
