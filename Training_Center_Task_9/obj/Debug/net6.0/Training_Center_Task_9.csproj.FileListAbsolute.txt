@@ -10,3 +10,9 @@ C:\Users\IvoIgov\source\repos\Training_Center_Task_9\Training_Center_Task_9\obj\
 C:\Users\IvoIgov\source\repos\Training_Center_Task_9\Training_Center_Task_9\obj\Debug\net6.0\refint\Training_Center_Task_9.dll
 C:\Users\IvoIgov\source\repos\Training_Center_Task_9\Training_Center_Task_9\obj\Debug\net6.0\Training_Center_Task_9.pdb
 C:\Users\IvoIgov\source\repos\Training_Center_Task_9\Training_Center_Task_9\obj\Debug\net6.0\ref\Training_Center_Task_9.dll
+C:\Users\IvoIgov\source\repos\Training_Center_Task_9\Training_Center_Task_9\bin\Debug\net6.0\NUnit3.TestAdapter.dll
+C:\Users\IvoIgov\source\repos\Training_Center_Task_9\Training_Center_Task_9\bin\Debug\net6.0\NUnit3.TestAdapter.pdb
+C:\Users\IvoIgov\source\repos\Training_Center_Task_9\Training_Center_Task_9\bin\Debug\net6.0\nunit.engine.dll
+C:\Users\IvoIgov\source\repos\Training_Center_Task_9\Training_Center_Task_9\bin\Debug\net6.0\nunit.engine.api.dll
+C:\Users\IvoIgov\source\repos\Training_Center_Task_9\Training_Center_Task_9\bin\Debug\net6.0\nunit.engine.core.dll
+C:\Users\IvoIgov\source\repos\Training_Center_Task_9\Training_Center_Task_9\bin\Debug\net6.0\testcentric.engine.metadata.dll
