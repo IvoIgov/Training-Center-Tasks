@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="DDT\" />
-    <Folder Include="Pages\" />
   </ItemGroup>
 
   <ItemGroup>
