@@ -23,13 +23,13 @@ namespace Training_Center_Task_9.Pages
         public LogInPage(IWebDriver driver) : base(driver)
         {
             _driver = driver;
-            _signInLink = _driver.FindElement(By.LinkText("Sign in"), WebDriverWaitTime);
+            //_signInLink = _driver.FindElement(By.LinkText("Sign in"), WebDriverWaitTime);
         }
 
         public HomePage Login(string username, string password)
         {
             _driver.Wait(3000);
-            _signInLink.Click();
+            //_signInLink.Click();
 
             _usernameTextBox = _driver.FindElement(By.Id("login-username"), WebDriverWaitTime);
             _usernameTextBox.Click();
@@ -38,12 +38,12 @@ namespace Training_Center_Task_9.Pages
             _staySignedInCheckbox = _driver.FindElement(By.CssSelector("label[for='persistent']"), WebDriverWaitTime);
             _staySignedInCheckbox.Click();
 
+            _nextButton = _driver.FindElement(By.Id("login-signin"), WebDriverWaitTime);
             _nextButton.Click();
 
             _passwordTextBox = _driver.FindElement(By.Id("login-passwd"), WebDriverWaitTime);
             _passwordTextBox.SendKeys(password);
 
-            _nextButton = _driver.FindElement(By.Id("login-signin"), WebDriverWaitTime);
             _nextButton.Click();
 
             try

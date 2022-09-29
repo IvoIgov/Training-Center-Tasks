@@ -1,16 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "SglwcLNXfjU31XwRMACnyC85Z34Toj5n8ANcLbb4egC7sXHSBddU3CNQRRsKnt6tdFY7f1hN/ZB7LHV1g5sAVw==",
-  "success": false,
+  "dgSpecHash": "cquwQVicibZPRVhVhlvxrRe3wCDxXAigijtYAiS30NlE1HiD92joIM8xV0l7mptEn0+/CFQ9et6OsX/S9BfKDA==",
+  "success": true,
   "projectFilePath": "C:\\Users\\IvoIgov\\source\\repos\\Training_Center_Task_9\\Training_Center_Tast_9_Selenium_Tests\\Training_Center_Tast_9_Selenium_Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\IvoIgov\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
-    "C:\\Users\\IvoIgov\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",
-    "C:\\Users\\IvoIgov\\.nuget\\packages\\microsoft.net.test.sdk\\17.1.0\\microsoft.net.test.sdk.17.1.0.nupkg.sha512",
+    "C:\\Users\\IvoIgov\\.nuget\\packages\\microsoft.codecoverage\\17.3.2\\microsoft.codecoverage.17.3.2.nupkg.sha512",
+    "C:\\Users\\IvoIgov\\.nuget\\packages\\microsoft.net.test.sdk\\17.3.2\\microsoft.net.test.sdk.17.3.2.nupkg.sha512",
     "C:\\Users\\IvoIgov\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\IvoIgov\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
-    "C:\\Users\\IvoIgov\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.1.0\\microsoft.testplatform.objectmodel.17.1.0.nupkg.sha512",
-    "C:\\Users\\IvoIgov\\.nuget\\packages\\microsoft.testplatform.testhost\\17.1.0\\microsoft.testplatform.testhost.17.1.0.nupkg.sha512",
+    "C:\\Users\\IvoIgov\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.3.2\\microsoft.testplatform.objectmodel.17.3.2.nupkg.sha512",
+    "C:\\Users\\IvoIgov\\.nuget\\packages\\microsoft.testplatform.testhost\\17.3.2\\microsoft.testplatform.testhost.17.3.2.nupkg.sha512",
     "C:\\Users\\IvoIgov\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\IvoIgov\\.nuget\\packages\\mstest.testadapter\\2.2.8\\mstest.testadapter.2.2.8.nupkg.sha512",
     "C:\\Users\\IvoIgov\\.nuget\\packages\\mstest.testframework\\2.2.8\\mstest.testframework.2.2.8.nupkg.sha512",
@@ -94,15 +94,5 @@
     "C:\\Users\\IvoIgov\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\IvoIgov\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Detected package downgrade: Microsoft.NET.Test.Sdk from 17.3.2 to 17.1.0. Reference the package directly from the project to select a different version. \r\n Training_Center_Tast_9_Selenium_Tests -> Training_Center_Task_9 -> Microsoft.NET.Test.Sdk (>= 17.3.2) \r\n Training_Center_Tast_9_Selenium_Tests -> Microsoft.NET.Test.Sdk (>= 17.1.0)",
-      "libraryId": "Microsoft.NET.Test.Sdk",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }
