@@ -11,6 +11,8 @@
           "MSTest.TestAdapter": "2.2.8",
           "MSTest.TestFramework": "2.2.8",
           "Microsoft.NET.Test.Sdk": "17.3.2",
+          "NUnit.ConsoleRunner": "3.15.2",
+          "NUnit3TestAdapter": "4.2.1",
           "Selenium.WebDriver.GeckoDriver.Win64": "0.31.0",
           "Training_Center_Task_9": "1.0.0",
           "coverlet.collector": "3.1.2"
@@ -376,6 +378,7 @@
           }
         }
       },
+      "NUnit.ConsoleRunner/3.15.2": {},
       "NUnit3TestAdapter/4.2.1": {},
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
@@ -1144,6 +1147,13 @@
       "sha512": "sha512-eaiXkUjC4NPcquGWzAGMXjuxvLwc6XGKMptSyOGQeT0X70BUZObuybJFZLA0OfTdueLd3US23NBPTBb6iF3V1Q==",
       "path": "nuget.frameworks/5.11.0",
       "hashPath": "nuget.frameworks.5.11.0.nupkg.sha512"
+    },
+    "NUnit.ConsoleRunner/3.15.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oOW0VH9VRt3dZKFulHgEXPgsdYbIP1qbWf1/cQX3t4Tz0Exgmd6MGMOrYTgktZ2o/JOf+MFNYksh267Jrfz+ig==",
+      "path": "nunit.consolerunner/3.15.2",
+      "hashPath": "nunit.consolerunner.3.15.2.nupkg.sha512"
     },
     "NUnit3TestAdapter/4.2.1": {
       "type": "package",
