@@ -26,7 +26,7 @@ namespace Training_Center_Task_9.Pages
             _signInLink = _driver.FindElement(By.LinkText("Sign in"), WebDriverWaitTime);
         }
 
-        public InboxPage Login(string username, string password)
+        public HomePage Login(string username, string password)
         {
             _driver.Wait(3000);
             _signInLink.Click();
@@ -57,7 +57,7 @@ namespace Training_Center_Task_9.Pages
             {
             }
 
-            return new InboxPage(_driver);
+            return new HomePage(_driver);
         }
     }
 }

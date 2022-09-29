@@ -12,7 +12,7 @@ namespace Training_Center_Task_9.Pages
         private IWebDriver _driver;
         private const int WebDriverWaitTime = 10;
         private IWebElement _dgprButton;
-        private IWebElement _mailButton;
+        private IWebElement _signInButton;
 
         public HomePage(IWebDriver driver) : base(driver)
         {
@@ -28,8 +28,8 @@ namespace Training_Center_Task_9.Pages
         public LogInPage NavigateToLoginPage()
         {
             AcceptGRPR();
-            _mailButton = _driver.FindElement(By.Id("ybarMailLink"), WebDriverWaitTime);
-            _mailButton.Click();
+            _signInButton = _driver.FindElement(By.CssSelector("a[class='_yb_118j3']"), WebDriverWaitTime);
+            _signInButton.Click();
             return new LogInPage(_driver);
         }
     }
