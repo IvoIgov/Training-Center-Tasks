@@ -66,6 +66,7 @@ namespace Training_Center_Task_10
             IWebElement multiselectMenu = _driver.FindElement(By.Id("multi-select"));
             SelectElement selections = new SelectElement(multiselectMenu);
 
+            //Select three options from multiselect menu
             selections.SelectByText("California");
             selections.SelectByText("Ohio");
             selections.SelectByText("Texas");
@@ -79,6 +80,65 @@ namespace Training_Center_Task_10
             Assert.AreEqual(true, texasSelected);
 
             _driver.Wait(3000);
+        }
+
+        [Description("Task 6")]
+        [TestMethod]
+        public void AlertTestJavaScriptConfirmBoxVerifyAlertText()
+        {
+            _driver.Navigate().GoToUrl("https://demo.seleniumeasy.com/javascript-alert-box-demo.html");
+
+            //Click "Click me!" button
+            IWebElement ClickMeButton = _driver.FindElement(By.CssSelector("button[onclick='myConfirmFunction()']"));
+            ClickMeButton.Click();
+
+            _driver.Wait(2000);
+
+            //Pick alert text
+            string alertText = _driver.SwitchTo().Alert().Text;
+
+            Assert.AreEqual("Press a button!", alertText);
+        }
+
+        [Description("Task 6")]
+        [TestMethod]
+        public void AlertTestJavaScriptConfirmBoxVerifyAlertClickedOK()
+        {
+            _driver.Navigate().GoToUrl("https://demo.seleniumeasy.com/javascript-alert-box-demo.html");
+
+            //Click "Click me!" button
+            IWebElement ClickMeButton = _driver.FindElement(By.CssSelector("button[onclick='myConfirmFunction()']"));
+            ClickMeButton.Click();
+
+            _driver.Wait(2000);
+
+            //Cliok OK on alert
+            _driver.SwitchTo().Alert().Accept();
+
+            IWebElement alertClickedOk = _driver.FindElement(By.Id("confirm-demo"), 5);
+
+            Assert.AreEqual("You pressed OK!", alertClickedOk.Text);
+        }
+
+        [Description("Task 6")]
+        [TestMethod]
+        public void AlertTestJavaScriptAlertBoxNameEnteredCorrectly()
+        {
+            _driver.Navigate().GoToUrl("https://demo.seleniumeasy.com/javascript-alert-box-demo.html");
+
+            //Click "Click for Prompt Box" button
+            IWebElement ClickForPromptBoxButton = _driver.FindElement(By.CssSelector("button[onclick='myPromptFunction()']"));
+            ClickForPromptBoxButton.Click();
+
+            _driver.Wait(2000);
+
+            //Enter the name in alert and click OK
+            _driver.SwitchTo().Alert().SendKeys("Ivo");
+            _driver.SwitchTo().Alert().Accept();
+
+            IWebElement message = _driver.FindElement(By.Id("prompt-demo"), 5);
+
+            Assert.AreEqual("You have entered 'Ivo' !", message.Text);
         }
     }
 }
