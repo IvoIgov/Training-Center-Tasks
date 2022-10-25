@@ -1,6 +1,9 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.DevTools.V104.Debugger;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Support.UI;
+using System;
+using System.Xml.Linq;
 
 namespace Training_Center_Task_10
 {
@@ -25,6 +28,7 @@ namespace Training_Center_Task_10
         [DataTestMethod]
         [DataRow("testtester10", "t3st3rt3st10", "Test")]
         [DataRow("testtester200", "t3st3rt3st200", "Tester")]
+        [Description("Tasks 1 - 4")]
 
         [TestMethod]
         public void Login(string username, string password, string name)
@@ -51,6 +55,30 @@ namespace Training_Center_Task_10
             IWebElement usernameText = _driver.FindElement(By.CssSelector("span[role='presentation']"), 10);
 
             Assert.AreEqual(name, usernameText.Text);
+        }
+
+        [Description("Task 5")]
+        [TestMethod]
+        public void MultiselectTest()
+        {
+            _driver.Navigate().GoToUrl("https://demo.seleniumeasy.com/basic-select-dropdown-demo.html");
+
+            IWebElement multiselectMenu = _driver.FindElement(By.Id("multi-select"));
+            SelectElement selections = new SelectElement(multiselectMenu);
+
+            selections.SelectByText("California");
+            selections.SelectByText("Ohio");
+            selections.SelectByText("Texas");
+            
+            bool californiaSelected = _driver.FindElement(By.CssSelector("option[value='California']")).Selected;
+            bool ohioSelected = _driver.FindElement(By.CssSelector("option[value='Ohio']")).Selected;
+            bool texasSelected = _driver.FindElement(By.CssSelector("option[value='Texas']")).Selected;
+            
+            Assert.AreEqual(true, californiaSelected);
+            Assert.AreEqual(true, ohioSelected);
+            Assert.AreEqual(true, texasSelected);
+
+            _driver.Wait(3000);
         }
     }
 }
