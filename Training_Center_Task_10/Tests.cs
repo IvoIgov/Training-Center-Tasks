@@ -140,5 +140,24 @@ namespace Training_Center_Task_10
 
             Assert.AreEqual("You have entered 'Ivo' !", message.Text);
         }
+
+        [Description("Task 7")]
+        [TestMethod]
+        public void WaitForUser()
+        {
+            _driver.Navigate().GoToUrl("https://demo.seleniumeasy.com/dynamic-data-loading-demo.html");
+
+            //Click "Get New User" button
+            IWebElement getNewUserButton = _driver.FindElement(By.Id("save"), 5);
+            getNewUserButton.Click();
+
+            //Verify "loading..." message is displayed
+            IWebElement loadingMessage = _driver.FindElement(By.Id("loading"));
+            Assert.AreEqual(true, loadingMessage.Displayed);
+
+            //Verify that after 3 seconds of waiting a new user is displayed
+            _driver.Wait(3000);
+            Assert.AreEqual(true, getNewUserButton.Displayed);
+        }
     }
 }
