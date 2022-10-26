@@ -191,5 +191,25 @@ namespace Training_Center_Task_10
             //Refresh page
             _driver.Navigate().Refresh();
         }
-}
+
+        [Description("Task 9")]
+        [TestMethod]
+        public void ReturnNamePositionOffice()
+        {
+            _driver.Navigate().GoToUrl("https://demo.seleniumeasy.com/table-sort-search-demo.html");
+
+            //Select "10" from dropdown
+            IWebElement showEntriesDropdown = _driver.FindElement(By.CssSelector("select[name='example_length']"));
+            SelectElement selections = new SelectElement(showEntriesDropdown);
+            selections.SelectByValue("10");
+
+            //Create query, which returns Name, Position, Office for 
+            //everyone with age > 39 and Salary <= $200,000
+            IWebElement table = _driver.FindElement(By.Id("example"));
+            var rows = table.FindElements(By.TagName("tr"));
+
+            //Refresh page
+            _driver.Navigate().Refresh();
+        }
+    }
 }
