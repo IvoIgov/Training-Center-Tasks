@@ -3,6 +3,7 @@ using OpenQA.Selenium.DevTools.V104.Debugger;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
@@ -208,6 +209,21 @@ namespace Training_Center_Task_10
 
             List<EmployeeInfo> employees = new List<EmployeeInfo>();
 
+            FillInListOfEmployees(employees);
+
+            Assert.AreEqual("A. Cox", employees[0].Name);
+            Assert.AreEqual("B. Greer", employees[1].Name);
+            Assert.AreEqual("G. Joyce", employees[2].Name);
+            Assert.AreEqual("G. Winters", employees[3].Name);
+            Assert.AreEqual("H. Chandler", employees[4].Name);
+            Assert.AreEqual("M. Silva", employees[5].Name);
+            Assert.AreEqual("S. Burks", employees[6].Name);
+
+
+        }
+
+        public List<EmployeeInfo> FillInListOfEmployees(List<EmployeeInfo> employees)
+        {
             int counter = 2;
             while (true)
             {
@@ -233,7 +249,7 @@ namespace Training_Center_Task_10
                     int age = int.Parse(userData[3]);
                     int salary = int.Parse(Regex.Replace(userData[5], "[^0-9]", ""));
 
-                    //Check whether employee is more than 40 years old and his salary is less than or equals $200,000
+                    //Check whether employee is more > 39 years old and his salary is less than or equals $200,000
                     //If both are true, add him to respective list.
 
                     if (age > 39 && salary <= 200000)
@@ -249,16 +265,32 @@ namespace Training_Center_Task_10
                 //Check whether there is next page and if yes - click the page number
                 try
                 {
-                    var pageIndex = _driver.FindElement(By.CssSelector($"a[data-dt-idx='{counter}']"), 5);
-                    pageIndex.Click();
-                    _driver.Wait(5000);
+                    var nextButtonDisabled = _driver.FindElement(By.CssSelector("a[class='paginate_button next disabled']"));
+                    if (nextButtonDisabled.Displayed)
+                    {
+                        break;
+                    }
                 }
                 catch (Exception e)
                 {
-                    break;
+
                 }
+                var pageIndex = _driver.FindElement(By.CssSelector($"a[data-dt-idx='{counter}']"), 5);
+                pageIndex.Click();
+                _driver.Wait(5000);
+                //try
+                //{
+                //    var pageIndex = _driver.FindElement(By.CssSelector($"a[data-dt-idx='{counter}']"), 5);
+                //    pageIndex.Click();
+                //    _driver.Wait(5000);
+                //}
+                //catch (Exception e)
+                //{
+                //    break;
+                //}
                 counter++;
             }
+            return employees;
         }
     }
 }
