@@ -206,9 +206,7 @@ namespace Training_Center_Task_10
             selections.SelectByValue("10");
 
             //Create a loop which gets all row values and puts them in a list
-
             List<EmployeeInfo> employees = new List<EmployeeInfo>();
-
             FillInListOfEmployees(employees);
 
             Assert.AreEqual("A. Cox", employees[0].Name);
