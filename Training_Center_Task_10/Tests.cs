@@ -70,11 +70,11 @@ namespace Training_Center_Task_10
             selections.SelectByText("California");
             selections.SelectByText("Ohio");
             selections.SelectByText("Texas");
-            
+
             bool californiaSelected = _driver.FindElement(By.CssSelector("option[value='California']")).Selected;
             bool ohioSelected = _driver.FindElement(By.CssSelector("option[value='Ohio']")).Selected;
             bool texasSelected = _driver.FindElement(By.CssSelector("option[value='Texas']")).Selected;
-            
+
             Assert.AreEqual(true, californiaSelected);
             Assert.AreEqual(true, ohioSelected);
             Assert.AreEqual(true, texasSelected);
@@ -159,5 +159,37 @@ namespace Training_Center_Task_10
             _driver.Wait(3000);
             Assert.AreEqual(true, getNewUserButton.Displayed);
         }
-    }
+
+        [Description("Task 8")]
+        [TestMethod]
+        public void RefreshWhenDownloadSizeBiggerThan50()
+        {
+            _driver.Navigate().GoToUrl("https://demo.seleniumeasy.com/bootstrap-download-progress-demo.html");
+
+            //Click "Download" button
+            IWebElement downloadButton = _driver.FindElement(By.Id("cricle-btn"), 5);
+            downloadButton.Click();
+            _driver.Wait(2000);
+
+            //Track download progress
+            DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(_driver);
+            fluentWait.Timeout = TimeSpan.FromSeconds(5);
+            fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+            fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+
+            while (true)
+            {
+                IWebElement searchResult = fluentWait.Until(x => x.FindElement(By.CssSelector("div[class='percenttext']")));
+                string digits = searchResult.Text.Remove(searchResult.Text.Length - 1);
+                int percentage = int.Parse(digits);
+                if (percentage >= 50)
+                {
+                    break;
+                }
+            }
+
+            //Refresh page
+            _driver.Navigate().Refresh();
+        }
+}
 }
