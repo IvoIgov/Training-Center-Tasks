@@ -273,19 +273,12 @@ namespace Training_Center_Task_10
                 {
 
                 }
+
+                //Click next page
                 var pageIndex = _driver.FindElement(By.CssSelector($"a[data-dt-idx='{counter}']"), 5);
                 pageIndex.Click();
                 _driver.Wait(5000);
-                //try
-                //{
-                //    var pageIndex = _driver.FindElement(By.CssSelector($"a[data-dt-idx='{counter}']"), 5);
-                //    pageIndex.Click();
-                //    _driver.Wait(5000);
-                //}
-                //catch (Exception e)
-                //{
-                //    break;
-                //}
+
                 counter++;
             }
             return employees;
