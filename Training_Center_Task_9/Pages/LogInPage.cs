@@ -81,7 +81,7 @@ namespace Training_Center_Task_9.Pages
         public void NextButtonClick()
         {
             _nextButton = _driver.FindElement(By.Id(NEXT_BUTTON_LOCATOR), WebDriverWaitTime);
-            _nextButton.Click();
+            _nextButton.Click(); 
         }
 
         public void FillPasswordTextBox(string password)
