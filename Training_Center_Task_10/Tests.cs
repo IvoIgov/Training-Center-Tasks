@@ -66,7 +66,7 @@ namespace Training_Center_Task_10
             _driver.Navigate().GoToUrl("https://demo.seleniumeasy.com/basic-select-dropdown-demo.html");
 
             IWebElement multiselectMenu = _driver.FindElement(By.Id("multi-select"));
-            SelectElement selections = new SelectElement(multiselectMenu);
+            SelectElement selections = new SelectElement(multiselectMenu); 
 
             //Select three options from multiselect menu
             selections.SelectByText("California");
