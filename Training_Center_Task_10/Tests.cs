@@ -35,7 +35,7 @@ namespace Training_Center_Task_10
         {
             _driver.Navigate().GoToUrl("https://mail.yahoo.com/");
 
-            //Fill in username
+            //Fill in username 
             IWebElement usernameTextbox = _driver.FindElement(By.Id("login-username"), 10);
             usernameTextbox.SendKeys(username);
 
