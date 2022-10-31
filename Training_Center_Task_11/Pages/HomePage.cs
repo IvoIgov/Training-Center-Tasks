@@ -10,6 +10,7 @@ namespace Training_Center_Task_11.Pages
     public class HomePage : MainPage
     {
         private IWebDriver _driver;
+
         private IWebElement _gdprButton;
         private IWebElement _loginLink;
 
