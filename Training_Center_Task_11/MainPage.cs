@@ -9,7 +9,7 @@ namespace Training_Center_Task_11
 {
     public class MainPage
     {
-        protected string _url = @"https://www.yahoo.com/";
+        protected string _url = @"https://www.yandex.com/";
         private IWebDriver _driver;
 
         public MainPage(IWebDriver driver)

@@ -14,10 +14,11 @@ namespace Training_Center_Task_11.Pages
         private IWebElement _gdprButton;
         private IWebElement _loginLink;
 
-        const string GDPR_BUTTON_LOCATOR = "button[data-id='button-all']";
+        const string GDPR_BUTTON_LOCATOR = "button[data-text='Accept all']";
         const string LOGIN_LINK_LOCATOR = "Log in";
         public HomePage(IWebDriver driver) : base(driver)
         {
+            _driver = driver;
         }
 
         public LogInPage NavigateToLoginPage()
@@ -41,7 +42,7 @@ namespace Training_Center_Task_11.Pages
 
         public void GoToLoginPage()
         {
-            _loginLink = _driver.FindElement(By.LinkText(LOGIN_LINK_LOCATOR), WebDriverWaitTime);
+            _loginLink = _driver.FindElement(By.LinkText(LOGIN_LINK_LOCATOR), Constants.WebDriverWaitTime);
             _loginLink.Click();
         }
     }
