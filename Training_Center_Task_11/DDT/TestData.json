@@ -3,5 +3,10 @@
     "TestName": "Login",
     "UserUsername": "bignevx",
     "UserPassword": "Parolata007!"
+  },
+  {
+    "TestName": "Logout",
+    "UserUsername": "bignevx",
+    "UserPassword": "Parolata007!"
   }
 ]
