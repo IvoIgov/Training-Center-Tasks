@@ -13,7 +13,7 @@ namespace Training_Center_Task_11.Pages
 
         private IWebElement _logInButton;
         private IWebElement _usernameTextBox;
-        private IWebElement _loginButton;
+        private IWebElement _loginButtonDialog;
         private IWebElement _passwordTextBox;
 
         const string LOGIN_BUTTON_LOCATOR = 
@@ -26,6 +26,7 @@ namespace Training_Center_Task_11.Pages
         public LogInPage(IWebDriver driver) : base(driver)
         {
             _driver = driver;
+            _logInButton = _driver.FindElement(By.CssSelector(LOGIN_BUTTON_LOCATOR), Constants.WebDriverWaitTime);
         }
 
         public InboxPage Login(string username, string password)
@@ -41,7 +42,6 @@ namespace Training_Center_Task_11.Pages
 
         public void ClickLogInButton()
         {
-            _logInButton = _driver.FindElement(By.CssSelector(LOGIN_BUTTON_LOCATOR), Constants.WebDriverWaitTime);
             _logInButton.Click();
         }
 
@@ -54,9 +54,9 @@ namespace Training_Center_Task_11.Pages
 
         public void LoginButtonClick()
         {
-            _loginButton = _driver.FindElement(By.Id(LOGIN_DIALOG_BUTTON_LOCATOR), Constants.WebDriverWaitTime);
-            _loginButton.Click();
-            _driver.Wait(6000);
+            _loginButtonDialog = _driver.FindElement(By.Id(LOGIN_DIALOG_BUTTON_LOCATOR), Constants.WebDriverWaitTime);
+            _loginButtonDialog.Click();
+            _driver.Wait(7000);
         }
 
         public void FillPasswordTextBox(string password)
@@ -64,6 +64,11 @@ namespace Training_Center_Task_11.Pages
             _passwordTextBox = _driver.FindElement(By.Id(PASSWORD_TEXT_BOX_LOCATOR), Constants.WebDriverWaitTime);
             _passwordTextBox.Click();
             _passwordTextBox.SendKeys(password);
+        }
+
+        public bool CheckLoginButtonPresent()
+        {
+            return _logInButton.Displayed;
         }
     }
 }

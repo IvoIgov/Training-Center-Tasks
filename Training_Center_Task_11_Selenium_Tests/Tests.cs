@@ -15,13 +15,14 @@ namespace Training_Center_Task_11_Selenium_Tests
         private HomePage _homePage;
         private LogInPage _loginPage;
         private InboxPage _inboxPage;
+        private UnitTests _unitTests;
 
         [TestInitialize]
         public void Init()
         {
             this.driver = new ChromeDriver(ConstantsTests.WebDriverPath);
             //this.driver = new FirefoxDriver();
-
+            _unitTests = new UnitTests();
             driver.Manage().Window.Maximize();
             _mainPage = new MainPage(driver);
             driver.Navigate().GoToUrl(_mainPage.URL);
@@ -44,8 +45,21 @@ namespace Training_Center_Task_11_Selenium_Tests
 
             _inboxPage = _loginPage.Login(testData.UserUsername, testData.UserPassword);
 
-            Assert.AreEqual(true, _inboxPage.CheckComposeButtonPresent());
-            Assert.AreEqual("bignevx", _inboxPage.CheckUsernameTextCorrect());
+            _unitTests.AssertComposeButtonDisplayed(_inboxPage);
+            _unitTests.AssertUsernameCorrect(_inboxPage, "bignevx");
+        }
+
+        [TestMethod]
+        public void Logout()
+        {
+            var testName = @"Logout";
+
+            JsonDataPattern testData = AccessJsonData.GetTestData(testName);
+
+            _inboxPage = _loginPage.Login(testData.UserUsername, testData.UserPassword);
+            _loginPage = _inboxPage.Logout();
+
+            _unitTests.AssertLogInButtonDisplayed(_loginPage);
         }
     }
 }
