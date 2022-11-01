@@ -1,7 +1,6 @@
 using OpenQA.Selenium;
 using Training_Center_Task_11.Pages;
 using Training_Center_Task_11;
-using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Chrome;
 using Training_Center_Task_11.Models;
 
@@ -15,14 +14,13 @@ namespace Training_Center_Task_11_Selenium_Tests
         private HomePage _homePage;
         private LogInPage _loginPage;
         private InboxPage _inboxPage;
-        private UnitTests _unitTests;
+        private UnitTests _unitTests = new UnitTests();
 
         [TestInitialize]
         public void Init()
         {
             this.driver = new ChromeDriver(ConstantsTests.WebDriverPath);
-            //this.driver = new FirefoxDriver();
-            _unitTests = new UnitTests();
+
             driver.Manage().Window.Maximize();
             _mainPage = new MainPage(driver);
             driver.Navigate().GoToUrl(_mainPage.URL);

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Training_Center_Task_11.Pages;
+﻿using Training_Center_Task_11.Pages;
 
 namespace Training_Center_Task_11_Selenium_Tests
 {
