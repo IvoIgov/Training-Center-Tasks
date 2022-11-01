@@ -3,6 +3,7 @@ using Training_Center_Task_11.Pages;
 using Training_Center_Task_11;
 using OpenQA.Selenium.Chrome;
 using Training_Center_Task_11.Models;
+using System.IO;
 
 namespace Training_Center_Task_11_Selenium_Tests
 {
@@ -22,9 +23,14 @@ namespace Training_Center_Task_11_Selenium_Tests
             this.driver = new ChromeDriver(ConstantsTests.WebDriverPath);
 
             driver.Manage().Window.Maximize();
+
             _mainPage = new MainPage(driver);
             driver.Navigate().GoToUrl(_mainPage.URL);
+
             _homePage = new HomePage(driver);
+
+            TakeScreenshot();
+
             _loginPage = _homePage.NavigateToLoginPage();
         }
 
@@ -58,6 +64,13 @@ namespace Training_Center_Task_11_Selenium_Tests
             _loginPage = _inboxPage.Logout();
 
             _unitTests.AssertLogInButtonDisplayed(_loginPage);
+        }
+
+        public void TakeScreenshot()
+        {
+            Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
+            string currentDate = DateTime.Now.ToString().Replace("/", "_").Replace(" ", "_").Replace(":", "_");
+            ss.SaveAsFile(@"C:\Users\IvoIgov\source\repos\Training_Center_Task_11\Screenshots" + String.Format("//Screenshot{0}.png", currentDate), ScreenshotImageFormat.Png);
         }
     }
 }
