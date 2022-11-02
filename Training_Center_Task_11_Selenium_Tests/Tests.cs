@@ -70,7 +70,7 @@ namespace Training_Center_Task_11_Selenium_Tests
         {
             Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
             string currentDate = DateTime.Now.ToString().Replace("/", "_").Replace(" ", "_").Replace(":", "_");
-            ss.SaveAsFile(@"C:\Users\IvoIgov\source\repos\Training_Center_Task_11\Screenshots" + String.Format("//Screenshot{0}.png", currentDate), ScreenshotImageFormat.Png);
+            ss.SaveAsFile(ConstantsTests.ScreenshotsFilePath + String.Format(ConstantsTests.ScreenshotFileName, currentDate), ScreenshotImageFormat.Png);
         }
     }
 }
