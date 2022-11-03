@@ -28,33 +28,47 @@ namespace Training_Center_Task_10
         }
 
         [DataTestMethod]
-        [DataRow("testtester10", "t3st3rt3st10", "Test")]
-        [DataRow("testtester200", "t3st3rt3st200", "Tester")]
+        //[DataRow("r0b3rt.sm1th", "R0b3rt!@", "r0b3rt.sm1th")]
+        //[DataRow("test.tester.10", "testertest10", "Test")]
+        [DataRow("bignevx", "Parolata007!", "bignevx")]
+        [DataRow("bignevx", "Parolata007!", "bignevx")]
         [Description("Tasks 1 - 4")]
 
         [TestMethod]
         public void Login(string username, string password, string name)
         {
-            _driver.Navigate().GoToUrl("https://mail.yahoo.com/");
+            _driver.Navigate().GoToUrl("https://mail.yandex.com/");
 
+            //Click Accept button
+            IWebElement acceptButton = _driver.FindElement(By.CssSelector("button[data-id='button-all']"));
+            acceptButton.Click();
+
+            //Click LogIn button
+            IWebElement loginButton = _driver.FindElement(By.CssSelector
+               ("button[class='Button2 Button2_size_m Button2_view_action Button2_weight_500 Button_Vd8eu21iIVyRdyjGPVfYF PSHeader-NoLoginButton']"));
+            loginButton.Click();
+            
             //Fill in username
-            IWebElement usernameTextbox = _driver.FindElement(By.Id("login-username"), 10);
+            IWebElement usernameTextbox = _driver.FindElement(By.Id("passp-field-login"), 10);
             usernameTextbox.SendKeys(username);
 
             //Click LogIn button
-            IWebElement loginButtonUsername = _driver.FindElement(By.CssSelector("input[id='login-signin']"), 10);
+            IWebElement loginButtonUsername = _driver.FindElement(By.CssSelector("button[id='passp:sign-in']"), 10);
             loginButtonUsername.Click();
 
             //Fill in password
-            IWebElement passwordTextbox = _driver.FindElement(By.Id("login-passwd"), 10);
+            IWebElement passwordTextbox = _driver.FindElement(By.Id("passp-field-passwd"), 10);
             passwordTextbox.Click();
             passwordTextbox.SendKeys(password);
 
             //Click LogIn button
-            IWebElement loginButtonPassword = _driver.FindElement(By.CssSelector("button[id='login-signin']"), 10);
+            IWebElement loginButtonPassword = _driver.FindElement(By.CssSelector("button[id='passp:sign-in']"), 10);
             loginButtonPassword.Click();
 
-            IWebElement usernameText = _driver.FindElement(By.CssSelector("span[role='presentation']"), 10);
+            _driver.Wait(5000);
+
+            //Check user's name
+            IWebElement usernameText = _driver.FindElement(By.CssSelector("span[class='user-account__name']"), 10);
 
             Assert.AreEqual(name, usernameText.Text);
         }
