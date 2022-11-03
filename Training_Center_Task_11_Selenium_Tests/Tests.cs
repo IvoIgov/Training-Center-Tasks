@@ -4,6 +4,7 @@ using Training_Center_Task_11;
 using OpenQA.Selenium.Chrome;
 using Training_Center_Task_11.Models;
 using System.IO;
+using System.Reflection;
 
 namespace Training_Center_Task_11_Selenium_Tests
 {
