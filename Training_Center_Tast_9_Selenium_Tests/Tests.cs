@@ -1,5 +1,4 @@
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using Training_Center_Task_9;
 using Training_Center_Task_9.Models;
@@ -19,7 +18,6 @@ namespace Training_Center_Tast_9_Selenium_Tests
         [TestInitialize]
         public void Init()
         {
-            // this.driver = new ChromeDriver(ConstantsTests.WebDriverPath);
             this.driver = new FirefoxDriver();
 
             driver.Manage().Window.Maximize();
