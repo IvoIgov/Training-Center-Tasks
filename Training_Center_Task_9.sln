@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training_Center_Task_9", "Training_Center_Task_9\Training_Center_Task_9.csproj", "{CEE54849-1BD0-47C6-B783-5EE765155363}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training_Center_Tast_9_Selenium_Tests", "Training_Center_Tast_9_Selenium_Tests\Training_Center_Tast_9_Selenium_Tests.csproj", "{E95B2FC3-7022-46ED-8058-19F9575F4D45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CEE54849-1BD0-47C6-B783-5EE765155363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEE54849-1BD0-47C6-B783-5EE765155363}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEE54849-1BD0-47C6-B783-5EE765155363}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEE54849-1BD0-47C6-B783-5EE765155363}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E95B2FC3-7022-46ED-8058-19F9575F4D45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E95B2FC3-7022-46ED-8058-19F9575F4D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E95B2FC3-7022-46ED-8058-19F9575F4D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E95B2FC3-7022-46ED-8058-19F9575F4D45}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E067C422-6AFF-4012-8AFA-D0DD6FF7A93F}
+	EndGlobalSection
+EndGlobal
