@@ -45,7 +45,7 @@ namespace Training_Center_Task_10
 
             //Click LogIn button
             IWebElement loginButton = _driver.FindElement(By.CssSelector
-               ("button[class='Button2 Button2_size_m Button2_view_action Button2_weight_500 Button_Vd8eu21iIVyRdyjGPVfYF PSHeader-NoLoginButton']"));
+               ("button[class='Button2 Button2_size_m Button2_view_orange Button2_weight_500 Button_3YGxEShvAi7lB8DLgdG3y8 PSHeader-NoLoginButton']"));
             loginButton.Click();
             
             //Fill in username
@@ -65,9 +65,9 @@ namespace Training_Center_Task_10
             IWebElement loginButtonPassword = _driver.FindElement(By.CssSelector("button[id='passp:sign-in']"));
             loginButtonPassword.Click();
 
-            _driver.Wait(5000);
-
             //Check user's name
+            IWebElement composeButton =
+                _driver.FindElement(By.CssSelector("a[class='Button2 Button2_type_link Button2_view_action Button2_size_m Layout-m__compose--pTDsx qa-LeftColumn-ComposeButton ComposeButton-m__root--fP-o9']"));
             IWebElement usernameText = _driver.FindElement(By.CssSelector("span[class='user-account__name']"));
 
             Assert.AreEqual(name, usernameText.Text);
@@ -81,21 +81,48 @@ namespace Training_Center_Task_10
 
             IWebElement multiselectMenu = _driver.FindElement(By.Id("multi-select"));
             SelectElement selections = new SelectElement(multiselectMenu);
+            int selectionsCount = multiselectMenu.FindElements(By.TagName("option")).Count;
+            List<string> optionValues = new List<string>();
 
-            //Select three options from multiselect menu
-            selections.SelectByText("California");
-            selections.SelectByText("Ohio");
-            selections.SelectByText("Texas");
+            foreach (var element in multiselectMenu.FindElements(By.TagName("option")))
+            {
+                string option = element.Text;
+                optionValues.Add(option);
+            }
 
-            bool californiaSelected = _driver.FindElement(By.CssSelector("option[value='California']")).Selected;
-            bool ohioSelected = _driver.FindElement(By.CssSelector("option[value='Ohio']")).Selected;
-            bool texasSelected = _driver.FindElement(By.CssSelector("option[value='Texas']")).Selected;
+            //Select three random options from multiselect menu
+            Random random = new Random();
+            List<int> indexes = new List<int>();
 
-            Assert.AreEqual(true, californiaSelected);
-            Assert.AreEqual(true, ohioSelected);
-            Assert.AreEqual(true, texasSelected);
+            while (true)
+            {
+                int index = random.Next(selectionsCount);
+                if(!indexes.Contains(index))
+                {
+                    indexes.Add(index);
+                    if(indexes.Count == 3)
+                    {
+                        break;
+                    }
+                }
+            }
 
-            _driver.Wait(3000);
+            selections.SelectByIndex(indexes[0]);
+            selections.SelectByIndex(indexes[1]);
+            selections.SelectByIndex(indexes[2]);
+
+            string firstSelected = optionValues[indexes[0]];
+            string secondSelected = optionValues[indexes[1]];
+            string thirdSelected = optionValues[indexes[2]];
+
+
+            bool firstSelectedTrue = _driver.FindElement(By.CssSelector($"option[value='{firstSelected}']")).Selected;
+            bool secondSelectedTrue = _driver.FindElement(By.CssSelector($"option[value='{secondSelected}']")).Selected;
+            bool thirdSelectedTrue = _driver.FindElement(By.CssSelector($"option[value='{thirdSelected}']")).Selected;
+
+            Assert.AreEqual(true, firstSelectedTrue);
+            Assert.AreEqual(true, secondSelectedTrue);
+            Assert.AreEqual(true, thirdSelectedTrue);
         }
 
         [Description("Task 6")]
