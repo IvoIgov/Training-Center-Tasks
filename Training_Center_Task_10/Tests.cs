@@ -13,7 +13,7 @@ namespace Training_Center_Task_10
         public void Init()
         {
             this._driver = new FirefoxDriver();
-            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             _driver.Manage().Window.Maximize();
         }
 
