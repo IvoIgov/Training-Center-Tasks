@@ -17,7 +17,7 @@ namespace Training_Center_Task_11_Selenium_Tests
         private LogInPage _loginPage;
         private InboxPage _inboxPage;
         private UnitTests _unitTests = new UnitTests();
-        string outputDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        private string outputDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
 
         [TestInitialize]

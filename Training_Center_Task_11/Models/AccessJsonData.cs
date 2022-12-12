@@ -9,9 +9,9 @@ namespace Training_Center_Task_11.Models
 
         public static JsonDataPattern GetTestData(string testName)
         {
-            var outputDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            var relativePathToJSON = @"..\..\..\..\Training_Center_Task_11\DDT\TestData.json";
-            var fullPathToJSON = Path.GetFullPath(Path.Combine(outputDirectory, relativePathToJSON));
+            string outputDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string relativePathToJSON = @"..\..\..\..\Training_Center_Task_11\DDT\TestData.json";
+            string fullPathToJSON = Path.GetFullPath(Path.Combine(outputDirectory, relativePathToJSON));
             using (StreamReader r = new StreamReader(fullPathToJSON))
             {
                 string json = r.ReadToEnd();

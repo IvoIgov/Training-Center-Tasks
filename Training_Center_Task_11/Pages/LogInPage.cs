@@ -21,7 +21,6 @@ namespace Training_Center_Task_11.Pages
         public LogInPage(IWebDriver driver) : base(driver)
         {
             _driver = driver;
-            _logInButton = _driver.FindElement(By.CssSelector(LOGIN_BUTTON_LOCATOR));
         }
 
         public InboxPage Login(string username, string password)
@@ -37,6 +36,7 @@ namespace Training_Center_Task_11.Pages
 
         public void ClickLogInButton()
         {
+            _logInButton = _driver.FindElement(By.CssSelector(LOGIN_BUTTON_LOCATOR));
             _logInButton.Click();
         }
 
@@ -51,7 +51,6 @@ namespace Training_Center_Task_11.Pages
         {
             _loginButtonDialog = _driver.FindElement(By.Id(LOGIN_DIALOG_BUTTON_LOCATOR));
             _loginButtonDialog.Click();
-            _driver.Wait(7000);
         }
 
         public void FillPasswordTextBox(string password)
@@ -63,6 +62,7 @@ namespace Training_Center_Task_11.Pages
 
         public bool CheckLoginButtonPresent()
         {
+            _logInButton = _driver.FindElement(By.CssSelector(LOGIN_BUTTON_LOCATOR));
             return _logInButton.Displayed;
         }
     }

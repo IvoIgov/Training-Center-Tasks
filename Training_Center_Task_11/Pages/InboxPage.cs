@@ -28,9 +28,7 @@ namespace Training_Center_Task_11.Pages
         public LogInPage Logout()
         {
             ClickUsernameLink();
-            _driver.Wait(2000);
             ClickLogoutLink();
-            _driver.Wait(2000);
 
             return new LogInPage(_driver);
         }

@@ -15,16 +15,6 @@ namespace Training_Center_Task_11
 
         public string URL { get; set; }
 
-        public IWebDriver Driver
-        {
-            get
-            {
-                return this._driver;
-            }
-            set
-            {
-                this._driver = value;
-            }
-        }
+        public IWebDriver Driver { get; set; }
     }
 }
