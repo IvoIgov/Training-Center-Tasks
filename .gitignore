@@ -231,7 +231,7 @@ _pkginfo.txt
 
 # Others
 ClientBin/
-Screenshots/
+Screenshots
 ~$*
 *~
 *.dbmdl
