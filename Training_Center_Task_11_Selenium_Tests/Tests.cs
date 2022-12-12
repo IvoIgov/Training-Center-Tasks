@@ -17,11 +17,12 @@ namespace Training_Center_Task_11_Selenium_Tests
         private LogInPage _loginPage;
         private InboxPage _inboxPage;
         private UnitTests _unitTests = new UnitTests();
+        string outputDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
 
         [TestInitialize]
         public void Init()
         {
-            var outputDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             this.driver = new ChromeDriver(outputDirectory);
 
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
@@ -74,7 +75,11 @@ namespace Training_Center_Task_11_Selenium_Tests
         {
             Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
             string currentDate = DateTime.Now.ToString().Replace("/", "_").Replace(" ", "_").Replace(":", "_");
-            ss.SaveAsFile(ConstantsTests.ScreenshotsFilePath + String.Format(ConstantsTests.ScreenshotFileName, currentDate), ScreenshotImageFormat.Png);
+            var relativePathToScreenshots = @"..\..\..\..\Screenshots";
+            var fullPathToScreenshots = Path.GetFullPath(Path.Combine(outputDirectory, relativePathToScreenshots));
+            string screenshotFileName = "//Screenshot{0}.png";
+
+            ss.SaveAsFile(fullPathToScreenshots + String.Format(screenshotFileName, currentDate), ScreenshotImageFormat.Png);
         }
     }
 }
