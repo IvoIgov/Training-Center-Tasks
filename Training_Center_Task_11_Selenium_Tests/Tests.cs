@@ -1,6 +1,5 @@
 using OpenQA.Selenium;
 using Training_Center_Task_11.Pages;
-using Training_Center_Task_11;
 using OpenQA.Selenium.Chrome;
 using Training_Center_Task_11.Models;
 using System.IO;

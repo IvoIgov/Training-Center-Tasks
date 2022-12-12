@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace Training_Center_Task_11
+namespace Training_Center_Task_11.Pages
 {
     public class BasePage
     {
@@ -8,8 +8,8 @@ namespace Training_Center_Task_11
 
         public BasePage(IWebDriver driver)
         {
-            this.Driver = driver;
-            this.URL = _url;
+            Driver = driver;
+            URL = _url;
         }
 
         public string URL { get; set; }
