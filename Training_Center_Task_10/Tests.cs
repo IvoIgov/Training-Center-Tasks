@@ -17,7 +17,7 @@ namespace Training_Center_Task_10
         public void Init()
         {
             this._driver = new FirefoxDriver();
-
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             _driver.Manage().Window.Maximize();
         }
 
@@ -49,26 +49,26 @@ namespace Training_Center_Task_10
             loginButton.Click();
             
             //Fill in username
-            IWebElement usernameTextbox = _driver.FindElement(By.Id("passp-field-login"), 10);
+            IWebElement usernameTextbox = _driver.FindElement(By.Id("passp-field-login"));
             usernameTextbox.SendKeys(username);
 
             //Click LogIn button
-            IWebElement loginButtonUsername = _driver.FindElement(By.CssSelector("button[id='passp:sign-in']"), 10);
+            IWebElement loginButtonUsername = _driver.FindElement(By.CssSelector("button[id='passp:sign-in']"));
             loginButtonUsername.Click();
 
             //Fill in password
-            IWebElement passwordTextbox = _driver.FindElement(By.Id("passp-field-passwd"), 10);
+            IWebElement passwordTextbox = _driver.FindElement(By.Id("passp-field-passwd"));
             passwordTextbox.Click();
             passwordTextbox.SendKeys(password);
 
             //Click LogIn button
-            IWebElement loginButtonPassword = _driver.FindElement(By.CssSelector("button[id='passp:sign-in']"), 10);
+            IWebElement loginButtonPassword = _driver.FindElement(By.CssSelector("button[id='passp:sign-in']"));
             loginButtonPassword.Click();
 
             _driver.Wait(5000);
 
             //Check user's name
-            IWebElement usernameText = _driver.FindElement(By.CssSelector("span[class='user-account__name']"), 10);
+            IWebElement usernameText = _driver.FindElement(By.CssSelector("span[class='user-account__name']"));
 
             Assert.AreEqual(name, usernameText.Text);
         }
