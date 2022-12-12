@@ -1,11 +1,8 @@
 using OpenQA.Selenium;
-using OpenQA.Selenium.DevTools.V104.Debugger;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
-using System.Xml.Linq;
 
 namespace Training_Center_Task_10
 {
@@ -17,7 +14,7 @@ namespace Training_Center_Task_10
         public void Init()
         {
             this._driver = new FirefoxDriver();
-            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             _driver.Manage().Window.Maximize();
         }
 
@@ -220,15 +217,14 @@ namespace Training_Center_Task_10
             _driver.Navigate().GoToUrl("https://demo.seleniumeasy.com/bootstrap-download-progress-demo.html");
 
             //Click "Download" button
-            IWebElement downloadButton = _driver.FindElement(By.Id("cricle-btn"), 5);
+            IWebElement downloadButton = _driver.FindElement(By.Id("cricle-btn"));
             downloadButton.Click();
-            _driver.Wait(2000);
 
             //Track download progress
             DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(_driver);
             fluentWait.Timeout = TimeSpan.FromSeconds(5);
             fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
-            fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+            fluentWait.IgnoreExceptionTypes(typeof(Exception));
 
             while (true)
             {
@@ -249,12 +245,13 @@ namespace Training_Center_Task_10
         [TestMethod]
         public void ReturnNamePositionOffice()
         {
+            string showEntries = "10";
             _driver.Navigate().GoToUrl("https://demo.seleniumeasy.com/table-sort-search-demo.html");
 
             //Select "10" from dropdown
-            IWebElement showEntriesDropdown = _driver.FindElement(By.CssSelector("select[name='example_length']"), 10);
+            IWebElement showEntriesDropdown = _driver.FindElement(By.CssSelector("select[name='example_length']"));
             SelectElement selections = new SelectElement(showEntriesDropdown);
-            selections.SelectByValue("10");
+            selections.SelectByValue(showEntries);
 
             //Create a loop which gets all row values and puts them in a list
             List<EmployeeInfo> employees = new List<EmployeeInfo>();
@@ -267,13 +264,14 @@ namespace Training_Center_Task_10
             Assert.AreEqual("H. Chandler", employees[4].Name);
             Assert.AreEqual("M. Silva", employees[5].Name);
             Assert.AreEqual("S. Burks", employees[6].Name);
-
-
         }
 
         public List<EmployeeInfo> FillInListOfEmployees(List<EmployeeInfo> employees)
         {
             int counter = 2;
+            int ageToCompare = 39;
+            int salaryToCompare = 200000;
+
             while (true)
             {
                 IWebElement table = _driver.FindElement(By.Id("example"));
@@ -289,46 +287,35 @@ namespace Training_Center_Task_10
                         {
                             userData.Add(cell.Text);
                         }
-                    }
-                    else
-                    {
-                        continue;
-                    }
+                        int age = int.Parse(userData[3]);
+                        int salary = int.Parse(Regex.Replace(userData[5], "[^0-9]", ""));
 
-                    int age = int.Parse(userData[3]);
-                    int salary = int.Parse(Regex.Replace(userData[5], "[^0-9]", ""));
+                        //Check whether employee is more > 39 years old and his salary is less than or equals $200,000
+                        //If both are true, add him to respective list.
 
-                    //Check whether employee is more > 39 years old and his salary is less than or equals $200,000
-                    //If both are true, add him to respective list.
-
-                    if (age > 39 && salary <= 200000)
-                    {
-                        EmployeeInfo employeeInfo = new EmployeeInfo();
-                        employeeInfo.Name = userData[0];
-                        employeeInfo.Position = userData[1];
-                        employeeInfo.Office = userData[2];
-                        employees.Add(employeeInfo);
+                        if (age > ageToCompare && salary <= salaryToCompare)
+                        {
+                            EmployeeInfo employeeInfo = new EmployeeInfo();
+                            employeeInfo.Name = userData[0];
+                            employeeInfo.Position = userData[1];
+                            employeeInfo.Office = userData[2];
+                            employees.Add(employeeInfo);
+                        }
                     }
                 }
 
                 //Check whether there is next page and if yes - click the page number
-                try
-                {
-                    var nextButtonDisabled = _driver.FindElement(By.CssSelector("a[class='paginate_button next disabled']"));
-                    if (nextButtonDisabled.Displayed)
-                    {
-                        break;
-                    }
-                }
-                catch (Exception e)
-                {
 
+                IWebElement nextButton = _driver.FindElement(By.Id("example_next"));
+                string nextButtonAtrribute = nextButton.GetAttribute("class");
+                if (nextButtonAtrribute == "paginate_button next disabled")
+                {
+                    break;
                 }
 
                 //Click next page
-                var pageIndex = _driver.FindElement(By.CssSelector($"a[data-dt-idx='{counter}']"), 5);
+                var pageIndex = _driver.FindElement(By.CssSelector($"a[data-dt-idx='{counter}']"));
                 pageIndex.Click();
-                _driver.Wait(5000);
 
                 counter++;
             }
