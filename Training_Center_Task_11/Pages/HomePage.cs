@@ -16,6 +16,9 @@ namespace Training_Center_Task_11.Pages
             _driver = driver;
         }
 
+        public IWebElement GDPRButton { get; set; }
+        public IWebElement LoginLink { get; set; }
+
         public LogInPage NavigateToLoginPage()
         {
             AcceptGRPR();
@@ -25,14 +28,8 @@ namespace Training_Center_Task_11.Pages
 
         public void AcceptGRPR()
         {
-            try
-            {
-                _gdprButton = _driver.FindElement(By.CssSelector(GDPR_BUTTON_LOCATOR));
-                _gdprButton.Click();
-            }
-            catch (Exception)
-            {
-            }
+            _gdprButton = _driver.FindElement(By.CssSelector(GDPR_BUTTON_LOCATOR));
+            _gdprButton.Click();
         }
 
         public void GoToLoginPage()

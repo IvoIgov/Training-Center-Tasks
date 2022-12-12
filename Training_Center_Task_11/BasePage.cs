@@ -5,7 +5,6 @@ namespace Training_Center_Task_11
     public class BasePage
     {
         protected string _url = @"https://www.yandex.com/";
-        private IWebDriver _driver;
 
         public BasePage(IWebDriver driver)
         {

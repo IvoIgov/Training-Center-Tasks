@@ -4,8 +4,6 @@ namespace Training_Center_Task_11.Pages
 {
     public class LogInPage : BasePage
     {
-        private IWebDriver _driver;
-
         private IWebElement _logInButton;
         private IWebElement _usernameTextBox;
         private IWebElement _loginButtonDialog;
@@ -20,8 +18,13 @@ namespace Training_Center_Task_11.Pages
 
         public LogInPage(IWebDriver driver) : base(driver)
         {
-            _driver = driver;
+            Driver = driver;
         }
+
+        public IWebElement LoginButton { get; set; }
+        public IWebElement UsernameTextBox { get; set; }
+        public IWebElement PasswordTextBox { get; set; }
+        public IWebElement LoginButtonDialog { get; set; }
 
         public InboxPage Login(string username, string password)
         {
@@ -31,38 +34,38 @@ namespace Training_Center_Task_11.Pages
             FillPasswordTextBox(password);
             LoginButtonClick();
 
-            return new InboxPage(_driver);
+            return new InboxPage(Driver);
         }
 
         public void ClickLogInButton()
         {
-            _logInButton = _driver.FindElement(By.CssSelector(LOGIN_BUTTON_LOCATOR));
+            _logInButton = Driver.FindElement(By.CssSelector(LOGIN_BUTTON_LOCATOR));
             _logInButton.Click();
         }
 
         public void FillUsernameTextBox(string username)
         {
-            _usernameTextBox = _driver.FindElement(By.Id(USERNAME_TEXT_BOX_LOCATOR));
+            _usernameTextBox = Driver.FindElement(By.Id(USERNAME_TEXT_BOX_LOCATOR));
             _usernameTextBox.Click();
             _usernameTextBox.SendKeys(username);
         }
 
         public void LoginButtonClick()
         {
-            _loginButtonDialog = _driver.FindElement(By.Id(LOGIN_DIALOG_BUTTON_LOCATOR));
+            _loginButtonDialog = Driver.FindElement(By.Id(LOGIN_DIALOG_BUTTON_LOCATOR));
             _loginButtonDialog.Click();
         }
 
         public void FillPasswordTextBox(string password)
         {
-            _passwordTextBox = _driver.FindElement(By.Id(PASSWORD_TEXT_BOX_LOCATOR));
+            _passwordTextBox = Driver.FindElement(By.Id(PASSWORD_TEXT_BOX_LOCATOR));
             _passwordTextBox.Click();
             _passwordTextBox.SendKeys(password);
         }
 
         public bool CheckLoginButtonPresent()
         {
-            _logInButton = _driver.FindElement(By.CssSelector(LOGIN_BUTTON_LOCATOR));
+            _logInButton = Driver.FindElement(By.CssSelector(LOGIN_BUTTON_LOCATOR));
             return _logInButton.Displayed;
         }
     }

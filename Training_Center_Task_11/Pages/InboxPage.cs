@@ -10,13 +10,9 @@ namespace Training_Center_Task_11.Pages
         private IWebElement _usernameLink;
         private IWebElement _logoutLink;
 
-
-
         const string COMPOSE_BUTTON_LOCATOR = "a[href='#compose']";
         const string USERNAME_LINK_LOCATOR = "span[class='user-account__name']";
         const string LOGOUT_LINK_LOCATOR = "a[aria-label='Log out']";
-
-
 
         public InboxPage(IWebDriver driver) : base(driver)
         {
@@ -24,6 +20,10 @@ namespace Training_Center_Task_11.Pages
             _composeButton = _driver.FindElement(By.CssSelector(COMPOSE_BUTTON_LOCATOR));
             _usernameLink = _driver.FindElement(By.CssSelector(USERNAME_LINK_LOCATOR));
         }
+
+        public IWebElement ComposeButton { get; set; }
+        public IWebElement UsernameLink { get; set; }
+        public IWebElement LogoutLink { get; set; }
 
         public LogInPage Logout()
         {
