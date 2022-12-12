@@ -90,7 +90,7 @@ namespace Training_Center_Task_10
                 optionValues.Add(option);
             }
 
-            //Select three random options from multiselect menu
+            //Select three random options from multiselect menu. Verify options are not duplicated
             Random random = new Random();
             List<int> indexes = new List<int>();
 
@@ -158,7 +158,7 @@ namespace Training_Center_Task_10
             //Cliok OK on alert
             _driver.SwitchTo().Alert().Accept();
 
-            IWebElement alertClickedOk = _driver.FindElement(By.Id("confirm-demo"), 5);
+            IWebElement alertClickedOk = _driver.FindElement(By.Id("confirm-demo"));
 
             Assert.AreEqual("You pressed OK!", alertClickedOk.Text);
         }
@@ -179,7 +179,7 @@ namespace Training_Center_Task_10
             _driver.SwitchTo().Alert().SendKeys("Ivo");
             _driver.SwitchTo().Alert().Accept();
 
-            IWebElement message = _driver.FindElement(By.Id("prompt-demo"), 5);
+            IWebElement message = _driver.FindElement(By.Id("prompt-demo"));
 
             Assert.AreEqual("You have entered 'Ivo' !", message.Text);
         }
@@ -190,17 +190,27 @@ namespace Training_Center_Task_10
         {
             _driver.Navigate().GoToUrl("https://demo.seleniumeasy.com/dynamic-data-loading-demo.html");
 
-            //Click "Get New User" button
-            IWebElement getNewUserButton = _driver.FindElement(By.Id("save"), 5);
+            //Click "Get New User" button and get photo URL of first user
+            IWebElement getNewUserButton = _driver.FindElement(By.Id("save"));
+            getNewUserButton.Click();
+
+            IWebElement userPictureFirstUser = _driver.FindElement(By.CssSelector("img[src^='https://randomuser.me/api/portraits/']"));
+            string urlFirstUser = userPictureFirstUser.GetAttribute("src");
+
+            //Click Get New User button to load a new user
             getNewUserButton.Click();
 
             //Verify "loading..." message is displayed
             IWebElement loadingMessage = _driver.FindElement(By.Id("loading"));
             Assert.AreEqual(true, loadingMessage.Displayed);
 
-            //Verify that after 3 seconds of waiting a new user is displayed
-            _driver.Wait(3000);
-            Assert.AreEqual(true, getNewUserButton.Displayed);
+            //Verify that after waiting a new user is displayed. Compare the URLs of first and second user pictures - they should be different.
+            bool getNserButtonDisplayed = getNewUserButton.Displayed;
+            IWebElement userPictureSecondUser = _driver.FindElement(By.CssSelector("img[src^='https://randomuser.me/api/portraits/']"));
+            string urlSecondUser = userPictureSecondUser.GetAttribute("src");
+
+            Assert.AreEqual(true, getNserButtonDisplayed);
+            Assert.AreNotEqual(urlFirstUser, urlSecondUser);
         }
 
         [Description("Task 8")]
