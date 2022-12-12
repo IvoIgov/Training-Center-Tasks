@@ -2,7 +2,7 @@
 
 namespace Training_Center_Task_11.Pages
 {
-    public class HomePage : MainPage
+    public class HomePage : BasePage
     {
         private IWebDriver _driver;
 
@@ -27,7 +27,7 @@ namespace Training_Center_Task_11.Pages
         {
             try
             {
-                _gdprButton = _driver.FindElement(By.CssSelector(GDPR_BUTTON_LOCATOR), Constants.WebDriverWaitTime);
+                _gdprButton = _driver.FindElement(By.CssSelector(GDPR_BUTTON_LOCATOR));
                 _gdprButton.Click();
             }
             catch (Exception)
@@ -37,7 +37,7 @@ namespace Training_Center_Task_11.Pages
 
         public void GoToLoginPage()
         {
-            _loginLink = _driver.FindElement(By.LinkText(LOGIN_LINK_LOCATOR), Constants.WebDriverWaitTime);
+            _loginLink = _driver.FindElement(By.LinkText(LOGIN_LINK_LOCATOR));
             _loginLink.Click();
         }
     }

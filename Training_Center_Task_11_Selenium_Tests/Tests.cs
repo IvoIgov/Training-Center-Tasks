@@ -12,7 +12,7 @@ namespace Training_Center_Task_11_Selenium_Tests
     public class Tests
     {
         public IWebDriver driver;
-        private MainPage _mainPage;
+        private BasePage _mainPage;
         private HomePage _homePage;
         private LogInPage _loginPage;
         private InboxPage _inboxPage;
@@ -21,11 +21,14 @@ namespace Training_Center_Task_11_Selenium_Tests
         [TestInitialize]
         public void Init()
         {
-            this.driver = new ChromeDriver(ConstantsTests.WebDriverPath);
+            var outputDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            this.driver = new ChromeDriver(outputDirectory);
+
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
             driver.Manage().Window.Maximize();
 
-            _mainPage = new MainPage(driver);
+            _mainPage = new BasePage(driver);
             driver.Navigate().GoToUrl(_mainPage.URL);
 
             _homePage = new HomePage(driver);

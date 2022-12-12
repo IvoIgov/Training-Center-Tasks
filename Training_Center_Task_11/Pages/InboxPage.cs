@@ -2,7 +2,7 @@
 
 namespace Training_Center_Task_11.Pages
 {
-    public class InboxPage : MainPage
+    public class InboxPage : BasePage
     {
         private IWebDriver _driver;
 
@@ -21,8 +21,8 @@ namespace Training_Center_Task_11.Pages
         public InboxPage(IWebDriver driver) : base(driver)
         {
             this._driver = driver;
-            _composeButton = _driver.FindElement(By.CssSelector(COMPOSE_BUTTON_LOCATOR), Constants.WebDriverWaitTime);
-            _usernameLink = _driver.FindElement(By.CssSelector(USERNAME_LINK_LOCATOR), Constants.WebDriverWaitTime);
+            _composeButton = _driver.FindElement(By.CssSelector(COMPOSE_BUTTON_LOCATOR));
+            _usernameLink = _driver.FindElement(By.CssSelector(USERNAME_LINK_LOCATOR));
         }
 
         public LogInPage Logout()
@@ -52,7 +52,7 @@ namespace Training_Center_Task_11.Pages
 
         public void ClickLogoutLink()
         {
-            _logoutLink = _driver.FindElement(By.CssSelector(LOGOUT_LINK_LOCATOR), Constants.WebDriverWaitTime);
+            _logoutLink = _driver.FindElement(By.CssSelector(LOGOUT_LINK_LOCATOR));
             _logoutLink.Click();
         }
     }

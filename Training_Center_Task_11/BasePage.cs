@@ -2,12 +2,12 @@
 
 namespace Training_Center_Task_11
 {
-    public class MainPage
+    public class BasePage
     {
         protected string _url = @"https://www.yandex.com/";
         private IWebDriver _driver;
 
-        public MainPage(IWebDriver driver)
+        public BasePage(IWebDriver driver)
         {
             this.Driver = driver;
             this.URL = _url;
