@@ -1,7 +1,6 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
-using System;
 using System.Text.RegularExpressions;
 
 namespace Training_Center_Task_10
@@ -14,7 +13,7 @@ namespace Training_Center_Task_10
         public void Init()
         {
             this._driver = new FirefoxDriver();
-            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             _driver.Manage().Window.Maximize();
         }
 
@@ -132,8 +131,6 @@ namespace Training_Center_Task_10
             IWebElement ClickMeButton = _driver.FindElement(By.CssSelector("button[onclick='myConfirmFunction()']"));
             ClickMeButton.Click();
 
-            _driver.Wait(2000);
-
             //Pick alert text
             string alertText = _driver.SwitchTo().Alert().Text;
 
@@ -149,8 +146,6 @@ namespace Training_Center_Task_10
             //Click "Click me!" button
             IWebElement ClickMeButton = _driver.FindElement(By.CssSelector("button[onclick='myConfirmFunction()']"));
             ClickMeButton.Click();
-
-            _driver.Wait(2000);
 
             //Cliok OK on alert
             _driver.SwitchTo().Alert().Accept();
@@ -169,8 +164,6 @@ namespace Training_Center_Task_10
             //Click "Click for Prompt Box" button
             IWebElement ClickForPromptBoxButton = _driver.FindElement(By.CssSelector("button[onclick='myPromptFunction()']"));
             ClickForPromptBoxButton.Click();
-
-            _driver.Wait(2000);
 
             //Enter the name in alert and click OK
             _driver.SwitchTo().Alert().SendKeys("Ivo");
@@ -229,9 +222,8 @@ namespace Training_Center_Task_10
             while (true)
             {
                 IWebElement searchResult = fluentWait.Until(x => x.FindElement(By.CssSelector("div[class='percenttext']")));
-                string digits = searchResult.Text.Remove(searchResult.Text.Length - 1);
-                int percentage = int.Parse(digits);
-                if (percentage >= 50)
+                int digits = int.Parse(Regex.Replace(searchResult.Text, "[^0-9]", ""));
+                if (digits >= 50)
                 {
                     break;
                 }
