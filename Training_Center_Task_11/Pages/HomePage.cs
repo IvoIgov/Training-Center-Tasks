@@ -4,8 +4,6 @@ namespace Training_Center_Task_11.Pages
 {
     public class HomePage : BasePage
     {
-        private IWebDriver _driver;
-
         private IWebElement _gdprButton;
         private IWebElement _loginLink;
 
@@ -13,7 +11,7 @@ namespace Training_Center_Task_11.Pages
         const string LOGIN_LINK_LOCATOR = "Log in";
         public HomePage(IWebDriver driver) : base(driver)
         {
-            _driver = driver;
+            Driver = driver;
         }
 
         public IWebElement GDPRButton { get; set; }
@@ -23,18 +21,18 @@ namespace Training_Center_Task_11.Pages
         {
             AcceptGRPR();
             GoToLoginPage();
-            return new LogInPage(_driver);
+            return new LogInPage(Driver);
         }
 
         public void AcceptGRPR()
         {
-            _gdprButton = _driver.FindElement(By.CssSelector(GDPR_BUTTON_LOCATOR));
+            _gdprButton = Driver.FindElement(By.CssSelector(GDPR_BUTTON_LOCATOR));
             _gdprButton.Click();
         }
 
         public void GoToLoginPage()
         {
-            _loginLink = _driver.FindElement(By.LinkText(LOGIN_LINK_LOCATOR));
+            _loginLink = Driver.FindElement(By.LinkText(LOGIN_LINK_LOCATOR));
             _loginLink.Click();
         }
     }

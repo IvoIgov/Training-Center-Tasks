@@ -4,8 +4,6 @@ namespace Training_Center_Task_11.Pages
 {
     public class InboxPage : BasePage
     {
-        private IWebDriver _driver;
-
         private IWebElement _composeButton;
         private IWebElement _usernameLink;
         private IWebElement _logoutLink;
@@ -16,9 +14,7 @@ namespace Training_Center_Task_11.Pages
 
         public InboxPage(IWebDriver driver) : base(driver)
         {
-            this._driver = driver;
-            _composeButton = _driver.FindElement(By.CssSelector(COMPOSE_BUTTON_LOCATOR));
-            _usernameLink = _driver.FindElement(By.CssSelector(USERNAME_LINK_LOCATOR));
+            Driver = driver;
         }
 
         public IWebElement ComposeButton { get; set; }
@@ -30,27 +26,30 @@ namespace Training_Center_Task_11.Pages
             ClickUsernameLink();
             ClickLogoutLink();
 
-            return new LogInPage(_driver);
+            return new LogInPage(Driver);
         }
 
         public bool CheckComposeButtonPresent()
         {
+            _composeButton = Driver.FindElement(By.CssSelector(COMPOSE_BUTTON_LOCATOR));
             return _composeButton.Displayed;
         }
 
         public string CheckUsernameTextCorrect()
         {
+            _usernameLink = Driver.FindElement(By.CssSelector(USERNAME_LINK_LOCATOR));
             return _usernameLink.Text;
         }
 
         public void ClickUsernameLink()
         {
+            _usernameLink = Driver.FindElement(By.CssSelector(USERNAME_LINK_LOCATOR));
             _usernameLink.Click();
         }
 
         public void ClickLogoutLink()
         {
-            _logoutLink = _driver.FindElement(By.CssSelector(LOGOUT_LINK_LOCATOR));
+            _logoutLink = Driver.FindElement(By.CssSelector(LOGOUT_LINK_LOCATOR));
             _logoutLink.Click();
         }
     }
