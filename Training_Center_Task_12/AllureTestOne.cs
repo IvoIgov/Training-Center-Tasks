@@ -8,17 +8,16 @@ namespace Training_Center_Task_12
     [AllureSuite("Tests - Simple")]
     public class AllureTestOne : BaseTest
     {
-        private IWebDriver _driver;
         [SetUp]
         public void SetUp()
         {
-            _driver = new FirefoxDriver();
+            Driver = new FirefoxDriver();
         }
 
         [TearDown]
         public void CleanUp()
         {
-            _driver.Quit();
+            Driver.Quit();
         }
 
         [Test(Author = "Author One", Description = "Simple test")]
@@ -27,14 +26,14 @@ namespace Training_Center_Task_12
 
         public void AlertTestJavaScriptConfirmBoxVerifyAlertText()
         {
-            _driver.Navigate().GoToUrl("https://demo.seleniumeasy.com/javascript-alert-box-demo.html");
+            Driver.Navigate().GoToUrl("https://demo.seleniumeasy.com/javascript-alert-box-demo.html");
 
             //Click "Click me!" button
-            IWebElement ClickMeButton = _driver.FindElement(By.CssSelector("button[onclick='myConfirmFunction()']"));
+            IWebElement ClickMeButton = Driver.FindElement(By.CssSelector("button[onclick='myConfirmFunction()']"));
             ClickMeButton.Click();
 
             //Pick alert text
-            string alertText = _driver.SwitchTo().Alert().Text;
+            string alertText = Driver.SwitchTo().Alert().Text;
 
             Assert.That("Press a button!", Is.EqualTo(alertText));
         }
@@ -46,16 +45,16 @@ namespace Training_Center_Task_12
         [AllureSeverity(SeverityLevel.critical)]
         public void AlertTestJavaScriptConfirmBoxVerifyAlertClickedOK()
         {
-            _driver.Navigate().GoToUrl("https://demo.seleniumeasy.com/javascript-alert-box-demo.html");
+            Driver.Navigate().GoToUrl("https://demo.seleniumeasy.com/javascript-alert-box-demo.html");
 
             //Click "Click me!" button
-            IWebElement ClickMeButton = _driver.FindElement(By.CssSelector("button[onclick='myConfirmFunction()']"));
+            IWebElement ClickMeButton = Driver.FindElement(By.CssSelector("button[onclick='myConfirmFunction()']"));
             ClickMeButton.Click();
 
             //Cliok OK on alert
-            _driver.SwitchTo().Alert().Accept();
+            Driver.SwitchTo().Alert().Accept();
 
-            IWebElement alertClickedOk = _driver.FindElement(By.Id("confirm-demo"));
+            IWebElement alertClickedOk = Driver.FindElement(By.Id("confirm-demo"));
 
             Assert.That("You pressed OK!", Is.EqualTo(alertClickedOk.Text));
         }

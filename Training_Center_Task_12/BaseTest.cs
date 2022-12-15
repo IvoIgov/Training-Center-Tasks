@@ -1,6 +1,6 @@
-using Allure.Commons;
 using NUnit.Allure.Attributes;
 using NUnit.Allure.Core;
+using OpenQA.Selenium;
 
 namespace Training_Center_Task_12
 {
@@ -8,11 +8,17 @@ namespace Training_Center_Task_12
     [AllureParentSuite("Root Suite")]
     public class BaseTest
     {
-        //[OneTimeSetUp]
-        //public void CleanupResultDirectory()
-        //{
-        //    AllureExtensions.WrapSetUpTearDownParams(() => { AllureLifecycle.Instance.CleanupResultDirectory(); },
-        //        "Clear Allure Results Directory");
-        //}
+        private IWebDriver _driver;
+        public IWebDriver Driver
+        {
+            get
+            {
+                return this._driver;
+            }
+            set
+            {
+                this._driver = value;
+            }
+        }
     }
 }
