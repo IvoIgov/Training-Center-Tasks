@@ -111,45 +111,6 @@ namespace Training_Center_Task_14
             string alertText = _driver.SwitchTo().Alert().Text;
 
             Assert.That(alertText, Is.EqualTo("Press a button!"));
-
-            var isPassed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
-            var script = "sauce:job-result=" + (isPassed ? "passed" : "failed");
-            ((IJavaScriptExecutor)_driver).ExecuteScript(script);
-        }
-
-        [Test]
-        public void AlertTestJavaScriptConfirmBoxVerifyAlertClickedOK()
-        {
-            _driver.Navigate().GoToUrl("https://demo.seleniumeasy.com/javascript-alert-box-demo.html");
-
-            //Click "Click me!" button
-            IWebElement ClickMeButton = _driver.FindElement(By.CssSelector("button[onclick='myConfirmFunction()']"));
-            ClickMeButton.Click();
-
-            //Cliok OK on alert
-            _driver.SwitchTo().Alert().Accept();
-
-            IWebElement alertClickedOk = _driver.FindElement(By.Id("confirm-demo"));
-
-            Assert.That(alertClickedOk.Text, Is.EqualTo("You pressed OK!"));
-        }
-
-        [Test]
-        public void AlertTestJavaScriptAlertBoxNameEnteredCorrectly()
-        {
-            _driver.Navigate().GoToUrl("https://demo.seleniumeasy.com/javascript-alert-box-demo.html");
-
-            //Click "Click for Prompt Box" button
-            IWebElement ClickForPromptBoxButton = _driver.FindElement(By.CssSelector("button[onclick='myPromptFunction()']"));
-            ClickForPromptBoxButton.Click();
-
-            //Enter the name in alert and click OK
-            _driver.SwitchTo().Alert().SendKeys("Ivo");
-            _driver.SwitchTo().Alert().Accept();
-
-            IWebElement message = _driver.FindElement(By.Id("prompt-demo"));
-
-            Assert.That(message.Text, Is.EqualTo("You have entered 'Ivo' !"));
         }
     }
 }
