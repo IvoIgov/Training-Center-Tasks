@@ -8,11 +8,11 @@ namespace Training_Center_Task_15
     {
         protected string _url = @"https://www.automationexercise.com/";
 
-        protected string newUserBaseUsername = "TestUser";
-        protected string username = "MyUser";
-        protected string email = "myuser@email.com";
-        protected string password = "123";
-        protected string domain = "@email.com";
+        protected string _newUserBaseUsername = "TestUser";
+        protected string _username = "MyUser";
+        protected string _email = "myuser@email.com";
+        protected string _password = "123";
+        protected string _domain = "@email.com";
 
         private IWebDriver _driver;
         private HomePage _homePage;
@@ -41,8 +41,8 @@ namespace Training_Center_Task_15
         public void VerifyUserCanCreateAccount()
         {
             string dateTimeNow = DateTime.Now.ToString();
-            string newUserUsername = this.newUserBaseUsername + dateTimeNow;
-            string newUserEmail = newUserUsername + domain;
+            string newUserUsername = this._newUserBaseUsername + dateTimeNow;
+            string newUserEmail = newUserUsername + _domain;
             newUserEmail = newUserEmail.Replace(" ", "");
             newUserEmail = newUserEmail.Replace(":", "");
 
@@ -58,18 +58,26 @@ namespace Training_Center_Task_15
             _homePage = new HomePage(_driver);
             _loginPage = _homePage.ClickSignUpLoginLink();
 
-            _loginPage.NameTextBox.Click();
-            _loginPage.NameTextBox.SendKeys(newUserUsername);
-
-            _loginPage.EmailAddressTextBox.Click();
-            _loginPage.EmailAddressTextBox.SendKeys(newUserEmail);
+            _loginPage.SignupNewUser(newUserUsername, newUserEmail);
             _accountInformationPage = _loginPage.ClickSignupButton();
 
-            _accountInformationPage.CreateNewUser(password, firstName, lastName, address, country, state, city, zipcode, mobileNumber);
+            _accountInformationPage.CreateNewUser(_password, firstName, lastName, address, country, state, city, zipcode, mobileNumber);
             _accountCreatedPage = _accountInformationPage.ClickCreateAccountButton();
 
             Assert.That(_accountCreatedPage.AccountCreatedMessage.Text, Is.EqualTo("ACCOUNT CREATED!"));
             Assert.IsTrue(_accountCreatedPage.ContinueButton.Displayed);
+        }
+
+        [Test]
+        public void VerifyUserCanLogin()
+        {
+            _homePage = new HomePage(_driver);
+            _loginPage = _homePage.ClickSignUpLoginLink();
+
+            _loginPage.LoginExistingUser(_email, _password);
+            _homePage = _loginPage.ClickLoginButton();
+
+            Assert.IsTrue(_homePage.LogoutLink.Displayed);
         }
     }
 }

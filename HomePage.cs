@@ -15,6 +15,8 @@ namespace Training_Center_Task_15
             _driver = base.Driver;
         }
         public IWebElement SignUpLoginLink => _driver.FindElement(By.CssSelector("a[href='/login']"));
+        public IWebElement LogoutLink => _driver.FindElement(By.CssSelector("a[href='/logout']"));
+
 
         public LoginPage ClickSignUpLoginLink()
         {
