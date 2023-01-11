@@ -17,7 +17,5 @@ namespace Training_Center_Task_15
 
         public IWebElement AccountCreatedMessage => _driver.FindElement(By.CssSelector("h2[data-qa='account-created']"));
         public IWebElement ContinueButton => _driver.FindElement(By.CssSelector("a[data-qa='continue-button']"));
-
-
     }
 }

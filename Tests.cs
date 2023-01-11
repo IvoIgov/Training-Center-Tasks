@@ -1,6 +1,9 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Interactions;
+using System;
 using System.Reflection;
+using System.Xml.Linq;
 
 namespace Training_Center_Task_15
 {
@@ -19,6 +22,8 @@ namespace Training_Center_Task_15
         private LoginPage _loginPage;
         private AccountInformationPage _accountInformationPage;
         private AccountCreatedPage _accountCreatedPage;
+        private ProductsPage _productsPage;
+        private CartPage _cartPage;
 
         [SetUp]
         public void Init()
@@ -78,6 +83,30 @@ namespace Training_Center_Task_15
             _homePage = _loginPage.ClickLoginButton();
 
             Assert.IsTrue(_homePage.LogoutLink.Displayed);
+        }
+
+        [Test]
+        public void VerifyAbilityAddToCart()
+        {
+            int _numberofProductsToAddToCart = 3;
+
+            _homePage = new HomePage(_driver);
+            _loginPage = _homePage.ClickSignUpLoginLink();
+
+            _loginPage.LoginExistingUser(_email, _password);
+            _homePage = _loginPage.ClickLoginButton();
+
+            _productsPage = _homePage.ClickProductsPageLink();
+            _driver.Navigate().Refresh();
+            _productsPage.ScrollToFirstProducts();
+            
+            _productsPage.AddMultipleProductsToCart(_numberofProductsToAddToCart);
+            _cartPage = _productsPage.ClickCartLink();
+
+            List<string> products = _cartPage.GetProductsFromCart();
+            Assert.That(products[0], Is.EqualTo("https://www.automationexercise.com/get_product_picture/1"));
+            Assert.That(products[1], Is.EqualTo("https://www.automationexercise.com/get_product_picture/2"));
+            Assert.That(products[2], Is.EqualTo("https://www.automationexercise.com/get_product_picture/3"));
         }
     }
 }
