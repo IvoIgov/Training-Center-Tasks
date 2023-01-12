@@ -17,6 +17,8 @@ namespace Training_Center_Task_15
         public IWebElement SignUpLoginLink => _driver.FindElement(By.CssSelector("a[href='/login']"));
         public IWebElement LogoutLink => _driver.FindElement(By.CssSelector("a[href='/logout']"));
         public IWebElement ProductsPageLink => _driver.FindElement(By.CssSelector("a[href='/products']"));
+        public IWebElement EmailOrPasswordIncorrectMessage => _driver.FindElement(By.XPath("//div/form/p[@style]"));
+
 
 
         public LoginPage ClickSignUpLoginLink()

@@ -45,29 +45,7 @@ namespace Training_Center_Task_15
         [Test]
         public void VerifyUserCanCreateAccount()
         {
-            string dateTimeNow = DateTime.Now.ToString();
-            string newUserUsername = this._newUserBaseUsername + dateTimeNow;
-            string newUserEmail = newUserUsername + _domain;
-            newUserEmail = newUserEmail.Replace(" ", "");
-            newUserEmail = newUserEmail.Replace(":", "");
-
-            string firstName = newUserUsername + "_FN";
-            string lastName = newUserUsername + "_LN";
-            string address = "1 Main St.";
-            string country = "United States";
-            string state = "Nebraska";
-            string city = "Omaha";
-            string zipcode = "12345";
-            string mobileNumber = "123456789";
-
-            _homePage = new HomePage(_driver);
-            _loginPage = _homePage.ClickSignUpLoginLink();
-
-            _loginPage.SignupNewUser(newUserUsername, newUserEmail);
-            _accountInformationPage = _loginPage.ClickSignupButton();
-
-            _accountInformationPage.CreateNewUser(_password, firstName, lastName, address, country, state, city, zipcode, mobileNumber);
-            _accountCreatedPage = _accountInformationPage.ClickCreateAccountButton();
+            CreateNewUser();
 
             Assert.That(_accountCreatedPage.AccountCreatedMessage.Text, Is.EqualTo("ACCOUNT CREATED!"));
             Assert.IsTrue(_accountCreatedPage.ContinueButton.Displayed);
@@ -107,6 +85,47 @@ namespace Training_Center_Task_15
             Assert.That(products[0], Is.EqualTo("https://www.automationexercise.com/get_product_picture/1"));
             Assert.That(products[1], Is.EqualTo("https://www.automationexercise.com/get_product_picture/2"));
             Assert.That(products[2], Is.EqualTo("https://www.automationexercise.com/get_product_picture/3"));
+        }
+
+        [Test]
+        public void VerifyUserCannotLoginInvalidPassword()
+        {
+            _password = "1234";
+
+            _homePage = new HomePage(_driver);
+            _loginPage = _homePage.ClickSignUpLoginLink();
+
+            _loginPage.LoginExistingUser(_email, _password);
+            _homePage = _loginPage.ClickLoginButton();
+
+            Assert.That(_homePage.EmailOrPasswordIncorrectMessage.Text, Is.EqualTo("Your email or password is incorrect!"));
+        }
+
+        public void CreateNewUser()
+        {
+            string dateTimeNow = DateTime.Now.ToString();
+            string newUserUsername = this._newUserBaseUsername + dateTimeNow;
+            string newUserEmail = newUserUsername + _domain;
+            newUserEmail = newUserEmail.Replace(" ", "");
+            newUserEmail = newUserEmail.Replace(":", "");
+
+            string firstName = newUserUsername + "_FN";
+            string lastName = newUserUsername + "_LN";
+            string address = "1 Main St.";
+            string country = "United States";
+            string state = "Nebraska";
+            string city = "Omaha";
+            string zipcode = "12345";
+            string mobileNumber = "123456789";
+
+            _homePage = new HomePage(_driver);
+            _loginPage = _homePage.ClickSignUpLoginLink();
+
+            _loginPage.SignupNewUser(newUserUsername, newUserEmail);
+            _accountInformationPage = _loginPage.ClickSignupButton();
+
+            _accountInformationPage.CreateNewUser(_password, firstName, lastName, address, country, state, city, zipcode, mobileNumber);
+            _accountCreatedPage = _accountInformationPage.ClickCreateAccountButton();
         }
     }
 }
