@@ -5,7 +5,6 @@ using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
-using System.Runtime;
 
 namespace Training_Center_Task_14
 {
@@ -16,14 +15,18 @@ namespace Training_Center_Task_14
         [SetUp]
         public void Init()
         {
+            GetSettings settings = new GetSettings();
+            var item = settings.GetItem();
+
             String currentDate = DateTime.Now.ToString("yyyy-MM-dd");
             String currentTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-            var browserOptions = new ChromeOptions();
-            browserOptions.PlatformName = "macOS 12";
-            browserOptions.BrowserVersion = "latest";
+            var browserOptions = SelectBrowserAndPlatform(item.browser);
+            browserOptions.PlatformName = item.platformName;
+            browserOptions.BrowserVersion = item.browserVersion;
             browserOptions.AddAdditionalOption("username", "Ivo_Igov");
             browserOptions.AddAdditionalOption("accessKey", "930c032e-9c3e-4ea4-841e-eab1aaba457e");
+
             var sauceOptions = new Dictionary<string, object>();
             sauceOptions.Add("build", "Platform Configurator Build " + currentDate);
             sauceOptions.Add("job", "Platform Configurator Job " + currentTime);
@@ -35,6 +38,30 @@ namespace Training_Center_Task_14
 
             _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             _driver.Manage().Window.Maximize();
+        }
+
+        private DriverOptions SelectBrowserAndPlatform(string browser)
+        {
+            DriverOptions option = null;
+
+            switch (browser)
+            {
+
+                case "chrome":
+                    option = new ChromeOptions();
+                    break;
+                case "edge":
+                    option = new EdgeOptions();
+                    break;
+                case "firefox":
+                    option = new FirefoxOptions();
+                    break;
+                default:
+                    Console.WriteLine("default settings");
+                    break;
+            }
+
+            return option;
         }
 
         [TearDown]
