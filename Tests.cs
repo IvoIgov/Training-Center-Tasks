@@ -29,18 +29,15 @@ namespace Training_Center_Task_15
         [SetUp]
         public void Init()
         {
-            ChromeOptions options = new ChromeOptions();
-            options.AddArgument("--disable-popup-blocking");
-            _driver = new ChromeDriver(options);
-            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            _driver.Manage().Window.Maximize();
+            SetUpEnvironmentDriver.StartDriver();
+            _driver = SetUpEnvironmentDriver.GetDriver();
             _driver.Navigate().GoToUrl(_url);
         }
 
         [TearDown]
         public void DriverQuit()
         {
-            _driver.Quit();
+            SetUpEnvironmentDriver.StopDriver();
         }
 
         [Test(Author = "Ivo Igov", Description = "First test")]
