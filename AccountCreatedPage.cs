@@ -16,6 +16,13 @@ namespace Training_Center_Task_15
         }
 
         public IWebElement AccountCreatedMessage => _driver.FindElement(By.CssSelector("h2[data-qa='account-created']"));
+        public IWebElement AccountDeletedMessage => _driver.FindElement(By.CssSelector("h2[data-qa='account-deleted']"));
         public IWebElement ContinueButton => _driver.FindElement(By.CssSelector("a[data-qa='continue-button']"));
+
+        public HomePage ClickContinueButton()
+        {
+            ContinueButton.Click();
+            return new HomePage(_driver);
+        }
     }
 }

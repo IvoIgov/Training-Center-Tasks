@@ -15,7 +15,9 @@ namespace Training_Center_Task_15
             _driver = base.Driver;
         }
         public IWebElement SignUpLoginLink => _driver.FindElement(By.CssSelector("a[href='/login']"));
+
         public IWebElement LogoutLink => _driver.FindElement(By.CssSelector("a[href='/logout']"));
+        public IWebElement DeleteAccountLink => _driver.FindElement(By.CssSelector("a[href='/delete_account']"));
         public IWebElement ProductsPageLink => _driver.FindElement(By.CssSelector("a[href='/products']"));
         public IWebElement EmailOrPasswordIncorrectMessage => _driver.FindElement(By.XPath("//div/form/p[@style]"));
 
@@ -30,6 +32,12 @@ namespace Training_Center_Task_15
         {
             ProductsPageLink.Click();
             return new ProductsPage(_driver);
+        }
+
+        public AccountCreatedPage ClickDeleteAccountLink()
+        {
+            DeleteAccountLink.Click();
+            return new AccountCreatedPage(_driver);
         }
     }
 }

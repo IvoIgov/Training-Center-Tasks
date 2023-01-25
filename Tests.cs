@@ -1,12 +1,13 @@
+using Allure.Commons;
+using NUnit.Allure.Attributes;
+using NUnit.Allure.Core;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Interactions;
-using System;
-using System.Reflection;
-using System.Xml.Linq;
 
 namespace Training_Center_Task_15
 {
+    [AllureNUnit]
+    [AllureParentSuite("Root Suite")]
     public class Tests
     {
         protected string _url = @"https://www.automationexercise.com/";
@@ -42,7 +43,9 @@ namespace Training_Center_Task_15
             _driver.Quit();
         }
 
-        [Test]
+        [Test(Author = "Ivo Igov", Description = "First test")]
+        [Category("Category One")]
+        [AllureSeverity(SeverityLevel.critical)]
         public void VerifyUserCanCreateAccount()
         {
             CreateNewUser();
@@ -51,7 +54,9 @@ namespace Training_Center_Task_15
             Assert.IsTrue(_accountCreatedPage.ContinueButton.Displayed);
         }
 
-        [Test]
+        [Test(Author = "Ivo Igov", Description = "Second test")]
+        [Category("Category One")]
+        [AllureSeverity(SeverityLevel.critical)]
         public void VerifyUserCanLogin()
         {
             _homePage = new HomePage(_driver);
@@ -63,7 +68,9 @@ namespace Training_Center_Task_15
             Assert.IsTrue(_homePage.LogoutLink.Displayed);
         }
 
-        [Test]
+        [Test(Author = "Ivo Igov", Description = "Third test")]
+        [Category("Category One")]
+        [AllureSeverity(SeverityLevel.normal)]
         public void VerifyAbilityAddToCart()
         {
             int _numberofProductsToAddToCart = 3;
@@ -75,7 +82,7 @@ namespace Training_Center_Task_15
             _homePage = _loginPage.ClickLoginButton();
 
             _productsPage = _homePage.ClickProductsPageLink();
-            _driver.Navigate().Refresh();
+            RefreshPage();
             _productsPage.ScrollToFirstProducts();
             
             _productsPage.AddMultipleProductsToCart(_numberofProductsToAddToCart);
@@ -87,7 +94,9 @@ namespace Training_Center_Task_15
             Assert.That(products[2], Is.EqualTo("https://www.automationexercise.com/get_product_picture/3"));
         }
 
-        [Test]
+        [Test(Author = "Ivo Igov", Description = "Fourth test")]
+        [Category("Category One")]
+        [AllureSeverity(SeverityLevel.normal)]
         public void VerifyUserCannotLoginInvalidPassword()
         {
             _password = "1234";
@@ -99,6 +108,22 @@ namespace Training_Center_Task_15
             _homePage = _loginPage.ClickLoginButton();
 
             Assert.That(_homePage.EmailOrPasswordIncorrectMessage.Text, Is.EqualTo("Your email or password is incorrect!"));
+        }
+
+        [Test(Author = "Ivo Igov", Description = "Fifth test")]
+        [Category("Category One")]
+        [AllureSeverity(SeverityLevel.minor)]
+        public void VerifyUserCanDeleteAccount()
+        {
+            CreateNewUser();
+
+            _accountCreatedPage.ClickContinueButton();
+            RefreshPage();
+            _accountCreatedPage.ContinueButton.Click();
+            RefreshPage();
+            _accountCreatedPage = _homePage.ClickDeleteAccountLink();
+
+            Assert.That(_accountCreatedPage.AccountDeletedMessage.Text, Is.EqualTo("ACCOUNT DELETED!"));
         }
 
         public void CreateNewUser()
@@ -126,6 +151,11 @@ namespace Training_Center_Task_15
 
             _accountInformationPage.CreateNewUser(_password, firstName, lastName, address, country, state, city, zipcode, mobileNumber);
             _accountCreatedPage = _accountInformationPage.ClickCreateAccountButton();
+        }
+
+        public void RefreshPage()
+        {
+            _driver.Navigate().Refresh();
         }
     }
 }
