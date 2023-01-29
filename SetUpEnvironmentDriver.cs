@@ -3,13 +3,7 @@ using NUnit.Framework.Interfaces;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Remote;
-using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Reflection;
 
 namespace Training_Center_Task_15
@@ -33,7 +27,6 @@ namespace Training_Center_Task_15
 
         public static void StartDriver()
         {
-            //private Settings mySettings = SettingsReader.ReadSettings();
             var reader = new GetSettings();
             var getSettings = reader.GetConfigFileData();
 
@@ -152,7 +145,6 @@ namespace Training_Center_Task_15
             GetDriver().Quit();
             SetDriver(null);
         }
-
 
         public static void CleanCookies()
         {

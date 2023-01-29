@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Training_Center_Task_15
+namespace Training_Center_Task_15.Pages
 {
     public class CartPage : BasePage
     {
@@ -13,7 +13,7 @@ namespace Training_Center_Task_15
 
         public CartPage(IWebDriver driver) : base(driver)
         {
-            _driver = base.Driver;
+            _driver = Driver;
         }
         public IWebElement ProductTable => _driver.FindElement(By.Id("cart_info_table"));
 

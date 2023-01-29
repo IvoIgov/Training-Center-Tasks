@@ -8,15 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Training_Center_Task_15
+namespace Training_Center_Task_15.Pages
 {
 
     public class BasePage
     {
         public BasePage(IWebDriver driver)
-		{
-			Driver = driver;
-		}
-		public IWebDriver Driver { get; set; }
-	}
+        {
+            Driver = driver;
+        }
+        public IWebDriver Driver { get; set; }
+    }
 }

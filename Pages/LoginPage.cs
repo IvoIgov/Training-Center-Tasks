@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Training_Center_Task_15
+namespace Training_Center_Task_15.Pages
 {
     public class LoginPage : BasePage
     {
@@ -13,7 +13,7 @@ namespace Training_Center_Task_15
 
         public LoginPage(IWebDriver driver) : base(driver)
         {
-            _driver = base.Driver;
+            _driver = Driver;
         }
         public IWebElement NameNewUser => _driver.FindElement(By.CssSelector("input[data-qa='signup-name']"));
         public IWebElement EmailAddressNewUser => _driver.FindElement(By.CssSelector("input[data-qa='signup-email']"));

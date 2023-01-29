@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace Training_Center_Task_15
+namespace Training_Center_Task_15.Pages
 {
     public class ProductsPage : BasePage
     {
@@ -15,7 +15,7 @@ namespace Training_Center_Task_15
 
         public ProductsPage(IWebDriver driver) : base(driver)
         {
-            _driver = base.Driver;
+            _driver = Driver;
         }
         public IWebElement ContinueShoppingButton => _driver.FindElement(By.CssSelector("button[class='btn btn-success close-modal btn-block']"));
         public IWebElement CartLink => _driver.FindElement(By.CssSelector("a[href='/view_cart']"));
