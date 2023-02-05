@@ -10,6 +10,7 @@ namespace Training_Center_Task_15.Pages
     public class AccountCreatedPage : BasePage
     {
         private IWebDriver _driver;
+
         public AccountCreatedPage(IWebDriver driver) : base(driver)
         {
             _driver = Driver;

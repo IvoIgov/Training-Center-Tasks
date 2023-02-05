@@ -11,17 +11,7 @@ namespace Training_Center_Task_15
     public class SecondaryTests
     {
         protected string _url = TestBaseInfo.URL;
-
-        protected string _username = TestBaseInfo.MainUserUsername;
-        protected string _email = TestBaseInfo.MainUserEmail;
-        protected string _password = TestBaseInfo.MainUserPassword;
-
         private IWebDriver _driver;
-        private HomePage _homePage;
-        private LoginPage _loginPage;
-        private AccountInformationPage _accountInformationPage;
-        private AccountCreatedPage _accountCreatedPage;
-        private Navigation _navigation;
 
         [OneTimeSetUp]
         public void Init()
@@ -37,20 +27,22 @@ namespace Training_Center_Task_15
         }
 
         [Test(Author = "Ivo Igov", Description = "Fourth test")]
+        [TestCase("1234")]
         [Category("Category One")]
         [AllureSeverity(SeverityLevel.normal)]
-        public void VerifyUserCannotLoginInvalidPassword()
+        public void VerifyUserCannotLoginInvalidPassword(string password)
         {
-            _password = "1234";
+            var homePage = new HomePage(_driver);
+            var navigation = new Navigation(_driver);
+            var loginPage = navigation.ClickSignUpLoginLink();
 
-            _homePage = new HomePage(_driver);
-            _navigation = new Navigation(_driver);
-            _loginPage = _navigation.ClickSignUpLoginLink();
+            var reader = new GetConsumerSettings();
+            var primaryConsumerInfo = reader.GetPrimaryConsumerFileData();
 
-            _loginPage.LoginExistingUser(_email, _password);
-            _homePage = _loginPage.ClickLoginButton();
+            loginPage.LoginExistingUser(primaryConsumerInfo.Email, password);
+            homePage = loginPage.ClickLoginButton();
 
-            Assert.That(_homePage.EmailOrPasswordIncorrectMessage.Text, Is.EqualTo("Your email or password is incorrect!"));
+            Assert.That(homePage.EmailOrPasswordIncorrectMessage.Text, Is.EqualTo("Your email or password is incorrect!"));
         }
 
         [Test(Author = "Ivo Igov", Description = "Fifth test")]
@@ -58,24 +50,26 @@ namespace Training_Center_Task_15
         [AllureSeverity(SeverityLevel.minor)]
         public void VerifyUserCanDeleteAccount()
         {
-            NewConsumerInfo newConsumerInfo = new NewConsumerInfo();
+            NewConsumer newConsumerInfo = new NewConsumer();
+            var newConsumer = newConsumerInfo.GenerateNewConsumer();
 
-            _navigation = new Navigation(_driver);
-            _loginPage = _navigation.ClickSignUpLoginLink();
+            var navigation = new Navigation(_driver);
+            var loginPage = navigation.ClickSignUpLoginLink();
 
-            _loginPage.SignupNewUser(newConsumerInfo.Username, newConsumerInfo.Email);
-            _accountInformationPage = _loginPage.ClickSignupButton();
-            _accountInformationPage.CreateNewUser(newConsumerInfo.Password, newConsumerInfo.FirstName,
-                newConsumerInfo.LastName, newConsumerInfo.Address, newConsumerInfo.Country, newConsumerInfo.State,
-                newConsumerInfo.City, newConsumerInfo.Zipcode, newConsumerInfo.MobileNumber);
-            _accountCreatedPage = _accountInformationPage.ClickCreateAccountButton();
-            _accountCreatedPage.ClickContinueButton();
+            loginPage.SignupNewUser(newConsumer.Username, newConsumer.Email);
+            var accountInformationPage = loginPage.ClickSignupButton();
+            accountInformationPage.CreateNewUser(newConsumer.Password, newConsumer.FirstName,
+                newConsumer.LastName, newConsumer.Address, newConsumer.Country, newConsumer.State,
+                newConsumer.City, newConsumer.Zipcode, newConsumer.MobileNumber);
+            var accountCreatedPage = accountInformationPage.ClickCreateAccountButton();
             RefreshPage();
-            _accountCreatedPage.ClickContinueButton();
+            accountCreatedPage.ClickContinueButton();
             RefreshPage();
-            _accountCreatedPage = _navigation.ClickDeleteAccountLink();
+            accountCreatedPage.ClickContinueButton();
+            RefreshPage();
+            accountCreatedPage = navigation.ClickDeleteAccountLink();
 
-            Assert.That(_accountCreatedPage.AccountDeletedMessage.Text, Is.EqualTo("ACCOUNT DELETED!"));
+            Assert.That(accountCreatedPage.AccountDeletedMessage.Text, Is.EqualTo("ACCOUNT DELETED!"));
         }
 
         [TearDown]

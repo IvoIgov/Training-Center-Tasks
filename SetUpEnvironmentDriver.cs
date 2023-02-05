@@ -20,6 +20,7 @@ namespace Training_Center_Task_15
             }
             return _driver;
         }
+
         private static void SetDriver(WebDriver value)
         {
             _driver = value;

@@ -1,6 +1,5 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
+
 namespace Training_Center_Task_15.Pages
 {
     public class Navigation : BasePage

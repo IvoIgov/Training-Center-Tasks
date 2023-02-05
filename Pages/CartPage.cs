@@ -1,9 +1,4 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Training_Center_Task_15.Pages
 {
@@ -15,6 +10,7 @@ namespace Training_Center_Task_15.Pages
         {
             _driver = Driver;
         }
+
         public IWebElement ProductTable => _driver.FindElement(By.Id("cart_info_table"));
 
         public List<string> GetProductsFromCart()

@@ -1,11 +1,4 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace Training_Center_Task_15.Pages
 {
@@ -17,6 +10,7 @@ namespace Training_Center_Task_15.Pages
         {
             _driver = Driver;
         }
+
         public IWebElement ContinueShoppingButton => _driver.FindElement(By.CssSelector("button[class='btn btn-success close-modal btn-block']"));
         public IWebElement CartLink => _driver.FindElement(By.CssSelector("a[href='/view_cart']"));
 

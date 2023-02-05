@@ -1,20 +1,15 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Training_Center_Task_15.Pages;
 
-namespace Training_Center_Task_15
+namespace Training_Center_Task_15.Pages
 {
     public class AccountInformationPage : BasePage
     {
         private IWebDriver _driver;
+
         public AccountInformationPage(IWebDriver driver) : base(driver)
         {
-            _driver = base.Driver;
+            _driver = Driver;
         }
 
         public IWebElement Password => _driver.FindElement(By.CssSelector("input[data-qa='password']"));
@@ -27,7 +22,6 @@ namespace Training_Center_Task_15
         public IWebElement Zipcode => _driver.FindElement(By.CssSelector("input[data-qa='zipcode']"));
         public IWebElement MobileNumber => _driver.FindElement(By.CssSelector("input[data-qa='mobile_number']"));
         public IWebElement CreateAccount => _driver.FindElement(By.CssSelector("button[data-qa='create-account']"));
-
 
         public void CreateNewUser(string password, string firstName, string lastName, string address,
             string country, string state, string city, string zipcode, string mobileNumber)
